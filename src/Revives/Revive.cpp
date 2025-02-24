@@ -1,22 +1,26 @@
 #include "../../header/Revives/Revive.h"
 
-Revive::Revive(string n, int p, string desc, double rMultiplyer) 
-{
-    name = n;
-    price = p;
-    description = desc;
-    reviveMultiplyer = rMultiplyer;
+Revive::Revive(string reviveName, string desc, int reviveCost, ReviveType reviveType)
+ : Item(reviveName, desc, reviveCost) {
+    switch (reviveType) {
+        case STANDARD:
+            restorePercent = 0.5;
+            break;
+        case MAX:
+            restorePercent = 1;
+            break;
+        default:
+            restorePercent = .5; // default to Standard
+    }
 }
 
-void Revive::displayInformation()
-{
+void Revive::useItem() const {
+    cout << "You used a " << name << ", restoring " << (restorePercent * 100) << "% HP to a fainted Pokémon!" << std::endl;
+}
+
+void Revive::displayInfo() const {
     cout << "Name: " << name << endl;
     cout << "    Description: " << description << endl;
-    cout << "    Revive Multiplyer: " << reviveMultiplyer << "x" << endl;
-    cout << "    Price: " << price << "¥" << endl;
-} 
-
-double Revive::getReviveMultiplyer()
-{
-    return reviveMultiplyer;
+    cout << "    Health Restored: " << (restorePercent * 100) << "%" << endl;
+    cout << "    Price: " << cost << "¥" << endl;
 }

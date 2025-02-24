@@ -1,10 +1,8 @@
 #pragma once
 #include "Revive.h"
-using namespace std;
 
-class StandardRevive : public Revive
-{
+class StandardRevive : public Revive {
     public:
-        ~StandardRevive() override{}
-        StandardRevive(); 
+        StandardRevive(string desc, int reviveCost); 
+        ~StandardRevive() {}
 };

@@ -1,10 +1,9 @@
 #pragma once
 #include "Revive.h"
-using namespace std;
 
-class MaxRevive : public Revive
-{
+class MaxRevive : public Revive {
     public:
-        ~MaxRevive() override{}
-        MaxRevive(); 
+        MaxRevive(string desc, int reviveCost);
+        ~MaxRevive() {}
+         
 };

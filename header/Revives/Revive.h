@@ -1,16 +1,16 @@
 #pragma once
-#include <string>
 #include "../Item.h"
-
 using namespace std;
 
-class Revive : public Item
-{
+class Revive : public Item {
     protected:
-        double reviveMultiplyer;
+        double restorePercent;
 
     public:
-        Revive(string n, int p, string desc, double rMultiplyer);
-        void displayInformation() override;
-        double getReviveMultiplyer();
+        enum ReviveType { STANDARD, MAX };
+        Revive(string reviveName, string desc, int reviveCost, ReviveType reviveType);
+        ~Revive() {}
+        
+        void useItem() const override;
+        void displayInfo() const override;
 };

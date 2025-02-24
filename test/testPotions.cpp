@@ -16,8 +16,8 @@ int main() {
     // Use and display all Potions
     for (Potion* potion : potions) {
         potion->useItem();            // Calls the correct useItem method
-        cout << endl;
         potion->displayInfo(); // Calls the correct displayInformation method
+        cout << endl;
     }
 
     return 0;

@@ -27,6 +27,7 @@ bool Pokeball::catchPokemon(double baseCatchChance) {
     double roll = (rand() % 100) / 100.0; // rand # between 0 and 1
     return roll < chance;
 }
+
 void Pokeball::useItem() const {
     cout << "You used a " << name << " with a multiplier of " << multiplier << "x.\n";
 }
