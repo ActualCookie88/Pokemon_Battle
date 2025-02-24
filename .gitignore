@@ -1,25 +1,15 @@
 CMakeLists.txt
 
-/googletest/
-
-.gitmodules
-
 CMakeFiles/*
-
-Makefile
-
-cmake_install.cmake_install
-
-lib/*
-
-testInventory
-
-bin/*
 
 CMakeCache.txt
 
+Makefile
+
+a.out
+
 cmake_install.cmake
 
-main.cpp
+testBalls
 
-testAll
+testPotions
