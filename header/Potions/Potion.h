@@ -1,16 +1,17 @@
 #pragma once
-#include <string>
 #include "../Item.h"
-
 using namespace std;
 
-class Potion : public Item
-{
+class Potion : public Item {
     protected:
-        int recoveryValue;
+    int healingAmount;
 
     public:
-        Potion(string n, int p, string desc, int rValue);
-        void displayInformation() override;
-        int getRecoveryValue();
+        enum PotionType { STANDARD, SUPER, HYPER };
+
+        Potion(string potionName, string desc, int potionCost, PotionType potionType);
+        ~Potion() {}
+
+        void useItem() const override;
+        void displayInfo() const override;
 };

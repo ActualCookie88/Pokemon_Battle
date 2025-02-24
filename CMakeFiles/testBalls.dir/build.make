@@ -69,19 +69,19 @@ include CMakeFiles/testBalls.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/testBalls.dir/flags.make
 
-CMakeFiles/testBalls.dir/src/main.cpp.o: CMakeFiles/testBalls.dir/flags.make
-CMakeFiles/testBalls.dir/src/main.cpp.o: src/main.cpp
-CMakeFiles/testBalls.dir/src/main.cpp.o: CMakeFiles/testBalls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/csmajs/lmats012/Pokemon_Battle/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/testBalls.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testBalls.dir/src/main.cpp.o -MF CMakeFiles/testBalls.dir/src/main.cpp.o.d -o CMakeFiles/testBalls.dir/src/main.cpp.o -c /home/csmajs/lmats012/Pokemon_Battle/src/main.cpp
+CMakeFiles/testBalls.dir/test/testBalls.cpp.o: CMakeFiles/testBalls.dir/flags.make
+CMakeFiles/testBalls.dir/test/testBalls.cpp.o: test/testBalls.cpp
+CMakeFiles/testBalls.dir/test/testBalls.cpp.o: CMakeFiles/testBalls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/csmajs/lmats012/Pokemon_Battle/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/testBalls.dir/test/testBalls.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testBalls.dir/test/testBalls.cpp.o -MF CMakeFiles/testBalls.dir/test/testBalls.cpp.o.d -o CMakeFiles/testBalls.dir/test/testBalls.cpp.o -c /home/csmajs/lmats012/Pokemon_Battle/test/testBalls.cpp
 
-CMakeFiles/testBalls.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testBalls.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/csmajs/lmats012/Pokemon_Battle/src/main.cpp > CMakeFiles/testBalls.dir/src/main.cpp.i
+CMakeFiles/testBalls.dir/test/testBalls.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testBalls.dir/test/testBalls.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/csmajs/lmats012/Pokemon_Battle/test/testBalls.cpp > CMakeFiles/testBalls.dir/test/testBalls.cpp.i
 
-CMakeFiles/testBalls.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testBalls.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csmajs/lmats012/Pokemon_Battle/src/main.cpp -o CMakeFiles/testBalls.dir/src/main.cpp.s
+CMakeFiles/testBalls.dir/test/testBalls.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testBalls.dir/test/testBalls.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csmajs/lmats012/Pokemon_Battle/test/testBalls.cpp -o CMakeFiles/testBalls.dir/test/testBalls.cpp.s
 
 CMakeFiles/testBalls.dir/src/Item.cpp.o: CMakeFiles/testBalls.dir/flags.make
 CMakeFiles/testBalls.dir/src/Item.cpp.o: src/Item.cpp
@@ -155,7 +155,7 @@ CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.s: cmake_force
 
 # Object files for target testBalls
 testBalls_OBJECTS = \
-"CMakeFiles/testBalls.dir/src/main.cpp.o" \
+"CMakeFiles/testBalls.dir/test/testBalls.cpp.o" \
 "CMakeFiles/testBalls.dir/src/Item.cpp.o" \
 "CMakeFiles/testBalls.dir/src/Pokeballs/Pokeball.cpp.o" \
 "CMakeFiles/testBalls.dir/src/Pokeballs/StandardBall.cpp.o" \
@@ -165,7 +165,7 @@ testBalls_OBJECTS = \
 # External object files for target testBalls
 testBalls_EXTERNAL_OBJECTS =
 
-testBalls: CMakeFiles/testBalls.dir/src/main.cpp.o
+testBalls: CMakeFiles/testBalls.dir/test/testBalls.cpp.o
 testBalls: CMakeFiles/testBalls.dir/src/Item.cpp.o
 testBalls: CMakeFiles/testBalls.dir/src/Pokeballs/Pokeball.cpp.o
 testBalls: CMakeFiles/testBalls.dir/src/Pokeballs/StandardBall.cpp.o

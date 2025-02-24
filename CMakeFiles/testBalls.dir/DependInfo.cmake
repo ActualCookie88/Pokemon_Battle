@@ -13,7 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/csmajs/lmats012/Pokemon_Battle/src/Pokeballs/Pokeball.cpp" "CMakeFiles/testBalls.dir/src/Pokeballs/Pokeball.cpp.o" "gcc" "CMakeFiles/testBalls.dir/src/Pokeballs/Pokeball.cpp.o.d"
   "/home/csmajs/lmats012/Pokemon_Battle/src/Pokeballs/StandardBall.cpp" "CMakeFiles/testBalls.dir/src/Pokeballs/StandardBall.cpp.o" "gcc" "CMakeFiles/testBalls.dir/src/Pokeballs/StandardBall.cpp.o.d"
   "/home/csmajs/lmats012/Pokemon_Battle/src/Pokeballs/UltraBall.cpp" "CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.o" "gcc" "CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.o.d"
-  "/home/csmajs/lmats012/Pokemon_Battle/src/main.cpp" "CMakeFiles/testBalls.dir/src/main.cpp.o" "gcc" "CMakeFiles/testBalls.dir/src/main.cpp.o.d"
+  "/home/csmajs/lmats012/Pokemon_Battle/test/testBalls.cpp" "CMakeFiles/testBalls.dir/test/testBalls.cpp.o" "gcc" "CMakeFiles/testBalls.dir/test/testBalls.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

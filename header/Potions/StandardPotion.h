@@ -1,10 +1,8 @@
 #pragma once
 #include "Potion.h"
-using namespace std;
 
-class StandardPotion : public Potion
-{
+class StandardPotion : public Potion {
     public:
-        ~StandardPotion() override{}
-        StandardPotion(); 
+        StandardPotion(string desc, int potionCost); 
+        ~StandardPotion() {}
 };

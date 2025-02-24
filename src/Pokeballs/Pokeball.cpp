@@ -2,7 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
-Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType) : Item(ballName, desc, ballCost) {
+Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType)
+ : Item(ballName, desc, ballCost) {
     switch (ballType) {
         case STANDARD:
             multiplier = 1.0;

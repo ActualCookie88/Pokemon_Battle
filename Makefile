@@ -129,12 +129,26 @@ testBalls/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/build
 .PHONY : testBalls/fast
 
+#=============================================================================
+# Target rules for targets named testPotions
+
+# Build rule for target.
+testPotions: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testPotions
+.PHONY : testPotions
+
+# fast build rule for target.
+testPotions/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/build
+.PHONY : testPotions/fast
+
 src/Item.o: src/Item.cpp.o
 .PHONY : src/Item.o
 
 # target to build an object file
 src/Item.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/src/Item.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Item.cpp.o
 .PHONY : src/Item.cpp.o
 
 src/Item.i: src/Item.cpp.i
@@ -143,6 +157,7 @@ src/Item.i: src/Item.cpp.i
 # target to preprocess a source file
 src/Item.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/src/Item.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Item.cpp.i
 .PHONY : src/Item.cpp.i
 
 src/Item.s: src/Item.cpp.s
@@ -151,6 +166,7 @@ src/Item.s: src/Item.cpp.s
 # target to generate assembly for a file
 src/Item.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/src/Item.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Item.cpp.s
 .PHONY : src/Item.cpp.s
 
 src/Pokeballs/GreatBall.o: src/Pokeballs/GreatBall.cpp.o
@@ -249,29 +265,149 @@ src/Pokeballs/UltraBall.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.s
 .PHONY : src/Pokeballs/UltraBall.cpp.s
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+src/Potions/HyperPotion.o: src/Potions/HyperPotion.cpp.o
+.PHONY : src/Potions/HyperPotion.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/Potions/HyperPotion.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/HyperPotion.cpp.o
+.PHONY : src/Potions/HyperPotion.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+src/Potions/HyperPotion.i: src/Potions/HyperPotion.cpp.i
+.PHONY : src/Potions/HyperPotion.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/Potions/HyperPotion.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/HyperPotion.cpp.i
+.PHONY : src/Potions/HyperPotion.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+src/Potions/HyperPotion.s: src/Potions/HyperPotion.cpp.s
+.PHONY : src/Potions/HyperPotion.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/Potions/HyperPotion.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/HyperPotion.cpp.s
+.PHONY : src/Potions/HyperPotion.cpp.s
+
+src/Potions/Potion.o: src/Potions/Potion.cpp.o
+.PHONY : src/Potions/Potion.o
+
+# target to build an object file
+src/Potions/Potion.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/Potion.cpp.o
+.PHONY : src/Potions/Potion.cpp.o
+
+src/Potions/Potion.i: src/Potions/Potion.cpp.i
+.PHONY : src/Potions/Potion.i
+
+# target to preprocess a source file
+src/Potions/Potion.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/Potion.cpp.i
+.PHONY : src/Potions/Potion.cpp.i
+
+src/Potions/Potion.s: src/Potions/Potion.cpp.s
+.PHONY : src/Potions/Potion.s
+
+# target to generate assembly for a file
+src/Potions/Potion.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/Potion.cpp.s
+.PHONY : src/Potions/Potion.cpp.s
+
+src/Potions/StandardPotion.o: src/Potions/StandardPotion.cpp.o
+.PHONY : src/Potions/StandardPotion.o
+
+# target to build an object file
+src/Potions/StandardPotion.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/StandardPotion.cpp.o
+.PHONY : src/Potions/StandardPotion.cpp.o
+
+src/Potions/StandardPotion.i: src/Potions/StandardPotion.cpp.i
+.PHONY : src/Potions/StandardPotion.i
+
+# target to preprocess a source file
+src/Potions/StandardPotion.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/StandardPotion.cpp.i
+.PHONY : src/Potions/StandardPotion.cpp.i
+
+src/Potions/StandardPotion.s: src/Potions/StandardPotion.cpp.s
+.PHONY : src/Potions/StandardPotion.s
+
+# target to generate assembly for a file
+src/Potions/StandardPotion.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/StandardPotion.cpp.s
+.PHONY : src/Potions/StandardPotion.cpp.s
+
+src/Potions/SuperPotion.o: src/Potions/SuperPotion.cpp.o
+.PHONY : src/Potions/SuperPotion.o
+
+# target to build an object file
+src/Potions/SuperPotion.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/SuperPotion.cpp.o
+.PHONY : src/Potions/SuperPotion.cpp.o
+
+src/Potions/SuperPotion.i: src/Potions/SuperPotion.cpp.i
+.PHONY : src/Potions/SuperPotion.i
+
+# target to preprocess a source file
+src/Potions/SuperPotion.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/SuperPotion.cpp.i
+.PHONY : src/Potions/SuperPotion.cpp.i
+
+src/Potions/SuperPotion.s: src/Potions/SuperPotion.cpp.s
+.PHONY : src/Potions/SuperPotion.s
+
+# target to generate assembly for a file
+src/Potions/SuperPotion.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/src/Potions/SuperPotion.cpp.s
+.PHONY : src/Potions/SuperPotion.cpp.s
+
+test/testBalls.o: test/testBalls.cpp.o
+.PHONY : test/testBalls.o
+
+# target to build an object file
+test/testBalls.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/test/testBalls.cpp.o
+.PHONY : test/testBalls.cpp.o
+
+test/testBalls.i: test/testBalls.cpp.i
+.PHONY : test/testBalls.i
+
+# target to preprocess a source file
+test/testBalls.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/test/testBalls.cpp.i
+.PHONY : test/testBalls.cpp.i
+
+test/testBalls.s: test/testBalls.cpp.s
+.PHONY : test/testBalls.s
+
+# target to generate assembly for a file
+test/testBalls.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/test/testBalls.cpp.s
+.PHONY : test/testBalls.cpp.s
+
+test/testPotions.o: test/testPotions.cpp.o
+.PHONY : test/testPotions.o
+
+# target to build an object file
+test/testPotions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/test/testPotions.cpp.o
+.PHONY : test/testPotions.cpp.o
+
+test/testPotions.i: test/testPotions.cpp.i
+.PHONY : test/testPotions.i
+
+# target to preprocess a source file
+test/testPotions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/test/testPotions.cpp.i
+.PHONY : test/testPotions.cpp.i
+
+test/testPotions.s: test/testPotions.cpp.s
+.PHONY : test/testPotions.s
+
+# target to generate assembly for a file
+test/testPotions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/test/testPotions.cpp.s
+.PHONY : test/testPotions.cpp.s
 
 # Help Target
 help:
@@ -282,6 +418,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... testBalls"
+	@echo "... testPotions"
 	@echo "... src/Item.o"
 	@echo "... src/Item.i"
 	@echo "... src/Item.s"
@@ -297,9 +434,24 @@ help:
 	@echo "... src/Pokeballs/UltraBall.o"
 	@echo "... src/Pokeballs/UltraBall.i"
 	@echo "... src/Pokeballs/UltraBall.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... src/Potions/HyperPotion.o"
+	@echo "... src/Potions/HyperPotion.i"
+	@echo "... src/Potions/HyperPotion.s"
+	@echo "... src/Potions/Potion.o"
+	@echo "... src/Potions/Potion.i"
+	@echo "... src/Potions/Potion.s"
+	@echo "... src/Potions/StandardPotion.o"
+	@echo "... src/Potions/StandardPotion.i"
+	@echo "... src/Potions/StandardPotion.s"
+	@echo "... src/Potions/SuperPotion.o"
+	@echo "... src/Potions/SuperPotion.i"
+	@echo "... src/Potions/SuperPotion.s"
+	@echo "... test/testBalls.o"
+	@echo "... test/testBalls.i"
+	@echo "... test/testBalls.s"
+	@echo "... test/testPotions.o"
+	@echo "... test/testPotions.i"
+	@echo "... test/testPotions.s"
 .PHONY : help
 
 

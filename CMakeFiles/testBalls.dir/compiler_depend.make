@@ -859,7 +859,7 @@ CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.o: src/Pokeballs/UltraBall.
   /usr/include/c++/8/bits/sstream.tcc \
   /usr/include/c++/8/iostream
 
-CMakeFiles/testBalls.dir/src/main.cpp.o: src/main.cpp \
+CMakeFiles/testBalls.dir/test/testBalls.cpp.o: test/testBalls.cpp \
   /usr/include/stdc-predef.h \
   header/Pokeballs/StandardBall.h \
   header/Pokeballs/Pokeball.h \
@@ -1034,7 +1034,7 @@ CMakeFiles/testBalls.dir/src/main.cpp.o: src/main.cpp \
   header/Pokeballs/UltraBall.h
 
 
-src/main.cpp:
+test/testBalls.cpp:
 
 src/Pokeballs/StandardBall.cpp:
 

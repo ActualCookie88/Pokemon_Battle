@@ -1,3 +1,4 @@
 /home/csmajs/lmats012/Pokemon_Battle/CMakeFiles/testBalls.dir
+/home/csmajs/lmats012/Pokemon_Battle/CMakeFiles/testPotions.dir
 /home/csmajs/lmats012/Pokemon_Battle/CMakeFiles/edit_cache.dir
 /home/csmajs/lmats012/Pokemon_Battle/CMakeFiles/rebuild_cache.dir

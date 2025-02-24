@@ -9,8 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/testBalls.dir/src/Pokeballs/StandardBall.cpp.o.d"
   "CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.o"
   "CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.o.d"
-  "CMakeFiles/testBalls.dir/src/main.cpp.o"
-  "CMakeFiles/testBalls.dir/src/main.cpp.o.d"
+  "CMakeFiles/testBalls.dir/test/testBalls.cpp.o"
+  "CMakeFiles/testBalls.dir/test/testBalls.cpp.o.d"
   "testBalls"
   "testBalls.pdb"
 )

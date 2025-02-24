@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/csmajs/lmats012/Pokemon_Battle
 
 # The main recursive "all" target.
 all: CMakeFiles/testBalls.dir/all
+all: CMakeFiles/testPotions.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/testBalls.dir/clean
+clean: CMakeFiles/testPotions.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -99,6 +101,32 @@ testBalls: CMakeFiles/testBalls.dir/rule
 CMakeFiles/testBalls.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testBalls.dir/build.make CMakeFiles/testBalls.dir/clean
 .PHONY : CMakeFiles/testBalls.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/testPotions.dir
+
+# All Build rule for target.
+CMakeFiles/testPotions.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/lmats012/Pokemon_Battle/CMakeFiles --progress-num=8,9,10,11,12,13,14 "Built target testPotions"
+.PHONY : CMakeFiles/testPotions.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/testPotions.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/lmats012/Pokemon_Battle/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testPotions.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/lmats012/Pokemon_Battle/CMakeFiles 0
+.PHONY : CMakeFiles/testPotions.dir/rule
+
+# Convenience name for target.
+testPotions: CMakeFiles/testPotions.dir/rule
+.PHONY : testPotions
+
+# clean rule for target.
+CMakeFiles/testPotions.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testPotions.dir/build.make CMakeFiles/testPotions.dir/clean
+.PHONY : CMakeFiles/testPotions.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

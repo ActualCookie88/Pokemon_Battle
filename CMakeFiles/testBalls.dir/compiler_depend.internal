@@ -864,8 +864,8 @@ CMakeFiles/testBalls.dir/src/Pokeballs/UltraBall.cpp.o
  /usr/include/c++/8/bits/sstream.tcc
  /usr/include/c++/8/iostream
 
-CMakeFiles/testBalls.dir/src/main.cpp.o
- /home/csmajs/lmats012/Pokemon_Battle/src/main.cpp
+CMakeFiles/testBalls.dir/test/testBalls.cpp.o
+ /home/csmajs/lmats012/Pokemon_Battle/test/testBalls.cpp
  /usr/include/stdc-predef.h
  /home/csmajs/lmats012/Pokemon_Battle/header/Pokeballs/StandardBall.h
  /home/csmajs/lmats012/Pokemon_Battle/header/Pokeballs/Pokeball.h
