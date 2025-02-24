@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/testAll.dir/src/main.cpp.o CMakeFiles/testAll.dir/src/Item.cpp.o CMakeFiles/testAll.dir/src/Pokeballs/Pokeball.cpp.o -o testAll 
