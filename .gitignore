@@ -4,10 +4,10 @@ CMakeCache.txt
 
 Makefile
 
-a.out
-
 cmake_install.cmake
 
 testBalls
 
 testPotions
+
+testRevives
