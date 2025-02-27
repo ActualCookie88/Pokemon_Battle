@@ -25,3 +25,13 @@ add_executable(testRevives
     src/Revives/StandardRevive.cpp
     src/Revives/MaxRevive.cpp
 )
+
+add_executable(testDisplays_Visual
+    test/testDisplaysVisual.cpp
+    src/Display.cpp
+)
+
+add_executable(testDisplays_Function
+    test/testDisplaysFunction.cpp
+    src/Display.cpp
+)
