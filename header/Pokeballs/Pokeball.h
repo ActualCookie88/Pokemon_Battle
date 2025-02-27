@@ -11,7 +11,9 @@ class Pokeball : public Item {
 
         Pokeball(string ballName, string desc, int ballCost, BallType ballType);
         virtual ~Pokeball() {}
-        virtual bool catchPokemon(double baseChance);
+
+        bool isPokemonCaught(double baseChance) const;
+        void printIfPokemonCaught(double baseCatchChance) const;
         
         void useItem() const override;
         void displayInfo() const override;

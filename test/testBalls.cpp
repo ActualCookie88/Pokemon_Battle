@@ -7,12 +7,17 @@ using namespace std;
 
 int main() {
     // Create an array of Pokéballs
-    Pokeball* balls[] = { new StandardBall(), new GreatBall(), new StandardBall() };
+    Pokeball* balls[] = { new StandardBall(), new GreatBall(), new UltraBall() };
 
-    // Use and display all Pokéballs
-    for (Pokeball* ball : balls) {
-        ball->useItem();            // Calls the correct useItem method
-        ball->displayInfo(); // Calls the correct displayInformation method
+    // Display all Pokéballs
+    for(Pokeball* ball : balls) {
+        ball->displayInfo();       
+        cout << endl;
+    }
+    // Use all Pokeballs
+    for(Pokeball* ball : balls) {
+        ball->useItem();            
+        ball->printIfPokemonCaught(0.20); // in percentage
         cout << endl;
     }
 

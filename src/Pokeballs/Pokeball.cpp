@@ -22,10 +22,20 @@ Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType
     }
 }
 
-bool Pokeball::catchPokemon(double baseCatchChance) {
+bool Pokeball::isPokemonCaught(double baseCatchChance) const{
+    srand(time(0));
     double chance = (baseCatchChance * multiplier);
-    double roll = (rand() % 100) / 100.0; // rand # between 0 and 1
+    double roll = (rand() % 100 + 1) / 100.0;
     return roll < chance;
+}
+
+void Pokeball::printIfPokemonCaught(double baseCatchChance) const {
+    if(isPokemonCaught(baseCatchChance)) {
+        cout << "Pokémon was caught!" << endl;
+    }
+    else {
+        cout << "The Pokémon broke free!" << endl;
+    }
 }
 
 void Pokeball::useItem() const {
