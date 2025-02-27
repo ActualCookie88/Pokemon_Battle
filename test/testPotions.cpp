@@ -10,11 +10,13 @@ int main() {
     Potion* potions[] = { new StandardPotion(), new SuperPotion(), new HyperPotion()};
 
     // Use and display all Potions
-    for (Potion* potion : potions) {
-        potion->useItem();            
+    for (Potion* potion : potions) {          
         potion->displayInfo();         
         cout << endl;
     }
-
+    for (Potion* potion : potions) {          
+        potion->useItem(); 
+        cout << endl; 
+    }
     return 0;
 }

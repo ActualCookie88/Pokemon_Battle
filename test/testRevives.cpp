@@ -10,8 +10,11 @@ int main() {
 
     // Use and display all Revives
     for (Revive* revive : revives) {
-        revive->useItem();            
         revive->displayInfo(); 
+        cout << endl;
+    }
+    for (Revive* revive : revives) {
+        revive->useItem();            
         cout << endl;
     }
 
