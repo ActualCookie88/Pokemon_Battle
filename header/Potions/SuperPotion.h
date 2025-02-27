@@ -4,6 +4,6 @@
 class SuperPotion : public Potion {
     public:
         SuperPotion(); 
-        ~SuperPotion() {}
+        ~SuperPotion() override {}
         
 };

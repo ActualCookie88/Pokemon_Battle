@@ -5,6 +5,6 @@ using namespace std;
 class UltraBall : public Pokeball {
     public:
         UltraBall(); 
-        ~UltraBall() {}
+        ~UltraBall() override {}
         
 };

@@ -4,5 +4,5 @@
 class StandardRevive : public Revive {
     public:
         StandardRevive(); 
-        ~StandardRevive() {}
+        ~StandardRevive() override {}
 };

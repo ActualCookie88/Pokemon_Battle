@@ -9,7 +9,7 @@ class Revive : public Item {
     public:
         enum ReviveType { STANDARD, MAX };
         Revive(string reviveName, string desc, int reviveCost, ReviveType reviveType);
-        ~Revive() {}
+        virtual ~Revive() {}
         
         void useItem() const override;
         void displayInfo() const override;

@@ -4,5 +4,5 @@
 class HyperPotion : public Potion {
     public:
         HyperPotion();
-        ~HyperPotion() {}
+        ~HyperPotion() override {}
 };

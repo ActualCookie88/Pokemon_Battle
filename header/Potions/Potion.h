@@ -10,7 +10,7 @@ class Potion : public Item {
         enum PotionType { STANDARD, SUPER, HYPER };
 
         Potion(string potionName, string desc, int potionCost, PotionType potionType);
-        ~Potion() {}
+        virtual ~Potion() {}
 
         void useItem() const override;
         void displayInfo() const override;

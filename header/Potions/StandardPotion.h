@@ -4,5 +4,5 @@
 class StandardPotion : public Potion {
     public:
         StandardPotion(); 
-        ~StandardPotion() {}
+        ~StandardPotion() override {}
 };
