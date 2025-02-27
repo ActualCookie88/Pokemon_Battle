@@ -48,3 +48,5 @@ void Pokeball::displayInfo() const {
     cout << "    Catch Multiplyer: " << multiplier << "x" << endl;
     cout << "    Price: " << cost << "¥" << endl;
 }
+
+double Pokeball::getMultiplier() const { return multiplier; }

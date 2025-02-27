@@ -17,4 +17,6 @@ class Pokeball : public Item {
         
         void useItem() const override;
         void displayInfo() const override;
+
+        double getMultiplier() const;
 };

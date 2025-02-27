@@ -95,7 +95,7 @@ bool Battle::isCatchable() const {
 bool Battle::isCatchSuccess(const Pokeball& pokeball) {
     if (isCatchable()) {
         int baseChance = 70;
-        double modifiedChance = baseChance * pokeball.getCatchMultiplyer();
+        double modifiedChance = baseChance * pokeball.getMultiplier();
         int chance = randomNum(1, 100);
         if (chance <= modifiedChance) {
             player->addPokemon(wildPokemon);
