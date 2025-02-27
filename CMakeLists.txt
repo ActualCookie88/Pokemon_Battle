@@ -26,12 +26,7 @@ add_executable(testRevives
     src/Revives/MaxRevive.cpp
 )
 
-add_executable(testDisplays_Visual
-    test/testDisplaysVisual.cpp
-    src/Display.cpp
-)
-
-add_executable(testDisplays_Function
-    test/testDisplaysFunction.cpp
+add_executable(testDisplays
+    test/testDisplays.cpp
     src/Display.cpp
 )
