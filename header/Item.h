@@ -11,7 +11,6 @@ class Item {
         string name;
         string description;
         int cost;
-        int amount;
 
     public:
         Item(string itemName, string itemDesc, int itemCost);
@@ -20,10 +19,6 @@ class Item {
         string getName() const;
         string getDescription() const;
         int getCost() const;
-        int getAmount() const;
-
-        void addAmount(int amount) const;
-        void sellAmount(int amount) const;
 
         virtual void useItem() const = 0;
         virtual void displayInfo() const = 0;

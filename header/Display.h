@@ -1,10 +1,9 @@
 #pragma once
-#include "Pokemon/pokemon.h"
-
 #include <iostream>
-#include <vector>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::string;
 
 class Display {
     public:
@@ -15,7 +14,7 @@ class Display {
 
         void displayInventoryScreen() const;
 
-        void displayPCScreen(const vector<Pokemon*>& team) const;
+        void displayPCScreen() const;
 
         void displayItemScreen() const;
 

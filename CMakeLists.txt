@@ -26,26 +26,12 @@ add_executable(testRevives
     src/Revives/MaxRevive.cpp
 )
 
-add_executable(testDisplays
-    test/testDisplays.cpp
+add_executable(testDisplays_Visual
+    test/testDisplaysVisual.cpp
     src/Display.cpp
-    src/player.cpp
-    src/Inventory.cpp
-    src/Item.cpp
-    src/battle.cpp
-    
+)
 
-    src/Pokemon/pokemon.cpp
-    src/Pokemon/attack.cpp
-
-    src/Pokeballs/Pokeball.cpp
-    src/Pokeballs/StandardBall.cpp
-    src/Pokeballs/GreatBall.cpp
-    src/Pokeballs/UltraBall.cpp
-    src/Potions/StandardPotion.cpp
-    src/Potions/SuperPotion.cpp
-    src/Potions/HyperPotion.cpp
-    src/Revives/Revive.cpp
-    src/Revives/StandardRevive.cpp
-    src/Revives/MaxRevive.cpp
+add_executable(testDisplays_Function
+    test/testDisplaysFunction.cpp
+    src/Display.cpp
 )

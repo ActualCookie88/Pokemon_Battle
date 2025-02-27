@@ -1,19 +1,18 @@
 #include "../header/Display.h"
-#include "../header/player.h"
 
 int main() {
-    Player* player = new Player();
+    Display* screens = new Display();
 
-    player->displayPC();
-
-    /*screens->displayItemScreen();
+    screens->displayStartScreen();
+    screens->displayMenuScreen();
+    screens->displayInventoryScreen();
+    screens->displayPCScreen();
+    screens->displayItemScreen();
     screens->displayStoreScreen();
-
-    
     screens->displayBattleScreen();
     screens->displayMovesScreen();
     screens->displayLoseScreen();
     screens->displayTeamScreen();
-    */
+
     return 0;
 }
