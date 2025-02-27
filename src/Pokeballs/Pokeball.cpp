@@ -24,8 +24,10 @@ Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType
 
 bool Pokeball::isPokemonCaught(double baseCatchChance) const{
     srand(time(0));
-    double chance = (baseCatchChance * multiplier);
-    double roll = (rand() % 100 + 1) / 100.0;
+    double chance = (baseCatchChance * multiplier);                 // chance of catching pokemon
+    double roll = (rand() % 100 + 1) / 100.0;                       // random float 0.00-1.00
+    cout << "(" << roll << " chance required to catch)" << endl;
+    cout << "(" << chance << " chance possessed)" << endl;
     return roll < chance;
 }
 
