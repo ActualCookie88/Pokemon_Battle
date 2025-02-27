@@ -1,6 +1,7 @@
 #include "../../header/Pokeballs/Pokeball.h"
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 
 Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType)
  : Item(ballName, desc, ballCost) {
@@ -22,17 +23,13 @@ Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType
     }
 }
 
-bool Pokeball::isPokemonCaught(double baseCatchChance) const{
+void Pokeball::catchPokemon(double baseCatchChance) const {
     srand(time(0));
     double chance = (baseCatchChance * multiplier);                 // chance of catching pokemon
-    double roll = (rand() % 100 + 1) / 100.0;                       // random float 0.00-1.00
-    cout << "(" << roll << " chance required to catch)" << endl;
-    cout << "(" << chance << " chance possessed)" << endl;
-    return roll < chance;
-}
-
-void Pokeball::printIfPokemonCaught(double baseCatchChance) const {
-    if(isPokemonCaught(baseCatchChance)) {
+    double roll = (rand() % 100 + 1);                       // random float 0.00-1.00
+    cout << "(" << roll << "% chance required to catch)" << endl;
+    cout << "(" << chance << "% chance possessed)" << endl;
+    if(roll < chance) {
         cout << "Pokémon was caught!" << endl;
     }
     else {
