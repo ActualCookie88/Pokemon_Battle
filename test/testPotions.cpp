@@ -6,12 +6,8 @@
 using namespace std;
 
 int main() {
-    StandardPotion standardPotion("A basic potion for healing.", 100);
-    SuperPotion superPotion("A super potion for moderate healing.", 300);
-    HyperPotion hyperPotion("A hyper potion for massive healing.", 600);
-
     // Create an array of Potions
-    Potion* potions[] = { &standardPotion, &superPotion, &hyperPotion };
+    Potion* potions[] = { new StandardPotion(), new SuperPotion(), new HyperPotion()};
 
     // Use and display all Potions
     for (Potion* potion : potions) {

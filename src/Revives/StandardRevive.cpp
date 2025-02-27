@@ -1,4 +1,4 @@
 #include "../../header/Revives/StandardRevive.h"
 
-StandardRevive::StandardRevive(string desc, int reviveCost)
- : Revive("Standard Revive", desc, reviveCost, ReviveType::STANDARD) {}
+StandardRevive::StandardRevive()
+ : Revive("Standard Revive", "Revives a fainted Pokémon and restores half its maximum HP.", 100, ReviveType::STANDARD) {}

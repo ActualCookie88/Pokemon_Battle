@@ -1,5 +1,5 @@
 #include "../../header/Potions/HyperPotion.h"
 
-HyperPotion::HyperPotion(string desc, int potionCost)
-: Potion("Hyper Potion", desc, potionCost, Potion::HYPER) {}
+HyperPotion::HyperPotion()
+: Potion("Hyper Potion", "A hyper potion for massive healing.", 600, Potion::HYPER) {}
 

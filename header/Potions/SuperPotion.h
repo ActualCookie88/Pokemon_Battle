@@ -3,7 +3,7 @@
 
 class SuperPotion : public Potion {
     public:
-        SuperPotion(string desc, int potionCost); 
+        SuperPotion(); 
         ~SuperPotion() {}
         
 };

@@ -1,4 +1,4 @@
 #include "../../header/Pokeballs/UltraBall.h"
 
-UltraBall::UltraBall(string desc, int ballCost)
- : Pokeball("Ultra Ball", desc, ballCost, Pokeball::ULTRA) {}
+UltraBall::UltraBall()
+ : Pokeball("Ultra Ball", "An ultra ball for better catching power.", 1200, Pokeball::ULTRA) {}

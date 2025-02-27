@@ -1,6 +1,6 @@
 #include "../../header/Potions/SuperPotion.h"
 
-SuperPotion::SuperPotion(string desc, int potionCost)
-: Potion("Super Potion", desc, potionCost, Potion::SUPER) {} 
+SuperPotion::SuperPotion()
+: Potion("Super Potion", "A super potion for moderate healing.", 300, Potion::SUPER) {} 
 
 

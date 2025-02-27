@@ -5,11 +5,8 @@
 using namespace std;
 
 int main() {
-    StandardRevive standardRevive("Revives a fainted Pokémon and restores half its maximum HP.", 100);
-    MaxRevive maxRevive("Revives a fainted Pokémon, fully restoring its HP.", 300);
-
     // Create an array of Revives
-    Revive* revives[] = { &standardRevive, &maxRevive};
+    Revive* revives[] = { new StandardRevive(), new MaxRevive()};
 
     // Use and display all Revives
     for (Revive* revive : revives) {

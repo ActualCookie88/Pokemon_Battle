@@ -1,4 +1,4 @@
 #include "../../header/Pokeballs/GreatBall.h"
 
-GreatBall::GreatBall(string desc, int ballCost)
- : Pokeball("Great Ball", desc, ballCost, Pokeball::GREAT) {}
+GreatBall::GreatBall()
+ : Pokeball("Great Ball", "A great ball for catching wild Pokémon.", 600, Pokeball::GREAT) {}

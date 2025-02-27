@@ -6,12 +6,8 @@
 using namespace std;
 
 int main() {
-    StandardBall standardBall("A basic Pokéball for catching Pokémon.", 200);
-    GreatBall greatBall("A great ball for catching wild Pokémon.", 600);
-    UltraBall ultraBall("An ultra ball for better catching power.", 1200);
-
     // Create an array of Pokéballs
-    Pokeball* balls[] = { &standardBall, &greatBall, &ultraBall };
+    Pokeball* balls[] = { new StandardBall(), new GreatBall(), new StandardBall() };
 
     // Use and display all Pokéballs
     for (Pokeball* ball : balls) {

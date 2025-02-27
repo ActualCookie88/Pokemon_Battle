@@ -3,6 +3,6 @@
 
 class StandardRevive : public Revive {
     public:
-        StandardRevive(string desc, int reviveCost); 
+        StandardRevive(); 
         ~StandardRevive() {}
 };

@@ -1,4 +1,4 @@
 #include "../../header/Pokeballs/StandardBall.h"
 
-StandardBall::StandardBall(string desc, int ballCost)
- : Pokeball("Standard Ball", desc, ballCost, Pokeball::STANDARD) {}
+StandardBall::StandardBall()
+ : Pokeball("Standard Ball", "A basic Pokéball for catching Pokémon.", 200, Pokeball::STANDARD) {}

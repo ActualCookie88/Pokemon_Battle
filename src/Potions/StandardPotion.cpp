@@ -1,4 +1,4 @@
 #include "../../header/Potions/StandardPotion.h"
 
-StandardPotion::StandardPotion(string desc, int potionCost)
- : Potion("Standard Potion", desc, potionCost, Potion::STANDARD) {} 
+StandardPotion::StandardPotion()
+ : Potion("Standard Potion", "A basic potion for healing.", 100, Potion::STANDARD) {} 
