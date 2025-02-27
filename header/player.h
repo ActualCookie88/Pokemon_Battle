@@ -6,6 +6,7 @@
 #include "Inventory.h"
 #include "Pokemon/pokemon.h"
 #include "battle.h"
+#include "Display.h"
 
 using namespace std;
 
@@ -16,8 +17,13 @@ class Player {
        vector<Pokemon*> caughtPokemons = {new Pokemon(PokemonSpecies::Bulbasaur), new Pokemon(PokemonSpecies::Charmander), new Pokemon(PokemonSpecies::Squirtle)};     // List of Pokemon player has caught
        vector<Pokemon*> selectedTeam = {new Pokemon(PokemonSpecies::Bulbasaur), new Pokemon(PokemonSpecies::Charmander), new Pokemon(PokemonSpecies::Squirtle)};       // Player's team (3 Pokemon)
        Inventory* myInventory;
+       Display* myDisplays;
 
    public:
+        void displayPC() const {
+            myDisplays->displayPCScreen(this->getTeam());
+        }
+
         Player() : money(0), myInventory(new Inventory()), isEnded(false) {}
         Player(int mon, Inventory* myInven) : money(mon), myInventory(myInven), isEnded(false){}
         ~Player();

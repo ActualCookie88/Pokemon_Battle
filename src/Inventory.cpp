@@ -97,7 +97,7 @@ void Inventory::storeItems()
     for (int i = 0; i < items.size(); ++i)
     {
         cout << "(" << i + 1 << ") ";
-        items.at(i)->displayInformation();
+        items.at(i)->displayInfo();
         cout << endl;
     }
 }
@@ -124,7 +124,7 @@ void Inventory::buyItem()
         {
             amount = amountHelper();
 
-            if (items.at(i)->getPrice() * amount > money)
+            if (items.at(i)->getCost() * amount > money)
             {
                 cout << "Insufficient funds." << endl << endl;
             }
@@ -132,7 +132,7 @@ void Inventory::buyItem()
             else
             {
                 items.at(i)->addAmount(amount);
-                money -= items.at(i)->getPrice() * amount;
+                money -= items.at(i)->getCost() * amount;
                 cout << "Item(s) added!" << endl << endl;
             }
         }
@@ -172,7 +172,7 @@ void Inventory::sellItem()
             else
             {
                 items.at(i)->sellAmount(amount);
-                money += (items.at(i)->getPrice() / 2) * amount;
+                money += (items.at(i)->getCost() / 2) * amount;
                 cout << "Item(s) sold." << endl << endl;
             }
         } 

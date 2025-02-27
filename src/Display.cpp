@@ -1,4 +1,6 @@
 #include "../header/Display.h"
+#include "../header/player.h"
+#include "../header/Pokemon/pokemon.h"
 
 void Display::displayStartScreen() const {
 cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
@@ -58,7 +60,7 @@ void Display::displayInventoryScreen() const {
     cout << endl;
 }
 
-void Display::displayPCScreen() const {
+void Display::displayPCScreen(const vector<Pokemon*>& team) const {
     cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
     cout << " ______________________ " << endl;
     cout << "|                      |" << endl;
@@ -73,10 +75,9 @@ void Display::displayPCScreen() const {
     cout << endl;
     
     cout << "Currently owned Pokemon in storage:" << endl;
-    // access and print user's pokemon, example:
-    cout << "1. Pikachu" << endl;
-    cout << "2. Geodude" << endl;
-    cout << "3. ..." << endl;
+    for ( Pokemon* pokemon : team) {
+        cout << pokemon->speciesToString(pokemon->getSpecies()) << endl;
+    }
 
     cout << endl;
     cout << "(1) View Pokemon stats" << endl; // should prompt user to enter number relative to Pokemon, will print its stats
