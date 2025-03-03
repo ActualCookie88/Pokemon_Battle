@@ -8,7 +8,7 @@ class Pokeball : public Item {
         
     public:
         enum BallType { STANDARD, GREAT, ULTRA, MASTER };
-
+        Pokeball();
         Pokeball(string ballName, string desc, int ballCost, BallType ballType);
         virtual ~Pokeball() {}
 

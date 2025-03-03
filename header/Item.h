@@ -11,9 +11,10 @@ class Item {
         string name;
         string description;
         int cost;
-        int amount;
+        int amount = 0;
 
     public:
+        Item();
         Item(string itemName, string itemDesc, int itemCost);
         virtual ~Item() {}
 

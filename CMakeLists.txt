@@ -30,3 +30,23 @@ add_executable(testDisplays
     test/testDisplays.cpp
     src/Display.cpp
 )
+
+add_executable(testPlayer
+    test/testPlayer.cpp
+    src/Player.cpp
+    src/Store.cpp
+    src/Display.cpp
+
+    src/Item.cpp
+    src/Pokeballs/Pokeball.cpp
+    src/Pokeballs/StandardBall.cpp
+    src/Pokeballs/GreatBall.cpp
+    src/Pokeballs/UltraBall.cpp
+    src/Potions/Potion.cpp
+    src/Potions/StandardPotion.cpp
+    src/Potions/SuperPotion.cpp
+    src/Potions/HyperPotion.cpp
+    src/Revives/Revive.cpp
+    src/Revives/StandardRevive.cpp
+    src/Revives/MaxRevive.cpp
+)

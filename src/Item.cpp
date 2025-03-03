@@ -1,6 +1,10 @@
 #include "../header/Item.h"
 
-Item::Item(string itemName, string itemDesc, int itemCost) : name(itemName), description(itemDesc), cost(itemCost) {}
+Item::Item()
+ : name("Default"), description("No description"), cost(0) {}
+
+Item::Item(string itemName, string itemDesc, int itemCost)
+ : name(itemName), description(itemDesc), cost(itemCost) {}
 
 string Item::getName() const { return name; }
 
