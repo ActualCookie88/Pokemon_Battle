@@ -8,16 +8,23 @@ using namespace std;
 
 class Player {
     private:
+        vector<Item*> playerItems;
         Store* myStore;
-        vector<Item*> items;
 
     public:
-        Player() : items( { new StandardBall(), new GreatBall(), new UltraBall(), 
+        Player() : playerItems( { new StandardBall(), new GreatBall(), new UltraBall(), 
                             new StandardPotion(), new SuperPotion(), new HyperPotion(), 
                             new StandardRevive(), new MaxRevive() } ),
-                    myStore(new Store(items)) {}
-
+                    myStore(new Store(playerItems)) {}
         ~Player() {}        
+        Player(vector<Item*> playerItems) : myStore(new Store(playerItems)) {
+
+        }
+        
+        // screen accessors
         void accessStore();
         void accessPC();
+        // getters and setters
+        vector<Item*> getItems() const { return playerItems; }
+        Store* getStore() { return myStore; }
 };

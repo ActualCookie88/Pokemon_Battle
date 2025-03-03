@@ -26,7 +26,7 @@ void Store::initiateStore() {
             sellItem();
         }
         else if (choice == 3) {
-            viewMyItems();
+            viewMyItems(true);
         }
         else if (choice == 4) {
             flag = false;
@@ -57,9 +57,10 @@ void Store::buyItem() {
             }
 
             else {
-                storeItems.at(i)->addAmount(amount);
                 money -= storeItems.at(i)->getCost() * amount;
+                playerItems.at(i)->addAmount(amount);
                 cout << "Item(s) added!" << endl << endl;
+                cout << playerItems.at(i)->getAmount() << endl;
             }
         }
         cout << "(1) Buy another item" << endl;
@@ -73,17 +74,7 @@ void Store::sellItem() {
     bool flag = true;
 
     while (flag) {
-        viewMyItems();
-        if(playerItems.size() < 1) {
-            cout << "(1) Go Back" << endl;
-            cout << "Select an option: ";
-            cin >> i;
-            while (cin.fail() || i != 1) {
-                cout << "Invalid option. Try again: ";
-                i = clearInputHelper();
-            }
-            return;
-        }
+        viewMyItems(false);
         
         cout << "(9) Go Back" << endl << endl;
         cout << "Current Balance: " << getMoney() << "¥" << endl << endl;
@@ -94,16 +85,13 @@ void Store::sellItem() {
         if (i == 8) {
             return;
         }
-        else
-        {
+        else {
             amount = amountHelper();
             
-            if (playerItems.at(i)->getAmount() < amount)
-            {
+            if (playerItems.at(i)->getAmount() < amount) {
                 cout << "Insufficient amount." << endl << endl;
             }
-            else
-            {
+            else {
                 playerItems.at(i)->sellAmount(amount);
                 money += (playerItems.at(i)->getCost() / 2) * amount;
                 cout << "Item(s) sold." << endl << endl;
@@ -114,30 +102,27 @@ void Store::sellItem() {
     }
 }
 
-void Store::viewMyItems() {
+void Store::viewMyItems(bool isViewing) {
+    int i = 0;
     Display* display;
     display->displayItemScreen();
-
-    if(playerItems.size() < 1) {
-        int i;
-        cout << "No items owned!" << endl << endl;
-        cout << "(1) Go Back" << endl;
-            cout << "Select an option: ";
-            cin >> i;
-            while (cin.fail() || i != 1) {
-                cout << "Invalid option. Try again: ";
-                i = clearInputHelper();
-            }
-            return;
-        return;
-    }
 
     for (int i = 0; i < playerItems.size(); ++i) {
         cout << "(" << i + 1 << ") Name: " << playerItems.at(i)->getName() << endl;
         cout << "    Amount: " << playerItems.at(i)->getAmount() << endl;
-        if (i != playerItems.size() - 1) {
+        if (i != playerItems.size()) {
             cout << endl;
         }
+    }
+    if(isViewing) {
+        cout << "(9) Go Back" << endl << endl;
+        cout << "Select an option: ";
+        cin >> i;
+        while (cin.fail() || i != 9) {
+            cout << "Invalid option. Try again: ";
+            i = clearInputHelper();
+        }
+        return;
     }
 }
 
@@ -196,8 +181,8 @@ int Store::selectOptionHelper1() {
 bool Store::selectOptionHelper2() {
     bool flag = true;
     int i = 0;
-    cout << "(2) Go Back" << endl;
-    cout << "Current Balance: " << getMoney() << "¥" << endl;
+    cout << "(2) Go Back" << endl << endl;
+    cout << "Current Balance: " << getMoney() << "¥" << endl << endl;
     cout << "Select an option: ";
 
     cin >> i;
