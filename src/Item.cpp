@@ -14,6 +14,6 @@ int Item::getCost() const { return cost; }
 
 int Item::getAmount() const { return amount; }
 
-void Item::addAmount(int amount) { amount++; }
+void Item::addAmount(int amount) { this->amount += amount; }
 
-void Item::sellAmount(int amount) { amount--; }
+void Item::sellAmount(int amount) { this->amount -= amount; }

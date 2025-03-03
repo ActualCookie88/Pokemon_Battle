@@ -5,7 +5,7 @@
 
 void Store::initiateStore() {
     bool flag = true;
-    int choice = 0;
+    int choice;
     Display* display;
 
     while (flag) {
@@ -15,8 +15,9 @@ void Store::initiateStore() {
         cin >> choice;
         cout << endl;
 
+                
         while (cin.fail() || choice < 1 || choice > 4) {
-            cout << "Invalid option. Try again: ";
+            cout << "INVALID OPTION. TRY AGAIN: ";
             choice = clearInputHelper();
         }
         if (choice == 1) {
@@ -53,16 +54,18 @@ void Store::buyItem() {
             amount = amountHelper();
 
             if (storeItems.at(i)->getCost() * amount > money) {
-                cout << "Insufficient funds." << endl << endl;
+                cout << "INSUFFICIENT FUNDS." << endl << endl;
             }
 
             else {
-                money -= storeItems.at(i)->getCost() * amount;
+                int moneyLost = storeItems.at(i)->getCost() * amount;
+                money -= moneyLost;
                 playerItems.at(i)->addAmount(amount);
-                cout << "Item(s) added!" << endl << endl;
-                cout << playerItems.at(i)->getAmount() << endl;
+                cout << "PURCHASED " << amount << " " << storeItems.at(i)->getName() 
+                    << "(s) FOR " << moneyLost << "¥." << endl << endl;
             }
         }
+        cout << "Options: " << endl;
         cout << "(1) Buy another item" << endl;
         flag = selectOptionHelper2();
     }
@@ -89,12 +92,14 @@ void Store::sellItem() {
             amount = amountHelper();
             
             if (playerItems.at(i)->getAmount() < amount) {
-                cout << "Insufficient amount." << endl << endl;
+                cout << "INSUFFICIENT AMOUNT." << endl << endl;
             }
             else {
                 playerItems.at(i)->sellAmount(amount);
-                money += (playerItems.at(i)->getCost() / 2) * amount;
-                cout << "Item(s) sold." << endl << endl;
+                int moneyGained = (playerItems.at(i)->getCost() / 2) * amount;
+                money += moneyGained;
+                cout << amount << " " << storeItems.at(i)->getName() << "(s) SOLD. "
+                     << "RECEIVED " << moneyGained << "¥." << endl << endl;
             }
         } 
         cout << "(1) Sell another item" << endl;
@@ -119,7 +124,7 @@ void Store::viewMyItems(bool isViewing) {
         cout << "Select an option: ";
         cin >> i;
         while (cin.fail() || i != 9) {
-            cout << "Invalid option. Try again: ";
+            cout << "INVALID OPTION. TRY AGAIN: ";
             i = clearInputHelper();
         }
         return;
@@ -144,10 +149,10 @@ int Store::amountHelper() {
     cin >> amount;
 
     while (cin.fail() || amount < 1) {
-        cout << "Invalid amount. Try again: ";
+        cout << "INVALID AMOUNT. TRY AGAIN: ";
         amount = clearInputHelper();
     }
-
+    cout << endl;
     return amount;
 }
 
@@ -165,13 +170,13 @@ int Store::clearInputHelper() {
 int Store::selectOptionHelper1() {
     int i = 0;
 
-    cin >> i;
-    --i;
-    cout << endl;
-
+    if(cin >> i) {
+        --i;
+        cout << endl;
+    }
 
     while (cin.fail() || i < 0 || i > 8) {
-        cout << "Invalid option. Try again: ";
+        cout << "INVALID OPTION. TRY AGAIN: ";
         i = clearInputHelper();
     }
 
@@ -189,7 +194,7 @@ bool Store::selectOptionHelper2() {
     cout << endl; 
 
     while (cin.fail() || i < 1 || i > 2) {
-        cout << "Invalid option. Try again: ";
+        cout << "INVALID OPTION. TRY AGAIN: ";
         i = clearInputHelper();
     }
 
