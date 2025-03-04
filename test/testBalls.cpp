@@ -21,5 +21,15 @@ int main() {
         cout << endl;
     }
 
+    int input = 0;
+    Pokeball* ball = new StandardBall();
+    cout << ball->getName() << endl;
+    cout << "Amount: " << ball->getAmount() << endl;
+    
+    cout << "Enter amount to add: ";
+    cin >> input;
+    ball->addAmount(input);
+    cout << "New Amount: " << ball->getAmount() << endl;
+
     return 0;
 }

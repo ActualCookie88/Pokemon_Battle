@@ -14,6 +14,7 @@ class Item {
         int amount;
 
     public:
+        Item();
         Item(string itemName, string itemDesc, int itemCost);
         virtual ~Item() {}
 
@@ -21,8 +22,8 @@ class Item {
         string getDescription() const;
         int getCost() const;
         int getAmount() const;
-        void addAmount(int& amount);
-        void sellAmount(int& amount);
+        void addAmount(int amount);
+        void sellAmount(int amount);
 
         virtual void useItem() const = 0;
         virtual void displayInfo() const = 0;

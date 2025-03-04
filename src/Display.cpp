@@ -1,4 +1,5 @@
 #include "../header/Display.h"
+#include "../header/Store.h"
 
 void Display::displayStartScreen() const {
 cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
@@ -98,22 +99,12 @@ void Display::displayItemScreen() const {
     cout << "|                                                     |" << endl;
     cout << "|_____________________________________________________|" << endl;
     cout << endl;
-
-    cout << "Currently owned items: " << endl;
-    // access and print user's items, example:
-    cout << "1. Pokeball (x5)" << endl;
-    cout << "2. Small Heal Potion (x2)" << endl;
-    cout << "3. Revive Item (x1)" << endl;
-
-    cout << endl;
-    cout << "(1) View Item stats" << endl; // should prompt user to enter number relative to Item, will print its stats
-    cout << "(2) Go Back" << endl;
-    // cout << "(x) Use Item" << endl; // this only works when player is in battle, must add conditional
-    cout << endl;
+    cout << "Current owned items: " << endl;
 }
 
 void Display::displayStoreScreen() const {
     cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
+    cout << "Welcome to the Poké Mart!" << endl;
     cout << " __________________________________________________" << endl;
     cout << "|                                                  |" << endl;
     cout << "|     _____   _______   _____   _____    _____     |" << endl;
@@ -125,22 +116,11 @@ void Display::displayStoreScreen() const {
     cout << "|                                                  |" << endl;
     cout << "|__________________________________________________|" << endl;
     cout << endl;
-
-    cout << "Items in stock: " << endl;
-    // list items, example:
-    cout << "1. Pokeball ($3, 5 in stock)" << endl;
-    cout << "2. Great Ball ($5, 7 in stock)" << endl;
-    cout << "3. Revive Item ($7, 2 in stock)" << endl;
-    cout << "4. ..." << endl;
-    cout << endl;
-
-    int money = 32;
-    cout << "[ Balance: $" << money << " ]" << endl;
-    cout << endl;
-    cout << "(1) View Item stats" << endl;  // should prompt user to enter number relative to Item, will print its stats
-    cout << "(2) Buy Item" << endl;  // should prompt user to enter number relative to Item, will add to user inventory and decrement stock and balance
-    cout << "(3) Go Back" << endl;
-    cout << endl;
+    cout << "Options:" << endl;
+    cout << "(1) Buy Items" << endl;
+    cout << "(2) Sell Items" << endl;
+    cout << "(3) View My Items" << endl;
+    cout << "(4) Exit Poké Mart" << endl << endl;
 }
 
 void Display::displayBattleScreen() const {

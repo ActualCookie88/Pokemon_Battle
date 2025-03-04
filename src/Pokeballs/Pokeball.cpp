@@ -3,6 +3,9 @@
 #include <ctime>
 #include <iomanip>
 
+Pokeball::Pokeball()
+ : Item() {}
+
 Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType)
  : Item(ballName, desc, ballCost) {
     switch (ballType) {
