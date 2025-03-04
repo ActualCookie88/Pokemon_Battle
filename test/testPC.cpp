@@ -1,0 +1,16 @@
+#include <iostream>
+#include "../header/Player.h"
+#include "../header/Pokemon/pokemon.h"
+
+using namespace std;
+
+int main() {
+    Player* player = new Player();
+    PC* PC = player->getPC();
+    PC->setTeamPokemon({new Pokemon(PokemonSpecies::Bulbasaur), new Pokemon(PokemonSpecies::Charmander), new Pokemon(PokemonSpecies::Squirtle)});
+    PC->setCaughtPokemon({new Pokemon(PokemonSpecies::Charizard)});
+
+    player->accessPC();
+
+    return 0;
+}

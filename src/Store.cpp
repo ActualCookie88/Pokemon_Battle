@@ -15,7 +15,6 @@ void Store::initiateStore() {
         cin >> choice;
         cout << endl;
 
-                
         while (cin.fail() || choice < 1 || choice > 4) {
             cout << "INVALID OPTION. TRY AGAIN: ";
             choice = clearInputHelper();
