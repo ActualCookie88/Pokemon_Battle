@@ -16,11 +16,7 @@ class Player {
                             new StandardPotion(), new SuperPotion(), new HyperPotion(), 
                             new StandardRevive(), new MaxRevive() } ),
                     myStore(new Store(playerItems)) {}
-        ~Player() {}        
-        Player(vector<Item*> playerItems) : myStore(new Store(playerItems)) {
-
-        }
-        
+        ~Player() {}                
         // screen accessors
         void accessStore();
         void accessPC();

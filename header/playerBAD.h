@@ -18,20 +18,20 @@ class Player {
        Inventory* myInventory;
 
    public:
-        Player() : money(0), myInventory(new Inventory()), isEnded(false) {}
-        Player(int mon, Inventory* myInven) : money(mon), myInventory(myInven), isEnded(false){}
-        ~Player();
-       int getMoney() const;
-       string getName() const;
+        //PC
        vector<Pokemon*> getCaughtPokemon() const;   
        vector<Pokemon*> getCaughtPokemon();
        void addPokemon(Pokemon* p);
        vector<Pokemon*> getTeam() const;
        vector<Pokemon*> getTeam();
-       void accessInventory();
+       
+       //battle
        void enterBattle();
+       //logout
        bool logout();
+       //main menu
        void menu();
+       //PC
        void displayPCMenu();
         void viewPokemonStats();
         void viewEditPokemonTeam();
