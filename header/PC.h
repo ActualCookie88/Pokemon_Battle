@@ -11,7 +11,7 @@ class PC {
     public:
         PC() : teamPokemon( { } ), caughtPokemon( { } ) {}
         PC(vector<Pokemon*>& team, vector<Pokemon*>& caught) : teamPokemon(team), caughtPokemon(caught) {}
-        ~PC() {}
+        ~PC();
         //actions
         void initiatePC();
         void addPokemon(Pokemon* pokemon);
