@@ -72,18 +72,6 @@ void Display::displayPCScreen() const {
     cout << "|                      |" << endl;
     cout << "|______________________|" << endl;
     cout << endl;
-    
-    cout << "Currently owned Pokemon in storage:" << endl;
-    // access and print user's pokemon, example:
-    cout << "1. Pikachu" << endl;
-    cout << "2. Geodude" << endl;
-    cout << "3. ..." << endl;
-
-    cout << endl;
-    cout << "(1) View Pokemon stats" << endl; // should prompt user to enter number relative to Pokemon, will print its stats
-    cout << "(2) View/Edit Pokemon Team" << endl;
-    cout << "(3) Go Back" << endl;
-    cout << endl;
 }
 
 void Display::displayItemScreen() const {

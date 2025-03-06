@@ -18,5 +18,10 @@ int main() {
         potion->useItem(); 
         cout << endl; 
     }
+
+    for (Potion* potion : potions) {          
+        delete potion;
+    }
+
     return 0;
 }

@@ -1,11 +1,10 @@
-#include "../header/Inventory.h"
 #include "../header/battle.h"
 #include <iostream>
 #include <limits>
 #include <fstream>
 #include <dirent.h>
 #include <cstring>
-#include "../header/player.h"
+#include "../header/Player.h"
 using namespace std;
 
 PokemonSpecies stringtoSpecies(string& sp) {

@@ -31,11 +31,12 @@ add_executable(testDisplays
     src/Display.cpp
 )
 
-add_executable(testPlayer
-    test/testPlayer.cpp
+add_executable(testStore
+    test/testStore.cpp
     src/Player.cpp
     src/Store.cpp
     src/Display.cpp
+    src/PC.cpp
 
     src/Item.cpp
     src/Pokeballs/Pokeball.cpp
@@ -49,4 +50,33 @@ add_executable(testPlayer
     src/Revives/Revive.cpp
     src/Revives/StandardRevive.cpp
     src/Revives/MaxRevive.cpp
+
+    src/Pokemon/attack.cpp
+    src/Pokemon/pokemon.cpp
+    src/Pokemon/wildPokemon.cpp
+)
+
+add_executable(testPC
+    test/testPC.cpp
+    src/Player.cpp
+    src/Store.cpp
+    src/Display.cpp
+    src/PC.cpp
+
+    src/Item.cpp
+    src/Pokeballs/Pokeball.cpp
+    src/Pokeballs/StandardBall.cpp
+    src/Pokeballs/GreatBall.cpp
+    src/Pokeballs/UltraBall.cpp
+    src/Potions/Potion.cpp
+    src/Potions/StandardPotion.cpp
+    src/Potions/SuperPotion.cpp
+    src/Potions/HyperPotion.cpp
+    src/Revives/Revive.cpp
+    src/Revives/StandardRevive.cpp
+    src/Revives/MaxRevive.cpp
+
+    src/Pokemon/attack.cpp
+    src/Pokemon/pokemon.cpp
+    src/Pokemon/wildPokemon.cpp
 )

@@ -21,12 +21,11 @@ class Store {
 
     public:
         Store() : playerItems({}), storeItems({}) {}
-        Store(vector<Item*>& items) : playerItems(items),
-                            storeItems( { new StandardBall(), new GreatBall(), new UltraBall(), 
-                            new StandardPotion(), new SuperPotion(), new HyperPotion(), 
-                            new StandardRevive(), new MaxRevive() } ) {}
-        ~Store() {}
-
+        Store(vector<Item*>& items) : playerItems(items), storeItems( { new StandardBall(), new GreatBall(), new UltraBall(), 
+                                                                        new StandardPotion(), new SuperPotion(), new HyperPotion(), 
+                                                                        new StandardRevive(), new MaxRevive() } ) {}
+        ~Store();
+        //actions
         void initiateStore();
         void buyItem();
         void sellItem();

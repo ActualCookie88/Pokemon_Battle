@@ -8,5 +8,7 @@ int main() {
     player->getStore()->setMoney(10000);
     player->accessStore();
 
+    delete player;
+    
     return 0;
 }

@@ -10,7 +10,7 @@ class Pokeball : public Item {
         enum BallType { STANDARD, GREAT, ULTRA, MASTER };
         Pokeball();
         Pokeball(string ballName, string desc, int ballCost, BallType ballType);
-        virtual ~Pokeball() {}
+        virtual ~Pokeball() { }
 
         void catchPokemon(double baseCatchChance) const;
         
