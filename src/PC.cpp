@@ -50,6 +50,7 @@ void PC::initiatePC() {
             flag = false;
         }
     }
+    delete display;
 }
 
 void PC::viewPokemonCaught() {
@@ -123,8 +124,12 @@ void PC::editPokemonTeam() {
         cout << "Enter number of Pokemon in PC to switch: ";
         choice2 = selectOptionHelper(4, getCaughtPokemon().size() + getTeamPokemon().size());
 
+        Pokemon* temp = teamPokemon.at(choice1-1);
+        teamPokemon.at(choice1-1) = caughtPokemon.at(choice2-getCaughtPokemon().size()-1);
+        caughtPokemon.at(choice2-getCaughtPokemon().size()-1) = temp;
+
         cout << "Options: " << endl;
-        cout << "(1) View another Pokemon's stats" << endl;
+        cout << "(1) Edit Pokemon Team again" << endl;
         cout << "(2) Go back" << endl;
         cout << "Select option: ";
         choice3 = selectOptionHelper(1,2);
