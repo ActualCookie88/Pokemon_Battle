@@ -17,6 +17,9 @@ int main() {
         revive->useItem();            
         cout << endl;
     }
+    for (Revive* revive : revives) {
+        delete revive;
+    }
 
     return 0;
 }

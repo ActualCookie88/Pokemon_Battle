@@ -8,7 +8,7 @@ int main() {
     Player* player = new Player();
     PC* PC = player->getPC();
     PC->setTeamPokemon({new Pokemon(PokemonSpecies::Bulbasaur), new Pokemon(PokemonSpecies::Charmander), new Pokemon(PokemonSpecies::Squirtle)});
-    PC->setCaughtPokemon({new Pokemon(PokemonSpecies::Charizard)});
+    PC->setCaughtPokemon({new Pokemon(PokemonSpecies::Venusaur), new Pokemon(PokemonSpecies::Charizard), new Pokemon(PokemonSpecies::Blastoise)});
 
     player->accessPC();
 

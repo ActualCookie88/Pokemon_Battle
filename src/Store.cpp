@@ -3,6 +3,13 @@
 #include <iostream>
 #include <limits>
 
+Store::~Store() {
+    for (Item* item : storeItems) {
+        delete item;
+    }
+    storeItems.clear();
+}
+
 void Store::initiateStore() {
     bool flag = true;
     int choice;

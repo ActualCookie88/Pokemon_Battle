@@ -6,6 +6,7 @@
 using namespace std;
 
 int main() {
+    int input = 0;
     // Create an array of Pokéballs
     Pokeball* balls[] = { new StandardBall(), new GreatBall(), new UltraBall() };
 
@@ -20,16 +21,19 @@ int main() {
         ball->catchPokemon(25);    // catch chance in %
         cout << endl;
     }
-
-    int input = 0;
+    
     Pokeball* ball = new StandardBall();
     cout << ball->getName() << endl;
     cout << "Amount: " << ball->getAmount() << endl;
-    
     cout << "Enter amount to add: ";
     cin >> input;
     ball->addAmount(input);
     cout << "New Amount: " << ball->getAmount() << endl;
+
+    for(Pokeball* ball : balls) {
+        delete ball;
+    }
+    delete ball;
 
     return 0;
 }

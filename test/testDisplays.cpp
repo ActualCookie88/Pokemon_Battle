@@ -14,5 +14,7 @@ int main() {
     screens->displayLoseScreen();
     screens->displayTeamScreen();
 
+    delete screens;
+
     return 0;
 }

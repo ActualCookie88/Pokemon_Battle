@@ -21,7 +21,7 @@ class Player {
                         new StandardRevive(), new MaxRevive() } ),
             myStore(new Store(playerItems)),
             myPC(new PC(teamPokemon, caughtPokemon)) {}
-        ~Player() {}                
+        ~Player();            
         // screen accessors
         void accessStore();
         void accessPC();

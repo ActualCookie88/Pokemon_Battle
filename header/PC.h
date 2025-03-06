@@ -10,8 +10,7 @@ class PC {
 
     public:
         PC() : teamPokemon( { } ), caughtPokemon( { } ) {}
-        PC(vector<Pokemon*>& team, vector<Pokemon*>& caught)
-         : teamPokemon(team), caughtPokemon(caught) {}
+        PC(vector<Pokemon*>& team, vector<Pokemon*>& caught) : teamPokemon(team), caughtPokemon(caught) {}
         ~PC() {}
         //actions
         void initiatePC();
@@ -25,6 +24,9 @@ class PC {
         bool selectOptionHelper1();
         bool selectOptionHelper2();
         int selectOptionHelper3();
+        bool selectOptionHelper4();
+        int selectOptionHelper5();
+        int selectOptionHelper6();
         //getters and setters
         vector<Pokemon*> getCaughtPokemon() const { return caughtPokemon; }
         vector<Pokemon*> getCaughtPokemon() { return caughtPokemon; }
