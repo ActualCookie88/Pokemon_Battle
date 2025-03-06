@@ -13,3 +13,11 @@ testPotions
 testRevives
 
 testDisplays
+
+testPC
+
+testPlayer
+
+testStore
+
+valgrind
