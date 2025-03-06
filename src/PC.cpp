@@ -15,14 +15,15 @@ PC::~PC() {
 void PC::initiatePC() {
     bool flag = true;
     int choice;
-    Display* display;
+    Display* display = new Display();
 
     while (flag) {
         display->displayPCScreen();
         if (getCaughtPokemon().empty()) {
             cout << "You have no Pokemon in your PC!" << endl;
             cout << "Options: " << endl;
-            flag = selectOptionHelper2();
+            flag = selectOptionHelper(1,1);
+            delete display;
             return;
         } 
         viewPokemonTeam();
@@ -37,10 +38,8 @@ void PC::initiatePC() {
         cin >> choice;
         cout << endl;
                 
-        while (cin.fail() || choice < 1 || choice > 3) {
-            cout << "INVALID OPTION. TRY AGAIN: ";
-            choice = clearInputHelper();
-        }
+        choice = validateInput(choice, 1, 3);
+
         if (choice == 1) {
             viewPokemonStats();
         }
@@ -68,30 +67,35 @@ void PC::addPokemon(Pokemon* pokemon) {
 
 void PC::viewPokemonStats() {
     int i = 0;
+    int choice = 0;
     bool flag = true;
 
     while(flag) {
         viewPokemonTeam();
         viewPokemonCaught();
         cout << "Enter Pokemon's number to view stats: ";
-        i = selectOptionHelper3();
+        i = selectOptionHelper(1, getCaughtPokemon().size() + getTeamPokemon().size());
         cout << endl;
 
-        if(i > getCaughtPokemon().size() + getTeamPokemon().size()) {
+        if(i > getCaughtPokemon().size() + getTeamPokemon().size() || i <= 0) {
             return;
         }
-        if (i > 0 && i <= 3) {
+        if (i <= getTeamPokemon().size()) {
             getTeamPokemon().at(i-1)->displayInfo();
         }
-        if (i > 3 && i <= getCaughtPokemon().size() + getTeamPokemon().size()) {
-            getCaughtPokemon().at(i-4)->displayInfo();
+        else {
+            getCaughtPokemon().at(i - getTeamPokemon().size() - 1)->displayInfo();
         }
         cout << endl;
         
         cout << "Options: " << endl;
         cout << "(1) View another Pokemon's stats" << endl;
-        flag = selectOptionHelper1();
-        
+        cout << "(2) Go back" << endl;
+        cout << "Select option: ";
+        choice = selectOptionHelper(1,2);
+        if(choice == 2) {
+            flag = false;
+        }
     }
 }
 
@@ -107,21 +111,26 @@ void PC::viewPokemonTeam() {
 void PC::editPokemonTeam() {
     int choice1 = 0;
     int choice2 = 0;
+    int choice3 = 0;
     bool flag = true;
+
     while(flag) {
         viewPokemonTeam();
         viewPokemonCaught();
 
         cout << "Enter number of Pokemon in Team to switch: ";
-        choice1 = selectOptionHelper5();
+        choice1 = selectOptionHelper(1,3);
         cout << "Enter number of Pokemon in PC to switch: ";
-        choice2 = selectOptionHelper6();
-
-        
+        choice2 = selectOptionHelper(4, getCaughtPokemon().size() + getTeamPokemon().size());
 
         cout << "Options: " << endl;
         cout << "(1) View another Pokemon's stats" << endl;
-        flag = selectOptionHelper4();
+        cout << "(2) Go back" << endl;
+        cout << "Select option: ";
+        choice3 = selectOptionHelper(1,2);
+        if(choice3 == 2) {
+            flag = false;
+        }
     }
 }
 
@@ -130,119 +139,21 @@ int PC::clearInputHelper() {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin >> i;
-    //--i;
     cout << endl;
-
     return i;
 }
 
-bool PC::selectOptionHelper1() {
-    bool flag = true;
+int PC::selectOptionHelper(int min, int max) {
     int i = 0;
-    cout << "(2) Go Back" << endl << endl;
-    cout << "Select an option: ";
-
     cin >> i;
-    cout << endl; 
-
-    while (cin.fail() || i < 1 || i > 2) {
-        cout << "INVALID OPTION. TRY AGAIN: ";
-        i = clearInputHelper();
-    }
-
-    if (i == 2) {
-        flag = false;
-    }
-
-    return flag;
+    cout << endl;
+    return validateInput(i, min, max);
 }
 
-bool PC::selectOptionHelper2() {
-    bool flag = true;
-    int i = 0;
-    cout << "(1) Go Back" << endl << endl;
-    cout << "Select an option: ";
-
-    cin >> i;
-    cout << endl; 
-
-    while (cin.fail() || i != 1) {
+int PC::validateInput(int input, int min, int max) {
+    while (cin.fail() || input < min || input > max) {
         cout << "INVALID OPTION. TRY AGAIN: ";
-        i = clearInputHelper();
+        input = clearInputHelper();
     }
-
-    if (i == 1) {
-        flag = false;
-    }
-
-    return flag;
-}
-
-int PC::selectOptionHelper3() {
-    int i = 0;
-
-    if(cin >> i) {
-        //--i;
-        cout << endl;
-    }
-
-    while (cin.fail() || i < 1 || i > getCaughtPokemon().size() + getTeamPokemon().size()) {
-        cout << "INVALID OPTION. TRY AGAIN: ";
-        i = clearInputHelper();
-    }
-
-    return i;
-}
-
-bool PC::selectOptionHelper4() {
-    bool flag = true;
-    int i = 0;
-    cout << "(2) Go Back" << endl << endl;
-    cout << "Select an option: ";
-
-    cin >> i;
-    cout << endl; 
-
-    while (cin.fail() || i < 1 || i > 3) {
-        cout << "INVALID OPTION. TRY AGAIN: ";
-        i = clearInputHelper();
-    }
-
-    if (i == 2) {
-        flag = false;
-    }
-
-    return flag;
-}
-
-int PC::selectOptionHelper5() {
-    int i;
-
-    if(cin >> i) {
-        //--i;
-        cout << endl;
-    }
-
-    while (cin.fail() || i < 1 || i > 3) {
-        cout << "INVALID OPTION. TRY AGAIN: ";
-        i = clearInputHelper();
-    }
-
-    return i;
-}
-
-int PC::selectOptionHelper6() {
-    int i = 0;
-
-    if(cin >> i) {
-        //--i;
-        cout << endl;
-    }
-
-    while (cin.fail() || i < 4 || i > getCaughtPokemon().size() + getTeamPokemon().size()) {
-        cout << "INVALID OPTION. TRY AGAIN: ";
-        i = clearInputHelper();
-    }
-
-    return i;
+    return input;
 }

@@ -21,12 +21,8 @@ class PC {
         void editPokemonTeam();
         //helpers
         int clearInputHelper();
-        bool selectOptionHelper1();
-        bool selectOptionHelper2();
-        int selectOptionHelper3();
-        bool selectOptionHelper4();
-        int selectOptionHelper5();
-        int selectOptionHelper6();
+        int selectOptionHelper(int min, int max);
+        int validateInput(int input, int min, int max);
         //getters and setters
         vector<Pokemon*> getCaughtPokemon() const { return caughtPokemon; }
         vector<Pokemon*> getCaughtPokemon() { return caughtPokemon; }
