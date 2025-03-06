@@ -4,7 +4,7 @@
 #include <iostream>
 
 Attack::Attack() : name(moves::None), type(PokemonType::Normal), power(0) {} //default constructor
-Attack::Attack(moves name){//constructor for every moves
+Attack::Attack(moves name) : name(name) { //constructor for every moves
     switch (name) {
         case moves::FireSpin:
             type = PokemonType::Fire;
