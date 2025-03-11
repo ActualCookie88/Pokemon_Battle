@@ -1,4 +1,4 @@
-#include "../header/Item.h"
+#include "../../header/items/Item.h"
 
 Item::Item()
  : name("Default"), description("No description"), cost(0), amount(0) {}

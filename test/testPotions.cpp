@@ -1,6 +1,6 @@
-#include "../header/Potions/StandardPotion.h"
-#include "../header/Potions/SuperPotion.h"
-#include "../header/Potions/HyperPotion.h"
+#include "../header/items/Potions/StandardPotion.h"
+#include "../header/items/Potions/SuperPotion.h"
+#include "../header/items/Potions/HyperPotion.h"
 #include <iostream>
 
 using namespace std;

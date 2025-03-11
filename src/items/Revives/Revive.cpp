@@ -1,4 +1,4 @@
-#include "../../header/Revives/Revive.h"
+#include "../../../header/items/Revives/Revive.h"
 
 Revive::Revive(string reviveName, string desc, int reviveCost, ReviveType reviveType)
  : Item(reviveName, desc, reviveCost) {

@@ -1,15 +1,15 @@
 #pragma once
 #include <vector>
 
-#include "Item.h"
-#include "Pokeballs/StandardBall.h"
-#include "Pokeballs/GreatBall.h"
-#include "Pokeballs/UltraBall.h"
-#include "Potions/StandardPotion.h"
-#include "Potions/SuperPotion.h"
-#include "Potions/HyperPotion.h"
-#include "Revives/StandardRevive.h"
-#include "Revives/MaxRevive.h"
+#include "../items/Item.h"
+#include "../items/Pokeballs/StandardBall.h"
+#include "../items/Pokeballs/GreatBall.h"
+#include "../items/Pokeballs/UltraBall.h"
+#include "../items/Potions/StandardPotion.h"
+#include "../items/Potions/SuperPotion.h"
+#include "../items/Potions/HyperPotion.h"
+#include "../items/Revives/StandardRevive.h"
+#include "../items/Revives/MaxRevive.h"
 
 using namespace std;
 

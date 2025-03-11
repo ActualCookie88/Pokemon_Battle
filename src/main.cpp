@@ -4,7 +4,7 @@
 #include <fstream>
 #include <dirent.h>
 #include <cstring>
-#include "../header/Player.h"
+#include "../header/player/Player.h"
 using namespace std;
 
 PokemonSpecies stringtoSpecies(string& sp) {
@@ -140,9 +140,8 @@ moves stringToMove(const std::string& move) {
     if (move == "Wrap") return moves::Wrap;
     return moves::None; // Add an Unknown case to handle invalid strings
 }
-void destructor(Player* myPlayer, Inventory* myInventory){
+void destructor(Player* myPlayer){
     delete myPlayer;
-    delete myInventory;
 }
 int main()
 {
@@ -150,7 +149,6 @@ int main()
     ifstream inFS;
     int choice;
     Player* myPlayer = new Player();
-    Inventory * myInventory = new Inventory();
     bool isLoaded = false;
     string filename;
     cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
@@ -187,7 +185,7 @@ int main()
             DIR* dir = opendir(directoryPath);
             if (dir == nullptr) {
                 std::cerr << "Error opening directory." << std::endl;
-                destructor(myPlayer, myInventory);
+                destructor(myPlayer);
                 return 1;
             }
 
@@ -210,7 +208,7 @@ int main()
             std::ifstream myFile(filename);
     if (!myFile) {
         std::cerr << "Error opening file!" << std::endl;
-        destructor(myPlayer, myInventory);
+        destructor(myPlayer);
         return 1;
     }
 
@@ -234,19 +232,19 @@ int main()
         // Skip placeholder line
         std::getline(myFile, line); 
         
-        myPlayer->addPokemon(currPokemon);
+        myPlayer->getPC()->addPokemon(currPokemon);
     }
 
     // Load Money
     if (std::getline(myFile, line)) {
-        myInventory->addMoney(stoi(line));
+        myPlayer->getStore()->setMoney(stoi(line));
     }
 
     // Load Inventory
     int i=0;
     while (std::getline(myFile, line)) {
         int itemAmount = std::stoi(line);
-        myInventory->getItems().at(i)->addAmount(itemAmount);  // Assuming inventory handles adding items
+        myPlayer->getItems().at(i)->addAmount(itemAmount);  // Assuming inventory handles adding items
         i++;
     }
 
@@ -264,10 +262,11 @@ int main()
         cout << endl;
     }
 
-    while (!(myPlayer->logout()))
+    /*while (!(myPlayer->logout()))
     {
         myPlayer->menu();
     }
+        */
     ofstream myFile;
         if(!isLoaded){
             cout << "How would you like to save (type the file name)?" << endl;
@@ -279,7 +278,7 @@ int main()
             myFile.open(filename, ofstream::trunc);
             if (!myFile) {
                 std::cerr << "Error creating file!" << std::endl;
-                destructor(myPlayer, myInventory);
+                destructor(myPlayer);
                 return 1;
             }
         }
@@ -287,13 +286,13 @@ int main()
             myFile.open(filename, ofstream::trunc);
             if (!myFile) {
                 std::cerr << "Error creating file!" << std::endl;
-                destructor(myPlayer, myInventory);
+                destructor(myPlayer);
                 return 1;
             }
         }
         Pokemon* myPokemon;
-        for(int i=0;i<myPlayer->getCaughtPokemon().size();i++){
-            myPokemon = myPlayer -> getCaughtPokemon().at(i);
+        for(int i=0;i<myPlayer->getPC()->getCaughtPokemon().size();i++){
+            myPokemon = myPlayer->getPC()->getCaughtPokemon().at(i);
             myFile << myPokemon->speciesToString(myPokemon->getSpecies()) << endl;
             myFile << myPokemon->getLevel() << endl;
             myFile << myPokemon->getEXP() << endl;
@@ -305,14 +304,14 @@ int main()
             myFile << "..." << endl;
         }
         myFile << "-----------" << endl;
-        myFile << myPlayer->getMoney() << endl;
-        for(int i=0;i<myInventory->getItems().size();i++){
-            myFile << myInventory->getItems().at(i)->getAmount() << endl;
+        myFile << myPlayer->getStore()->getMoney() << endl;
+        for(int i=0;i<myPlayer->getItems().size();i++){
+            myFile << myPlayer->getItems().at(i)->getAmount() << endl;
         }
         
         myFile.close();
 
         std::cout << "File created and saved successfully." << std::endl;
-        destructor(myPlayer, myInventory);
+        destructor(myPlayer);
         return 0;
 }

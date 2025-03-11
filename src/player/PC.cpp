@@ -1,5 +1,5 @@
-#include "../header/PC.h"
-#include "../header/Display.h"
+#include "../../header/player/PC.h"
+#include "../../header/Display.h"
 #include <iostream>
 #include <limits>
 

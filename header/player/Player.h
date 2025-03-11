@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-#include "Pokemon/pokemon.h"
+#include "../Pokemon/pokemon.h"
 #include "Store.h"
 #include "PC.h"
 
@@ -29,4 +29,7 @@ class Player {
         vector<Item*> getItems() const { return playerItems; }
         Store* getStore() { return myStore; }
         PC* getPC() { return myPC; }
+        void setItems(vector<Item*> items) { playerItems = items; }
+        void setStore(Store* store) {  myStore = store; }
+        void setPC(PC* pc) { myPC = pc; }
 };

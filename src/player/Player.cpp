@@ -1,5 +1,5 @@
-#include "../header/Player.h"
-#include "../header/PC.h"
+#include "../../header/player/Player.h"
+#include "../../header/player/PC.h"
 
 Player::~Player() {
     for (Item* item : playerItems) {

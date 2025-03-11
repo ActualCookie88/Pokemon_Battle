@@ -2,7 +2,7 @@
 
 class Player;
 
-#include "Player.h"
+#include "player/Player.h"
 #include "Pokemon/pokemon.h"
 
 using namespace std;

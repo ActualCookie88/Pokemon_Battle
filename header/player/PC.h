@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-#include "Pokemon/pokemon.h"
+#include "../Pokemon/pokemon.h"
 
 class PC {
     private:

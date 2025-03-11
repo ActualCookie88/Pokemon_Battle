@@ -1,6 +1,6 @@
-#include "../header/Pokeballs/StandardBall.h"
-#include "../header/Pokeballs/GreatBall.h"
-#include "../header/Pokeballs/UltraBall.h"
+#include "../header/items/Pokeballs/StandardBall.h"
+#include "../header/items/Pokeballs/GreatBall.h"
+#include "../header/items/Pokeballs/UltraBall.h"
 #include <iostream>
 
 using namespace std;

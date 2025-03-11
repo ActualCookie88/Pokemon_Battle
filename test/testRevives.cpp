@@ -1,5 +1,5 @@
-#include "../header/Revives/StandardRevive.h"
-#include "../header/Revives/MaxRevive.h"
+#include "../header/items/Revives/StandardRevive.h"
+#include "../header/items/Revives/MaxRevive.h"
 #include <iostream>
 
 using namespace std;
