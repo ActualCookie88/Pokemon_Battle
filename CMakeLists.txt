@@ -2,28 +2,28 @@ cmake_minimum_required(VERSION 3.20)
 
 add_executable(testBalls
     test/testBalls.cpp
-    src/Item.cpp
-    src/Pokeballs/Pokeball.cpp
-    src/Pokeballs/StandardBall.cpp
-    src/Pokeballs/GreatBall.cpp
-    src/Pokeballs/UltraBall.cpp
+    src/items/Item.cpp
+    src/items/Pokeballs/Pokeball.cpp
+    src/items/Pokeballs/StandardBall.cpp
+    src/items/Pokeballs/GreatBall.cpp
+    src/items/Pokeballs/UltraBall.cpp
 )
 
 add_executable(testPotions
     test/testPotions.cpp
-    src/Item.cpp
-    src/Potions/Potion.cpp
-    src/Potions/StandardPotion.cpp
-    src/Potions/SuperPotion.cpp
-    src/Potions/HyperPotion.cpp
+    src/items/Item.cpp
+    src/items/Potions/Potion.cpp
+    src/items/Potions/StandardPotion.cpp
+    src/items/Potions/SuperPotion.cpp
+    src/items/Potions/HyperPotion.cpp
 )
 
 add_executable(testRevives
     test/testRevives.cpp
-    src/Item.cpp
-    src/Revives/Revive.cpp
-    src/Revives/StandardRevive.cpp
-    src/Revives/MaxRevive.cpp
+    src/items/Item.cpp
+    src/items/Revives/Revive.cpp
+    src/items/Revives/StandardRevive.cpp
+    src/items/Revives/MaxRevive.cpp
 )
 
 add_executable(testDisplays
@@ -31,50 +31,25 @@ add_executable(testDisplays
     src/Display.cpp
 )
 
-add_executable(testStore
+add_executable(testPlayer
     test/testStore.cpp
-    src/Player.cpp
-    src/Store.cpp
+    src/player/Player.cpp
+    src/player/Store.cpp
+    src/player/PC.cpp
     src/Display.cpp
-    src/PC.cpp
 
-    src/Item.cpp
-    src/Pokeballs/Pokeball.cpp
-    src/Pokeballs/StandardBall.cpp
-    src/Pokeballs/GreatBall.cpp
-    src/Pokeballs/UltraBall.cpp
-    src/Potions/Potion.cpp
-    src/Potions/StandardPotion.cpp
-    src/Potions/SuperPotion.cpp
-    src/Potions/HyperPotion.cpp
-    src/Revives/Revive.cpp
-    src/Revives/StandardRevive.cpp
-    src/Revives/MaxRevive.cpp
-
-    src/Pokemon/attack.cpp
-    src/Pokemon/pokemon.cpp
-    src/Pokemon/wildPokemon.cpp
-)
-
-add_executable(testPC
-    test/testPC.cpp
-    src/Player.cpp
-    src/Store.cpp
-    src/Display.cpp
-    src/PC.cpp
-
-    src/Item.cpp
-    src/Pokeballs/Pokeball.cpp
-    src/Pokeballs/StandardBall.cpp
-    src/Pokeballs/GreatBall.cpp
-    src/Pokeballs/UltraBall.cpp
-    src/Potions/Potion.cpp
-    src/Potions/StandardPotion.cpp
-    src/Potions/SuperPotion.cpp
-    src/Potions/HyperPotion.cpp
-    src/Revives/Revive.cpp
-    src/Revives/StandardRevive.cpp
-    src/Revives/MaxRevive.cpp
+    src/items/Item.cpp
+    src/items/Pokeballs/Pokeball.cpp
+    src/items/Pokeballs/StandardBall.cpp
+    src/items/Pokeballs/GreatBall.cpp
+    src/items/Pokeballs/UltraBall.cpp
+    src/items/Potions/Potion.cpp
+    src/items/Potions/StandardPotion.cpp
+    src/items/Potions/SuperPotion.cpp
+    src/items/Potions/HyperPotion.cpp
+    src/items/Revives/Revive.cpp
+    src/items/Revives/StandardRevive.cpp
+    src/items/Revives/MaxRevive.cpp
 
     src/Pokemon/attack.cpp
     src/Pokemon/pokemon.cpp
