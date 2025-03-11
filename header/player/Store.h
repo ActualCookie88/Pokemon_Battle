@@ -10,7 +10,7 @@
 #include "../items/Potions/HyperPotion.h"
 #include "../items/Revives/StandardRevive.h"
 #include "../items/Revives/MaxRevive.h"
-
+#include "../Display.h"
 using namespace std;
 
 class Store {
@@ -18,6 +18,7 @@ class Store {
         int money = 0;
         vector<Item*> playerItems;
         vector<Item*> storeItems;
+        Display* display;
 
     public:
         Store() : playerItems({}), storeItems({}) {}
