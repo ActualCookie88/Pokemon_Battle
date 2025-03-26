@@ -449,6 +449,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         GR = GrowthRate::Fast;
     }
 }
+
 string Pokemon::speciesToString(PokemonSpecies species) {
     switch (species) {
         case PokemonSpecies::Bulbasaur: return "Bulbasaur";

@@ -405,6 +405,7 @@ string Attack::getName() const {//use this function to get the name of the moves
         case moves::Thrash: return "Thrash";
         case moves::ViseGrip: return "Vise Grip";
         case moves::Wrap: return "Wrap";
+        case moves::None: return "None";
         default: return "Unknown Move";
     }
 }
@@ -417,21 +418,7 @@ Attack& Attack::operator=(const Attack& other) {
     }
     return *this;
 }
-int Attack::getpower() const {
+
+int Attack::getPower() const {
     return power;
 }
-/*
-int Attack::calculateDamage(Pokemon attacker, Pokemon defender) const{//this is the actual damage that will do to the opponent
-    int damage = ((2*attacker.getLevel()/5+2)*(power*attacker.calculateAttack()/defender.calculateDefense())/50+2);
-    if(attacker.isTypeEffective(defender)){
-        damage*=2;
-    }
-    else if(attacker.isTypeNotEffective(defender)){
-        damage*=0.5;
-    }
-    srand(time(0));
-    if(rand()%10000<=625){
-        damage*=1.5;
-    }
-    return damage*(85+rand()%30)/100;
-}*/

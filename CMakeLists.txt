@@ -53,8 +53,8 @@ add_executable(testStore
 
     src/Pokemon/attack.cpp
     src/Pokemon/pokemon.cpp
-    src/Pokemon/wildPokemon.cpp
 )
+
 add_executable(testPC
     test/testPC.cpp
     src/player/Player.cpp
@@ -77,5 +77,4 @@ add_executable(testPC
 
     src/Pokemon/attack.cpp
     src/Pokemon/pokemon.cpp
-    src/Pokemon/wildPokemon.cpp
 )

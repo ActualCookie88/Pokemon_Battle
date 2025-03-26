@@ -18,6 +18,5 @@ class Attack {
         Attack& operator=(const Attack& other);
 
         string getName() const;
-        int getpower() const;
-        int calculateDamage(Pokemon attacker, Pokemon defender) const;
+        int getPower() const;
 };
