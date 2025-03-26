@@ -548,28 +548,28 @@ string Pokemon::typeToString(PokemonType type) {
 }
 
 int Pokemon::calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender) const {//this is the actual damage that will do to the opponent
-    int damage = ((2*attacker->getLevel()/5+2)*(move->getPower()*attacker->calculateAttack()/defender->calculateDefense())/50+2);
+    int damage = ( ( ( ( 2 * attacker->getLevel() / 5 ) + 2) * (move->getPower() * ( attacker->calculateAttack() / defender->calculateDefense()) ) ) / 50 ) + 2;
     if(attacker->isTypeEffective(defender)){
-        damage*=2;
+        damage *= 2;
     }
     else if(attacker->isTypeNotEffective(defender)){
-        damage*=0.5;
+        damage *= 0.5;
     }
     srand(time(0));
-    if(rand()%10000<=625){
-        damage*=1.5;
+    if(rand() % 10000 <= 625){
+        damage *= 1.5;
     }
-    return damage*(85+rand()%30)/100;
+    return damage * (85 + rand() % 30) / 100;
 }
 
 int Pokemon::calculateHP() const{
-    return (2*hp)*level/100+level+10;
+    return ( ( (2 * hp) * level ) / 100 ) + level + 10;
 }
 int Pokemon::calculateAttack() const{
-    return (2*attack)*level/100+5;
+    return ( ( ( 2 * attack) * level ) / 100 ) + 5;
 }
 int Pokemon::calculateDefense() const{
-    return (2*defense)*level/100+5;
+    return ( ( (2 * defense) * level ) / 100 ) + 5;
 }
 
 bool Pokemon::isTypeEffective(Pokemon* defender) {
