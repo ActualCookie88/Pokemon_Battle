@@ -1,5 +1,5 @@
 #pragma once
-enum class PokemonType{
+enum class Type{
     Normal,
     Fire,
     Water,

@@ -78,3 +78,14 @@ add_executable(testPC
     src/Pokemon/attack.cpp
     src/Pokemon/pokemon.cpp
 )
+
+add_executable(testAttack
+    test/testAttack.cpp
+    src/Pokemon/attack.cpp
+)
+
+add_executable(testPokemon
+    test/testPokemon.cpp
+    src/Pokemon/attack.cpp
+    src/Pokemon/pokemon.cpp
+)

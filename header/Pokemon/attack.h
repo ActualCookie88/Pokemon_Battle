@@ -1,22 +1,25 @@
 #pragma once
 #include <string>
 #include "moves.h"
-#include "pokemonType.h"
-class Pokemon;
-
+#include "type.h"
 using std::string;
 
 class Attack {
     private:
-        moves name;
-        PokemonType type;
+        Moves name;
+        Type type;
         int power;
         
     public:
         Attack();
-        Attack(moves name);
+        Attack(Moves name);
         Attack& operator=(const Attack& other);
-
+        // actions
+        bool isSuperEffective(Type targetType) const;
+        bool isNotVeryEffective(Type targetType) const;
+        string typeToString(Type type);
+        // getters
         string getName() const;
+        Type getType() const;
         int getPower() const;
 };

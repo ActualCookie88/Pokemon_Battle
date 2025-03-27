@@ -4,10 +4,11 @@
 using namespace std;
 
 int main() {
-    Attack* attack = new Attack(moves::FireSpin);
+    Attack* fireSpin = new Attack(Moves::FireSpin);
 
-    cout << "Attack name: " << attack->getName() << endl;
-    cout << "Attack power: " << attack->getpower() << endl;
+    cout << "Name: " << fireSpin->getName() << endl;
+    cout << "Type: " << fireSpin->typeToString(fireSpin->getType()) << endl;
+    cout << "Power: " << fireSpin->getPower() << endl;
 
     return 0;
 }

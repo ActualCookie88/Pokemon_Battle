@@ -1,6 +1,7 @@
 #pragma once
-#include "pokemonType.h"
+#include "type.h"
 #include "pokemonSpecies.h"
+#include "growthRate.h"
 #include "moves.h"
 #include "attack.h"
 #include <iostream>
@@ -10,12 +11,13 @@ using namespace std;
 class Pokemon {
     private:
         PokemonSpecies species;
-        PokemonType type;
+        Type type;
+        GrowthRate growthRate;
         int hp;
         int attack;
         int defense;
         int level;
-        //int exp;
+        int exp;
         Attack* move1;
         Attack* move2;
         Attack* move3;
@@ -23,32 +25,29 @@ class Pokemon {
     public:
         Pokemon();
         Pokemon(PokemonSpecies sp);
-        ~Pokemon() {
-            delete move1;
-            delete move2;
-            delete move3;
-        }
+        ~Pokemon();
         Pokemon& operator=(const Pokemon& other);
         // actions
         void displayInfo();
         void initializeStats(PokemonSpecies sp);
         string speciesToString(PokemonSpecies species);
-        string typeToString(PokemonType type);
+        string typeToString(Type type);
         int calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender) const;
         int calculateHP() const;
         int calculateAttack() const;
         int calculateDefense() const;
-        // int calculateEXP(Pokemon defeatedPokemon) const;
-        bool isTypeEffective(Pokemon* defender);
-        bool isTypeNotEffective(Pokemon* defender);
+        int calculateEXP(Pokemon defeatedPokemon) const;
         // getters and setters
         PokemonSpecies getSpecies() const;
-        PokemonType getType() const;
-        int gethp();
-        int getAttack();
-        int getDefense();
+        Type getType() const;
+        int gethp() const;
+        int getAttack() const;
+        int getDefense() const;
         int getLevel() const;
+        int getEXP() const;
         Attack* getMove1() const;
         Attack* getMove2() const;
         Attack* getMove3() const;
+        void addEXP(int val);
+        void addLevel();
 };

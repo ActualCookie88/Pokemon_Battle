@@ -1,5 +1,6 @@
+#include "type.h"
 #pragma once
-enum class moves {
+enum class Moves {
     FireSpin, 
     Flamethrower, 
     FireBlast, 
@@ -80,3 +81,5 @@ enum class moves {
     Wrap,
     None
 };
+
+Type getMoveType(Moves move);
