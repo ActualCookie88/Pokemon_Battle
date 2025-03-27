@@ -14,7 +14,7 @@ WildPokemon::WildPokemon(int playerMaxLevel) : Pokemon() {
     initializeStats(species);
     vector<Moves> selectedMoves = generateRandomMoves(getType());
     
-    int levelVariation = (rand() % 11) - 5;  // random adjustment (-2 to +2)
+    int levelVariation = (rand() % 11) - 5; 
     int finalLevel = max(1, min(playerMaxLevel + levelVariation, 100));
 
     setMove1(new Attack(selectedMoves[0])); 
@@ -23,9 +23,6 @@ WildPokemon::WildPokemon(int playerMaxLevel) : Pokemon() {
     
     setSpecies(species);
     setLevel(finalLevel);
-    sethp(calculateHP());
-    setAttack(calculateAttack());
-    setDefense(calculateDefense());
 }
 
 Attack* WildPokemon::wildPokemonMove(Pokemon* opponent){

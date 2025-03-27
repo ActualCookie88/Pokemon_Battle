@@ -13,7 +13,7 @@ vector<Moves> normalTypeMoves = {
     Moves::Sharpen, Moves::Sing, Moves::SkullBash, Moves::Slam, Moves::Slash, Moves::SoftBoiled, Moves::SonicBoom, Moves::SpikeCannon, Moves::Splash, Moves::Stomp, Moves::Strength, Moves::SuperFang, 
     Moves::Supersonic, Moves::SwordsDance, Moves::Tackle, Moves::TailWhip, Moves::TakeDown, Moves::Thrash, Moves::ViseGrip, Moves::Wrap};
 
-Pokemon::Pokemon() : species(PokemonSpecies::none), type(Type::Normal), hp(100), attack(50), defense(30), move1(nullptr), move2(nullptr), move3(nullptr)
+Pokemon::Pokemon() : species(PokemonSpecies::none), type(Type::Normal), baseHP(100), baseAttack(50), baseDefense(30), move1(nullptr), move2(nullptr), move3(nullptr)
 {
 }
 
@@ -49,9 +49,9 @@ Pokemon& Pokemon::operator=(const Pokemon& other){
     type = other.type;
     level = other.level;
     exp = other.exp;
-    hp = other.hp;
-    attack = other.attack;
-    defense = other.defense;
+    baseHP = other.baseHP;
+    baseAttack = other.baseAttack;
+    baseDefense = other.baseDefense;
 
     // Deep copy of dynamically allocated memory
     move1 = other.move1 ? new Attack(*other.move1) : nullptr;
@@ -95,7 +95,7 @@ vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
 void Pokemon::displayInfo() {
     cout << "Species: " << speciesToString(species)
         << "\nType: " << typeToString(type)
-        << "\nHP: " << gethp()
+        << "\nHP: " << getHP()
         << "\nAttack: " << getAttack()
         << "\nDefense: " << getDefense() 
         << "\nLevel: " << getLevel()
@@ -109,396 +109,399 @@ void Pokemon::initializeStats(PokemonSpecies sp){
     switch(sp){
     case PokemonSpecies::Bulbasaur:
         type = Type::Grass;
-        hp = 45;
-        attack = 49;
-        defense = 49;
+        baseHP = 45;
+        baseAttack = 49;
+        baseDefense = 49;
         exp = 64;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Squirtle:
         type = Type::Water;
-        hp = 44;
-        attack = 48;
-        defense = 65;
+        baseHP = 44;
+        baseAttack = 48;
+        baseDefense = 65;
         exp = 63;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Charmander:
         type = Type::Fire;
-        hp = 39;
-        attack = 52;
-        defense = 43;
+        baseHP = 39;
+        baseAttack = 52;
+        baseDefense = 43;
         exp = 62;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Pidgey:
         type = Type::Normal;
-        hp = 40;
-        attack = 45;
-        defense = 40;
+        baseHP = 40;
+        baseAttack = 45;
+        baseDefense = 40;
         exp = 50;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Ivysaur:
         type = Type::Grass;
-        hp = 60;
-        attack = 62;
-        defense = 63;
+        baseHP = 60;
+        baseAttack = 62;
+        baseDefense = 63;
         exp = 142;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Horsea:
         type = Type::Water;
-        hp = 30;
-        attack = 40;
-        defense = 35;
+        baseHP = 30;
+        baseAttack = 40;
+        baseDefense = 35;
         exp = 61;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Vulpix:
         type = Type::Fire;
-        hp = 38;
-        attack = 41;
-        defense = 40;
+        baseHP = 38;
+        baseAttack = 41;
+        baseDefense = 40;
         exp = 60;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Rattata:
         type = Type::Normal;
-        hp = 30;
-        attack = 56;
-        defense = 35;
+        baseHP = 30;
+        baseAttack = 56;
+        baseDefense = 35;
         exp = 30;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Venusaur:
         type = Type::Grass;
-        hp = 80;
-        attack = 82;
-        defense = 83;
+        baseHP = 80;
+        baseAttack = 82;
+        baseDefense = 83;
         exp = 236;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Psyduck:
         type = Type::Water;
-        hp = 50;
-        attack = 52;
-        defense = 48;
+        baseHP = 50;
+        baseAttack = 52;
+        baseDefense = 48;
         exp = 64;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Growlithe:
         type = Type::Fire;
-        hp = 55;
-        attack = 70;
-        defense = 45;
+        baseHP = 55;
+        baseAttack = 70;
+        baseDefense = 45;
         exp = 70;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Spearow:
         type = Type::Normal;
-        hp = 40;
-        attack = 60;
-        defense = 30;
+        baseHP = 40;
+        baseAttack = 60;
+        baseDefense = 30;
         exp = 52;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Oddish:
         type = Type::Grass;
-        hp = 45;
-        attack = 50;
-        defense = 55;
+        baseHP = 45;
+        baseAttack = 50;
+        baseDefense = 55;
         exp = 64;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Tentacool:
         type = Type::Water;
-        hp = 40;
-        attack = 40;
-        defense = 35;
+        baseHP = 40;
+        baseAttack = 40;
+        baseDefense = 35;
         exp = 66;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Ponyta:
         type = Type::Fire;
-        hp = 50;
-        attack = 65;
-        defense = 40;
+        baseHP = 50;
+        baseAttack = 65;
+        baseDefense = 40;
         exp = 67;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Meowth:
         type = Type::Normal;
-        hp = 40;
-        attack = 45;
-        defense = 35;
+        baseHP = 40;
+        baseAttack = 45;
+        baseDefense = 35;
         exp = 58;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Gloom:
         type = Type::Grass;
-        hp = 60;
-        attack = 65;
-        defense = 70;
+        baseHP = 60;
+        baseAttack = 65;
+        baseDefense = 70;
         exp = 119;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Staryu:
         type = Type::Water;
-        hp = 30;
-        attack = 45;
-        defense = 50;
+        baseHP = 30;
+        baseAttack = 45;
+        baseDefense = 50;
         exp = 60;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Charmeleon:
         type = Type::Fire;
-        hp = 58;
-        attack = 64;
-        defense = 50;
+        baseHP = 58;
+        baseAttack = 64;
+        baseDefense = 50;
         exp = 142;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Jigglypuff:
         type = Type::Normal;
-        hp = 115;
-        attack = 45;
-        defense = 20;
+        baseHP = 115;
+        baseAttack = 45;
+        baseDefense = 20;
         exp = 95;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Vileplume:
         type = Type::Grass;
-        hp = 75;
-        attack = 70;
-        defense = 65;
+        baseHP = 75;
+        baseAttack = 70;
+        baseDefense = 65;
         exp = 182;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Slowpoke:
         type = Type::Water;
-        hp = 90;
-        attack = 65;
-        defense = 65;
+        baseHP = 90;
+        baseAttack = 65;
+        baseDefense = 65;
         exp = 63;
         growthRate = GrowthRate::Slow;
         break;
     case PokemonSpecies::Rapidash:
         type = Type::Fire;
-        hp = 65;
-        attack = 80;
-        defense = 50;
+        baseHP = 65;
+        baseAttack = 80;
+        baseDefense = 50;
         exp = 175;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Farfetchd:
         type = Type::Normal;
-        hp = 52;
-        attack = 65;
-        defense = 55;
+        baseHP = 52;
+        baseAttack = 65;
+        baseDefense = 55;
         exp = 66;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Paras:
         type = Type::Grass;
-        hp = 35;
-        attack = 70;
-        defense = 55;
+        baseHP = 35;
+        baseAttack = 70;
+        baseDefense = 55;
         exp = 60;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Seel:
         type = Type::Water;
-        hp = 65;
-        attack = 45;
-        defense = 55;
+        baseHP = 65;
+        baseAttack = 45;
+        baseDefense = 55;
         exp = 65;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Magmar:
         type = Type::Fire;
-        hp = 50;
-        attack = 95;
-        defense = 57;
+        baseHP = 50;
+        baseAttack = 95;
+        baseDefense = 57;
         exp = 64;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Raticate:
         type = Type::Normal;
-        hp = 55;
-        attack = 81;
-        defense = 60;
+        baseHP = 55;
+        baseAttack = 81;
+        baseDefense = 60;
         exp = 128;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Parasect:
         type = Type::Grass;
-        hp = 60;
-        attack = 95;
-        defense = 80;
+        baseHP = 60;
+        baseAttack = 95;
+        baseDefense = 80;
         exp = 142;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Wartortle:
         type = Type::Water;
-        hp = 59;
-        attack = 63;
-        defense = 80;
+        baseHP = 59;
+        baseAttack = 63;
+        baseDefense = 80;
         exp = 142;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Ninetales:
         type = Type::Fire;
-        hp = 73;
-        attack = 76;
-        defense = 75;
+        baseHP = 73;
+        baseAttack = 76;
+        baseDefense = 75;
         exp = 177;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Fearow:
         type = Type::Normal;
-        hp = 65;
-        attack = 90;
-        defense = 60;
+        baseHP = 65;
+        baseAttack = 90;
+        baseDefense = 60;
         exp = 152;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Bellsprout:
         type = Type::Grass;
-        hp = 50;
-        attack = 75;
-        defense = 35;
+        baseHP = 50;
+        baseAttack = 75;
+        baseDefense = 35;
         exp = 64;
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Dewgong:
         type = Type::Water;
-        hp = 90;
-        attack = 70;
-        defense = 65;
+        baseHP = 90;
+        baseAttack = 70;
+        baseDefense = 65;
         exp = 166;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Flareon:
         type = Type::Fire;
-        hp = 65;
-        attack = 130;
-        defense = 60;
+        baseHP = 65;
+        baseAttack = 130;
+        baseDefense = 60;
         exp = 184;
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Wigglytuff:
         type = Type::Normal;
-        hp = 140;
-        attack = 70;
-        defense = 45;
+        baseHP = 140;
+        baseAttack = 70;
+        baseDefense = 45;
         exp = 260; // Base Experience for Wigglytuff
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Weepinbell:
         type = Type::Grass;
-        hp = 65;
-        attack = 90;
-        defense = 50;
+        baseHP = 65;
+        baseAttack = 90;
+        baseDefense = 50;
         exp = 210; // Base Experience for Weepinbell
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Blastoise:
         type = Type::Water;
-        hp = 79;
-        attack = 83;
-        defense = 100;
+        baseHP = 79;
+        baseAttack = 83;
+        baseDefense = 100;
         exp = 265; // Base Experience for Blastoise
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Arcanine:
         type = Type::Fire;
-        hp = 90;
-        attack = 110;
-        defense = 80;
+        baseHP = 90;
+        baseAttack = 110;
+        baseDefense = 80;
         exp = 235; // Base Experience for Arcanine
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Persian:
         type = Type::Normal;
-        hp = 65;
-        attack = 70;
-        defense = 60;
+        baseHP = 65;
+        baseAttack = 70;
+        baseDefense = 60;
         exp = 166; // Base Experience for Persian
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Victreebel:
         type = Type::Grass;
-        hp = 75;
-        attack = 100;
-        defense = 70;
+        baseHP = 75;
+        baseAttack = 100;
+        baseDefense = 70;
         exp = 220; // Base Experience for Victreebel
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Lapras:
         type = Type::Water;
-        hp = 130;
-        attack = 85;
-        defense = 80;
+        baseHP = 130;
+        baseAttack = 85;
+        baseDefense = 80;
         exp = 187; // Base Experience for Lapras
         growthRate = GrowthRate::Slow;
         break;
     case PokemonSpecies::Charizard:
         type = Type::Fire;
-        hp = 78;
-        attack = 84;
-        defense = 78;
+        baseHP = 78;
+        baseAttack = 84;
+        baseDefense = 78;
         exp = 240; // Base Experience for Charizard
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Kangaskhan:
         type = Type::Normal;
-        hp = 105;
-        attack = 95;
-        defense = 80;
+        baseHP = 105;
+        baseAttack = 95;
+        baseDefense = 80;
         exp = 173; // Base Experience for Kangaskhan
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Tangela:
         type = Type::Grass;
-        hp = 65;
-        attack = 55;
-        defense = 115;
+        baseHP = 65;
+        baseAttack = 55;
+        baseDefense = 115;
         exp = 87; // Base Experience for Tangela
         growthRate = GrowthRate::Medium;
         break;
     case PokemonSpecies::Gyarados:
         type = Type::Water;
-        hp = 95;
-        attack = 125;
-        defense = 79;
+        baseHP = 95;
+        baseAttack = 125;
+        baseDefense = 79;
         exp = 189; // Base Experience for Gyarados
         growthRate = GrowthRate::Slow;
         break;
     case PokemonSpecies::Moltres:
         type = Type::Fire;
-        hp = 90;
-        attack = 100;
-        defense = 90;
+        baseHP = 90;
+        baseAttack = 100;
+        baseDefense = 90;
         exp = 261; // Base Experience for Moltres
         growthRate = GrowthRate::Fast;
         break;
     case PokemonSpecies::Snorlax:
         type = Type::Normal;
-        hp = 160;
-        attack = 110;
-        defense = 65;
+        baseHP = 160;
+        baseAttack = 110;
+        baseDefense = 65;
         exp = 189; // Base Experience for Snorlax
         growthRate = GrowthRate::Slow;
         break;
     default:
         type = Type::Normal;
-        hp = 0;
-        attack = 0;
-        defense = 0;
+        baseHP = 0;
+        baseAttack = 0;
+        baseDefense = 0;
         exp = 0; // Default Base Experience
         growthRate = GrowthRate::Fast;
     }
+    hp = calculateHP();
+    attack = calculateAttack();
+    defense = calculateDefense();
 }
 
 string Pokemon::speciesToString(PokemonSpecies species) {
@@ -581,15 +584,15 @@ int Pokemon::calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender)
 }
 
 int Pokemon::calculateHP() const {
-    return ( ( (2 * hp) * level ) / 100 ) + level + 10;
+    return ( ( (2 * baseHP) * level ) / 100 ) + level + 10;
 }
 int Pokemon::calculateAttack() const {
-    return ( ( ( 2 * attack) * level ) / 100 ) + 5;
+    return ( ( ( 2 * baseAttack) * level ) / 100 ) + 5;
 }
 int Pokemon::calculateDefense() const {
-    return ( ( (2 * defense) * level ) / 100 ) + 5;
+    return ( ( (2 * baseDefense) * level ) / 100 ) + 5;
 }
-int Pokemon::calculateEXP(Pokemon defeatedPokemon) const{
+int Pokemon::calculateEXP(const Pokemon& defeatedPokemon) const{
     return exp * defeatedPokemon.level / 7;
 }
 
@@ -599,7 +602,16 @@ PokemonSpecies Pokemon::getSpecies() const {
 Type Pokemon::getType() const {
     return type;
 }
-int Pokemon::gethp() const {
+int Pokemon::getBaseHP() const {
+    return baseHP;
+}
+int Pokemon::getBaseAttack() const {
+    return baseAttack;
+}
+int Pokemon::getBaseDefense() const {
+    return baseDefense;
+}
+int Pokemon::getHP() const {
     return hp;
 }
 int Pokemon::getAttack() const {
@@ -627,17 +639,11 @@ Attack* Pokemon::getMove3() const{
 void Pokemon::setSpecies(PokemonSpecies newSpecies) {
     species = newSpecies;
 }
-void Pokemon::sethp(int val){
-    hp = val;
-}
-void Pokemon::setAttack(int val){
-    attack = val;
-}
-void Pokemon::setDefense(int val){
-    defense = val;
-}
 void Pokemon::setLevel(int val) {
     level = val;
+    hp = calculateHP();
+    attack = calculateAttack();
+    defense = calculateDefense();
 }
 void Pokemon::setMove1(Attack* newMove) {
     move1 = newMove;
@@ -654,31 +660,34 @@ void Pokemon::addEXP(int val) {
         cout << speciesToString(species) << "is already lvl 100." << endl;
         return;
     }
+
     cout << speciesToString(species) << " gained " << val << " exp" << endl;
     exp += val;
-    if(growthRate == GrowthRate::Fast){
-        if(exp == level * level * level){
+    int requiredEXP = 0;
+
+    while(true) {
+        if (growthRate == GrowthRate::Fast) {
+            requiredEXP = (4 * level * level * level) / 5;
+        } else if (growthRate == GrowthRate::Medium) {
+            requiredEXP = level * level * level;
+        } else if (growthRate == GrowthRate::Slow) {
+            requiredEXP = (5 * level * level * level) / 4;
+        }
+
+        if (exp >= requiredEXP) {
             cout << "Level Up!   " << level;
             addLevel();
             cout << "  ->  " << level << endl;
+        } else {
+            break; 
         }
     }
-    else if(growthRate == GrowthRate::Medium){
-        if(exp == 1.2 * level * level * level - 15 * level * level + 100 * level - 140){
-            cout << "Level Up!   " << level;
-            addLevel();
-            cout << "  ->  " << level << endl;
-        }
-    }
-    else if(growthRate == GrowthRate::Slow){
-        if(exp == 1.25 * level * level * level){
-            cout << "Level Up!   " << level;
-            addLevel();
-            cout << "  ->  " << level << endl;
-        }
-    }
+    
 }
 
 void Pokemon::addLevel(){
     level++;
+    hp = calculateHP();
+    attack = calculateAttack();
+    defense = calculateDefense();
 }

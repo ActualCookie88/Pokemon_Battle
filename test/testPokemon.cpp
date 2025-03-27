@@ -29,7 +29,11 @@ int main() {
     if(fireSpin->isNotVeryEffective(Squirtle->getType())) {
         cout << fireSpin->getName() << " was Not Very Effective! " << endl;
     }
-    
+    cout << endl;
+
+    Charmander->addEXP(500);
+    Charmander->displayInfo();
+    cout << endl;
 
     /*
     Pokemon* pokemons[] = { attacker, defender };

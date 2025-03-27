@@ -13,6 +13,9 @@ class Pokemon {
         PokemonSpecies species;
         Type type;
         GrowthRate growthRate;
+        int baseHP;
+        int baseAttack;
+        int baseDefense;
         int hp;
         int attack;
         int defense;
@@ -37,11 +40,14 @@ class Pokemon {
         int calculateHP() const;
         int calculateAttack() const;
         int calculateDefense() const;
-        int calculateEXP(Pokemon defeatedPokemon) const;
+        int calculateEXP(const Pokemon& defeatedPokemon) const;
         // getters
         PokemonSpecies getSpecies() const;
         Type getType() const;
-        int gethp() const;
+        int getBaseHP() const;
+        int getBaseAttack() const;
+        int getBaseDefense() const;
+        int getHP() const;
         int getAttack() const;
         int getDefense() const;
         int getLevel() const;
@@ -51,9 +57,6 @@ class Pokemon {
         Attack* getMove3() const;
         // setters
         void setSpecies(PokemonSpecies newSpecies);
-        void sethp(int val);
-        void setAttack(int val);
-        void setDefense(int val);
         void setLevel(int val);
         void addEXP(int val);
         void setMove1(Attack* newMove);
