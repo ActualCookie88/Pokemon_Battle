@@ -1,39 +1,45 @@
 #include "../../header/Pokemon/wildPokemon.h"
+#include <cstdlib>
+#include <ctime>
 
-WildPokemon::WildPokemon(int area){
-    int randomIndex = rand() % allPokemonSpecies.size();
-    PokemonSpecies species = allPokemonSpecies[randomIndex/3*area];
-    initializeStats(species);
-    setBaseHP(getBaseHP()*1.5);
-    setBaseAttack(getBaseAttack()*1.5);
-    setBaseDefense(getBaseDefense()*1.5);
-    int randomLevel = 5 + rand() % 10;
-    for(int i=0;i<randomLevel;i++){
-        addLevel();
+WildPokemon::WildPokemon(int playerMaxLevel) : Pokemon() {
+    static bool seeded = false;
+    if (!seeded) {
+        srand(time(0));  // Seed only once
+        seeded = true;
     }
+
+    int randomIndex = rand() % allPokemonSpecies.size();
+    PokemonSpecies species = allPokemonSpecies[randomIndex];
+    initializeStats(species);
+    vector<Moves> selectedMoves = generateRandomMoves(getType());
+    
+    int levelVariation = (rand() % 11) - 5;  // random adjustment (-2 to +2)
+    int finalLevel = max(1, min(playerMaxLevel + levelVariation, 100));
+
+    setMove1(new Attack(selectedMoves[0])); 
+    setMove2(new Attack(selectedMoves[1])); 
+    setMove3(new Attack(selectedMoves[2])); 
+    
+    setSpecies(species);
+    setLevel(finalLevel);
+    sethp(calculateHP());
+    setAttack(calculateAttack());
+    setDefense(calculateDefense());
 }
 
-Attack* WildPokemon::wildPokemonMove(Pokemon& opponent){
-    Pokemon dummy =Pokemon();
-    dummy = opponent;
-    int move1Damage=dummy.getMove1()->calculateDamage(dummy, opponent);
-    int max = move1Damage;
-    int move2Damage=dummy.getMove2()->calculateDamage(dummy, opponent);
-    int move3Damage=dummy.getMove3()->calculateDamage(dummy, opponent);
-    if(move2Damage >max){
-        max = dummy.getMove2()->calculateDamage(dummy, opponent);
-    }
-    if(move3Damage >max){
-        max = dummy.getMove3()->calculateDamage(dummy, opponent);
-    }
-    if(move1Damage==max){
-        return dummy.getMove1();
-    }
-    else if(move2Damage==max){
-        return dummy.getMove2();
-    }
-    else{
-        return dummy.getMove3();
+Attack* WildPokemon::wildPokemonMove(Pokemon* opponent){
+    int randomMoveIndex = rand() % 3; // Random index between 0 and 2
+
+    switch (randomMoveIndex) {
+        case 0:
+            return getMove1();
+        case 1:
+            return getMove2();
+        case 2:
+            return getMove3();
+        default:
+            return getMove1();
     }
 }
 

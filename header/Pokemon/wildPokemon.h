@@ -1,6 +1,6 @@
 #pragma once
 #include "pokemon.h"
-class WildPokemon : public Pokemon{
+class WildPokemon : public Pokemon {
     private:
         std::vector<PokemonSpecies> allPokemonSpecies = {
             PokemonSpecies::Bulbasaur, PokemonSpecies::Squirtle, PokemonSpecies::Charmander,
@@ -20,8 +20,9 @@ class WildPokemon : public Pokemon{
             PokemonSpecies::Kangaskhan, PokemonSpecies::Tangela, PokemonSpecies::Gyarados,
             PokemonSpecies::Moltres, PokemonSpecies::Snorlax, PokemonSpecies::none
         };
-        WildPokemon(int area);
+        
     public:
-        Attack* wildPokemonMove(Pokemon& opponent);
+        WildPokemon(int playerMaxLevel);
+        Attack* wildPokemonMove(Pokemon* opponent);
 
 };

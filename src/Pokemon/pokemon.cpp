@@ -21,33 +21,7 @@ Pokemon::Pokemon(PokemonSpecies sp): species(sp){ // constructor for all pokemon
     level = 1;
     exp = 0;
     initializeStats(sp);
-
-    vector<Moves> selectedMoves;
-    if (type != Type::Normal) {
-        vector<Moves> availableMoves;  // This will hold the type-specific Moves
-
-        // Populate availableMoves based on the Pokémon type
-        if (type == Type::Fire) {
-            availableMoves = fireTypeMoves;
-        } else if (type == Type::Water) {
-            availableMoves = waterTypeMoves;
-        } else if (type == Type::Grass) {
-            availableMoves = grassTypeMoves;
-        }
-
-        // Shuffle the available Moves for random selection
-        std::random_device rd;
-        std::mt19937 g(rd());
-        std::shuffle(availableMoves.begin(), availableMoves.end(), g);
-
-        // Select the first two random Moves of the same type
-        selectedMoves.push_back(availableMoves[0]);
-        selectedMoves.push_back(availableMoves[1]);
-    }
-
-    // Add one random normal-type move
-    selectedMoves.push_back(normalTypeMoves[rand() % normalTypeMoves.size()]);
-
+    vector<Moves> selectedMoves = generateRandomMoves(type);
     // Initialize Moves
     move1 = new Attack(selectedMoves[0]); 
     move2 = new Attack(selectedMoves[1]); 
@@ -87,6 +61,36 @@ Pokemon& Pokemon::operator=(const Pokemon& other){
     return *this;
 }
 
+vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
+    std::vector<Moves> selectedMoves;
+
+    if (pokemonType != Type::Normal) {
+        std::vector<Moves> availableMoves;
+
+        // Populate availableMoves based on Pokémon type
+        if (pokemonType == Type::Fire) {
+            availableMoves = fireTypeMoves;
+        } else if (pokemonType == Type::Water) {
+            availableMoves = waterTypeMoves;
+        } else if (pokemonType == Type::Grass) {
+            availableMoves = grassTypeMoves;
+        }
+
+        // Shuffle the available moves for random selection
+        std::random_device rd;
+        std::mt19937 g(rd());
+        std::shuffle(availableMoves.begin(), availableMoves.end(), g);
+
+        // Select the first two random moves of the same type
+        selectedMoves.push_back(availableMoves[0]);
+        selectedMoves.push_back(availableMoves[1]);
+    }
+
+    // Add one random Normal-type move
+    selectedMoves.push_back(normalTypeMoves[rand() % normalTypeMoves.size()]);
+
+    return selectedMoves;
+}
 
 void Pokemon::displayInfo() {
     cout << "Species: " << speciesToString(species)
@@ -576,13 +580,13 @@ int Pokemon::calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender)
     return damage * (85 + rand() % 30) / 100;
 }
 
-int Pokemon::calculateHP() const{
+int Pokemon::calculateHP() const {
     return ( ( (2 * hp) * level ) / 100 ) + level + 10;
 }
-int Pokemon::calculateAttack() const{
+int Pokemon::calculateAttack() const {
     return ( ( ( 2 * attack) * level ) / 100 ) + 5;
 }
-int Pokemon::calculateDefense() const{
+int Pokemon::calculateDefense() const {
     return ( ( (2 * defense) * level ) / 100 ) + 5;
 }
 int Pokemon::calculateEXP(Pokemon defeatedPokemon) const{
@@ -618,6 +622,31 @@ Attack* Pokemon::getMove2() const{
 }
 Attack* Pokemon::getMove3() const{
     return move3;
+}
+
+void Pokemon::setSpecies(PokemonSpecies newSpecies) {
+    species = newSpecies;
+}
+void Pokemon::sethp(int val){
+    hp = val;
+}
+void Pokemon::setAttack(int val){
+    attack = val;
+}
+void Pokemon::setDefense(int val){
+    defense = val;
+}
+void Pokemon::setLevel(int val) {
+    level = val;
+}
+void Pokemon::setMove1(Attack* newMove) {
+    move1 = newMove;
+}
+void Pokemon::setMove2(Attack* newMove) {
+    move2 = newMove;
+}
+void Pokemon::setMove3(Attack* newMove) {
+    move3 = newMove;
 }
 
 void Pokemon::addEXP(int val) {

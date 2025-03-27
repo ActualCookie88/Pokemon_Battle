@@ -28,6 +28,7 @@ class Pokemon {
         ~Pokemon();
         Pokemon& operator=(const Pokemon& other);
         // actions
+        vector<Moves> generateRandomMoves(Type pokemonType);
         void displayInfo();
         void initializeStats(PokemonSpecies sp);
         string speciesToString(PokemonSpecies species);
@@ -37,7 +38,7 @@ class Pokemon {
         int calculateAttack() const;
         int calculateDefense() const;
         int calculateEXP(Pokemon defeatedPokemon) const;
-        // getters and setters
+        // getters
         PokemonSpecies getSpecies() const;
         Type getType() const;
         int gethp() const;
@@ -48,6 +49,15 @@ class Pokemon {
         Attack* getMove1() const;
         Attack* getMove2() const;
         Attack* getMove3() const;
+        // setters
+        void setSpecies(PokemonSpecies newSpecies);
+        void sethp(int val);
+        void setAttack(int val);
+        void setDefense(int val);
+        void setLevel(int val);
         void addEXP(int val);
+        void setMove1(Attack* newMove);
+        void setMove2(Attack* newMove);
+        void setMove3(Attack* newMove);
         void addLevel();
 };
