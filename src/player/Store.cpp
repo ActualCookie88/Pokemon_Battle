@@ -59,7 +59,7 @@ void Store::buyItem() {
             amount = amountHelper();
 
             if (storeItems.at(i)->getCost() * amount > money) {
-                cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
+                display->border();
                 cout << "INSUFFICIENT FUNDS." << endl << endl;
             }
 
@@ -67,8 +67,8 @@ void Store::buyItem() {
                 int moneyLost = storeItems.at(i)->getCost() * amount;
                 money -= moneyLost;
                 playerItems.at(i)->addAmount(amount);
-                cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
+                display->border();
+                
                 cout << "PURCHASED " << amount << " " << storeItems.at(i)->getName() 
                     << "(s) FOR " << moneyLost << "¥." << endl << endl;
             }
@@ -100,15 +100,14 @@ void Store::sellItem() {
             amount = amountHelper();
             
             if (playerItems.at(i)->getAmount() < amount) {
-                cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
+                display->border();
                 cout << "INSUFFICIENT AMOUNT." << endl << endl;
             }
             else {
                 playerItems.at(i)->sellAmount(amount);
                 int moneyGained = (playerItems.at(i)->getCost() / 2) * amount;
                 money += moneyGained;
-                cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
+                display->border();
                 cout << amount << " " << storeItems.at(i)->getName() << "(s) SOLD. "
                      << "RECEIVED " << moneyGained << "¥." << endl << endl;
             }
@@ -143,7 +142,7 @@ void Store::viewMyItems(bool isViewing) {
 
 void Store::viewStoreItems() const {
     int count = 1;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
+    display->border();
     cout << "Store: " << endl << endl;
 
     for (int i = 0; i < storeItems.size(); ++i)
