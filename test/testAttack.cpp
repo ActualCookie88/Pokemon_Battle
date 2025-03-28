@@ -10,5 +10,6 @@ int main() {
     cout << "Type: " << fireSpin->typeToString(fireSpin->getType()) << endl;
     cout << "Power: " << fireSpin->getPower() << endl;
 
+    delete fireSpin;
     return 0;
 }

@@ -13,4 +13,6 @@ int main() {
 
     wild->displayInfo();
     cout << endl;
+
+    delete wild;
 }

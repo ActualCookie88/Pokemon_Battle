@@ -28,6 +28,16 @@ Pokemon::Pokemon(PokemonSpecies sp): species(sp){ // constructor for all pokemon
     move3 = new Attack(selectedMoves[2]); 
 }
 
+Pokemon::Pokemon(PokemonSpecies sp, int lvl, int EXP, Moves m1, Moves m2, Moves m3){
+    species = sp;
+    level = lvl;
+    exp = EXP;
+    initializeStats(sp);
+    move1 = new Attack(m1); 
+    move2 = new Attack(m2); 
+    move3 = new Attack(m3); 
+}
+
 Pokemon::~Pokemon() {
     delete move1;
     delete move2;

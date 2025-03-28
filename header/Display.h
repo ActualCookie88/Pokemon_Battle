@@ -8,6 +8,8 @@ using std::string;
 class Display {
     public:
 
+        void border() const;
+
         void displayStartScreen() const;
 
         void displayMenuScreen() const;

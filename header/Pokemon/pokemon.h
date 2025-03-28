@@ -28,6 +28,7 @@ class Pokemon {
     public:
         Pokemon();
         Pokemon(PokemonSpecies sp);
+        Pokemon(PokemonSpecies sp, int lvl, int exp, Moves m1, Moves m2, Moves m3);
         ~Pokemon();
         Pokemon& operator=(const Pokemon& other);
         // actions

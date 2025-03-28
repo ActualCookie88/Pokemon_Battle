@@ -53,4 +53,9 @@ int main() {
     }
     */
     
+    delete Charmander;
+    delete Bulbasaur;
+    delete Squirtle;
+    delete fireSpin;
+    return 0;
 }

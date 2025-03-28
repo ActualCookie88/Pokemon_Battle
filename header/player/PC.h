@@ -1,12 +1,15 @@
 #pragma once
-using namespace std;
 
 #include "../Pokemon/pokemon.h"
+#include "../../header/Display.h"
+
+using namespace std;
 
 class PC {
     private:
         vector<Pokemon*> teamPokemon;
         vector<Pokemon*> caughtPokemon;
+        Display* display;
 
     public:
         PC() : teamPokemon( { } ), caughtPokemon( { } ) {}

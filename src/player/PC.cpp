@@ -1,5 +1,5 @@
 #include "../../header/player/PC.h"
-#include "../../header/Display.h"
+
 #include <iostream>
 #include <limits>
 
@@ -15,7 +15,6 @@ PC::~PC() {
 void PC::initiatePC() {
     bool flag = true;
     int choice;
-    Display* display = new Display();
 
     while (flag) {
         display->displayPCScreen();
@@ -50,7 +49,6 @@ void PC::initiatePC() {
             flag = false;
         }
     }
-    delete display;
 }
 
 void PC::viewPokemonCaught() {
@@ -70,13 +68,14 @@ void PC::viewPokemonStats() {
     int i = 0;
     int choice = 0;
     bool flag = true;
-
     while(flag) {
+        display->border();
         viewPokemonTeam();
         viewPokemonCaught();
         cout << "Enter Pokemon's number to view stats: ";
         i = selectOptionHelper(1, getCaughtPokemon().size() + getTeamPokemon().size());
         cout << endl;
+        display->border();
 
         if(i > getCaughtPokemon().size() + getTeamPokemon().size() || i <= 0) {
             return;
@@ -110,12 +109,11 @@ void PC::viewPokemonTeam() {
 }
 
 void PC::editPokemonTeam() {
-    int choice1 = 0;
-    int choice2 = 0;
-    int choice3 = 0;
+    int choice1, choice2, choice3 = 0;
     bool flag = true;
 
     while(flag) {
+        display->border();
         viewPokemonTeam();
         viewPokemonCaught();
 
@@ -124,13 +122,23 @@ void PC::editPokemonTeam() {
         cout << "Enter number of Pokemon in PC to switch: ";
         choice2 = selectOptionHelper(4, getCaughtPokemon().size() + getTeamPokemon().size());
 
-        Pokemon* temp = teamPokemon.at(choice1-1);
-        teamPokemon.at(choice1-1) = caughtPokemon.at(choice2-getCaughtPokemon().size()-1);
-        caughtPokemon.at(choice2-getCaughtPokemon().size()-1) = temp;
+        int caughtIndex = choice2 - getTeamPokemon().size() - 1; 
+        Pokemon* pokemonInTeam = teamPokemon.at(choice1 - 1);
+        Pokemon* pokemonInCaught = caughtPokemon.at(caughtIndex);
+
+        teamPokemon.at(choice1 - 1) = pokemonInCaught;
+        caughtPokemon.at(caughtIndex) = pokemonInTeam;
+
+        display->border();
+        cout << "SWAPPED (" << choice1 << ") " << pokemonInTeam->speciesToString(pokemonInTeam->getSpecies())
+             << " AND (" << choice2 << ") " << pokemonInCaught->speciesToString(pokemonInCaught->getSpecies())
+             << "!" << endl << endl;
+        viewPokemonTeam();
+        viewPokemonCaught();
 
         cout << "Options: " << endl;
         cout << "(1) Edit Pokemon Team again" << endl;
-        cout << "(2) Go back" << endl;
+        cout << "(2) Go back" << endl << endl;
         cout << "Select option: ";
         choice3 = selectOptionHelper(1,2);
         if(choice3 == 2) {
@@ -138,6 +146,7 @@ void PC::editPokemonTeam() {
         }
     }
 }
+
 
 int PC::clearInputHelper() {
     int i = 0;
