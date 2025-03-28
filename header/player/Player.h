@@ -14,6 +14,7 @@ class Player {
         vector<Pokemon*> caughtPokemon;
         Store* myStore;
         PC* myPC;
+        
     public:
         Player()
          : playerItems( { new StandardBall(), new GreatBall(), new UltraBall(), 

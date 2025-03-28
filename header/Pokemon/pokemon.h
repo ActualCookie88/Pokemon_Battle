@@ -35,13 +35,16 @@ class Pokemon {
         vector<Moves> generateRandomMoves(Type pokemonType);
         void displayInfo();
         void initializeStats(PokemonSpecies sp);
-        string speciesToString(PokemonSpecies species);
-        string typeToString(Type type);
         int calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender) const;
         int calculateHP() const;
         int calculateAttack() const;
         int calculateDefense() const;
         int calculateEXP(const Pokemon& defeatedPokemon) const;
+        // converters
+        string speciesToString(PokemonSpecies species);
+        string typeToString(Type type);
+        PokemonSpecies stringToSpecies(string& sp);
+        Moves stringToMove(const string& move);
         // getters
         PokemonSpecies getSpecies() const;
         Type getType() const;

@@ -108,7 +108,6 @@ vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
     // Remove the selected move to avoid repetition
     availableMoves.erase(remove(availableMoves.begin(), availableMoves.end(), selectedMoves.back()), availableMoves.end());
     selectedMoves.push_back(availableMoves[rand() % availableMoves.size()]);
-
     // Add one random Normal-type move
     selectedMoves.push_back(normalTypeMoves[rand() % normalTypeMoves.size()]);
 
@@ -579,6 +578,140 @@ string Pokemon::speciesToString(PokemonSpecies species) {
         case PokemonSpecies::Snorlax: return "Snorlax";
         default: return "Unknown";
     }
+}
+
+PokemonSpecies Pokemon::stringToSpecies(string& sp) {
+    if (sp == "Bulbasaur") return PokemonSpecies::Bulbasaur;
+    if (sp == "Squirtle") return PokemonSpecies::Squirtle;
+    if (sp == "Charmander") return PokemonSpecies::Charmander;
+    if (sp == "Pidgey") return PokemonSpecies::Pidgey;
+    if (sp == "Ivysaur") return PokemonSpecies::Ivysaur;
+    if (sp == "Horsea") return PokemonSpecies::Horsea;
+    if (sp == "Vulpix") return PokemonSpecies::Vulpix;
+    if (sp == "Rattata") return PokemonSpecies::Rattata;
+    if (sp == "Venusaur") return PokemonSpecies::Venusaur;
+    if (sp == "Psyduck") return PokemonSpecies::Psyduck;
+    if (sp == "Growlithe") return PokemonSpecies::Growlithe;
+    if (sp == "Spearow") return PokemonSpecies::Spearow;
+    if (sp == "Oddish") return PokemonSpecies::Oddish;
+    if (sp == "Tentacool") return PokemonSpecies::Tentacool;
+    if (sp == "Ponyta") return PokemonSpecies::Ponyta;
+    if (sp == "Meowth") return PokemonSpecies::Meowth;
+    if (sp == "Gloom") return PokemonSpecies::Gloom;
+    if (sp == "Staryu") return PokemonSpecies::Staryu;
+    if (sp == "Charmeleon") return PokemonSpecies::Charmeleon;
+    if (sp == "Jigglypuff") return PokemonSpecies::Jigglypuff;
+    if (sp == "Vileplume") return PokemonSpecies::Vileplume;
+    if (sp == "Slowpoke") return PokemonSpecies::Slowpoke;
+    if (sp == "Rapidash") return PokemonSpecies::Rapidash;
+    if (sp == "Farfetch’d") return PokemonSpecies::Farfetchd;
+    if (sp == "Paras") return PokemonSpecies::Paras;
+    if (sp == "Seel") return PokemonSpecies::Seel;
+    if (sp == "Magmar") return PokemonSpecies::Magmar;
+    if (sp == "Raticate") return PokemonSpecies::Raticate;
+    if (sp == "Parasect") return PokemonSpecies::Parasect;
+    if (sp == "Wartortle") return PokemonSpecies::Wartortle;
+    if (sp == "Ninetales") return PokemonSpecies::Ninetales;
+    if (sp == "Fearow") return PokemonSpecies::Fearow;
+    if (sp == "Bellsprout") return PokemonSpecies::Bellsprout;
+    if (sp == "Dewgong") return PokemonSpecies::Dewgong;
+    if (sp == "Flareon") return PokemonSpecies::Flareon;
+    if (sp == "Wigglytuff") return PokemonSpecies::Wigglytuff;
+    if (sp == "Weepinbell") return PokemonSpecies::Weepinbell;
+    if (sp == "Blastoise") return PokemonSpecies::Blastoise;
+    if (sp == "Arcanine") return PokemonSpecies::Arcanine;
+    if (sp == "Persian") return PokemonSpecies::Persian;
+    if (sp == "Victreebel") return PokemonSpecies::Victreebel;
+    if (sp == "Lapras") return PokemonSpecies::Lapras;
+    if (sp == "Charizard") return PokemonSpecies::Charizard;
+    if (sp == "Kangaskhan") return PokemonSpecies::Kangaskhan;
+    if (sp == "Tangela") return PokemonSpecies::Tangela;
+    if (sp == "Gyarados") return PokemonSpecies::Gyarados;
+    if (sp == "Moltres") return PokemonSpecies::Moltres;
+    if (sp == "Snorlax") return PokemonSpecies::Snorlax;
+    return PokemonSpecies::none;
+}
+
+Moves Pokemon::stringToMove(const string& move) {
+    if (move == "FireSpin") return Moves::FireSpin;
+    if (move == "Flamethrower") return Moves::Flamethrower;
+    if (move == "FireBlast") return Moves::FireBlast;
+    if (move == "Ember") return Moves::Ember;
+    if (move == "FirePunch") return Moves::FirePunch;
+    if (move == "Absorb") return Moves::Absorb;
+    if (move == "LeechSeed") return Moves::LeechSeed;
+    if (move == "MegaDrain") return Moves::MegaDrain;
+    if (move == "PetalDance") return Moves::PetalDance;
+    if (move == "RazorLeaf") return Moves::RazorLeaf;
+    if (move == "SleepPowder") return Moves::SleepPowder;
+    if (move == "SolarBeam") return Moves::SolarBeam;
+    if (move == "Spore") return Moves::Spore;
+    if (move == "StunSpore") return Moves::StunSpore;
+    if (move == "VineWhip") return Moves::VineWhip;
+    if (move == "Clamp") return Moves::Clamp;
+    if (move == "Crabhammer") return Moves::Crabhammer;
+    if (move == "HydroPump") return Moves::HydroPump;
+    if (move == "Surf") return Moves::Surf;
+    if (move == "WaterGun") return Moves::WaterGun;
+    if (move == "Waterfall") return Moves::Waterfall;
+    if (move == "Withdraw") return Moves::Withdraw;
+    if (move == "Barrage") return Moves::Barrage;
+    if (move == "Bide") return Moves::Bide;
+    if (move == "Bind") return Moves::Bind;
+    if (move == "BodySlam") return Moves::BodySlam;
+    if (move == "CometPunch") return Moves::CometPunch;
+    if (move == "Cut") return Moves::Cut;
+    if (move == "DefenseCurl") return Moves::DefenseCurl;
+    if (move == "DizzyPunch") return Moves::DizzyPunch;
+    if (move == "DoubleSlap") return Moves::DoubleSlap;
+    if (move == "DoubleEdge") return Moves::DoubleEdge;
+    if (move == "EggBomb") return Moves::EggBomb;
+    if (move == "Explosion") return Moves::Explosion;
+    if (move == "FuryAttack") return Moves::FuryAttack;
+    if (move == "FurySwipes") return Moves::FurySwipes;
+    if (move == "Glare") return Moves::Glare;
+    if (move == "Growl") return Moves::Growl;
+    if (move == "Growth") return Moves::Growth;
+    if (move == "Guillotine") return Moves::Guillotine;
+    if (move == "Harden") return Moves::Harden;
+    if (move == "Headbutt") return Moves::Headbutt;
+    if (move == "HornAttack") return Moves::HornAttack;
+    if (move == "HornDrill") return Moves::HornDrill;
+    if (move == "HyperBeam") return Moves::HyperBeam;
+    if (move == "HyperFang") return Moves::HyperFang;
+    if (move == "Leer") return Moves::Leer;
+    if (move == "LovelyKiss") return Moves::LovelyKiss;
+    if (move == "MegaKick") return Moves::MegaKick;
+    if (move == "MegaPunch") return Moves::MegaPunch;
+    if (move == "Pound") return Moves::Pound;
+    if (move == "QuickAttack") return Moves::QuickAttack;
+    if (move == "Rage") return Moves::Rage;
+    if (move == "RazorWind") return Moves::RazorWind;
+    if (move == "Recover") return Moves::Recover;
+    if (move == "Scratch") return Moves::Scratch;
+    if (move == "Screech") return Moves::Screech;
+    if (move == "SelfDestruct") return Moves::SelfDestruct;
+    if (move == "Sharpen") return Moves::Sharpen;
+    if (move == "Sing") return Moves::Sing;
+    if (move == "SkullBash") return Moves::SkullBash;
+    if (move == "Slam") return Moves::Slam;
+    if (move == "Slash") return Moves::Slash;
+    if (move == "SoftBoiled") return Moves::SoftBoiled;
+    if (move == "SonicBoom") return Moves::SonicBoom;
+    if (move == "SpikeCannon") return Moves::SpikeCannon;
+    if (move == "Splash") return Moves::Splash;
+    if (move == "Stomp") return Moves::Stomp;
+    if (move == "Strength") return Moves::Strength;
+    if (move == "SuperFang") return Moves::SuperFang;
+    if (move == "Supersonic") return Moves::Supersonic;
+    if (move == "SwordsDance") return Moves::SwordsDance;
+    if (move == "Tackle") return Moves::Tackle;
+    if (move == "TailWhip") return Moves::TailWhip;
+    if (move == "TakeDown") return Moves::TakeDown;
+    if (move == "Thrash") return Moves::Thrash;
+    if (move == "ViseGrip") return Moves::ViseGrip;
+    if (move == "Wrap") return Moves::Wrap;
+    return Moves::None; // Add an Unknown case to handle invalid strings
 }
 
 string Pokemon::typeToString(Type type) {

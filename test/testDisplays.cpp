@@ -3,6 +3,7 @@
 int main() {
     Display* screens = new Display();
 
+    screens->border();
     screens->displayStartScreen();
     screens->displayMenuScreen();
     screens->displayInventoryScreen();
