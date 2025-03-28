@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-    WildPokemon* wild = new WildPokemon(20);
+    WildPokemon* wild = new WildPokemon(50);
 
     wild->displayInfo();
     cout << endl;
