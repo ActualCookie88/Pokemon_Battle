@@ -14,5 +14,7 @@ int main() {
     wild->displayInfo();
     cout << endl;
 
+    cout << wild->wildPokemonMove(wild)->getName() << endl;
+
     delete wild;
 }

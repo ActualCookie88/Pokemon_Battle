@@ -1,7 +1,9 @@
 #include "../../header/Pokemon/pokemon.h"
 #include "../../header/Pokemon/attack.h"
 #include <algorithm>
-#include <random> 
+#include <random>
+#include <cstdlib>
+#include <ctime>
 
 vector<Moves> fireTypeMoves = {Moves::FireSpin, Moves::Flamethrower, Moves::FireBlast, Moves::Ember, Moves::FirePunch};
 vector<Moves> waterTypeMoves = {Moves::Clamp, Moves::Crabhammer, Moves::HydroPump, Moves::Surf, Moves::WaterGun, Moves::Waterfall, Moves::Withdraw};
@@ -72,11 +74,15 @@ Pokemon& Pokemon::operator=(const Pokemon& other){
 }
 
 vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
-    std::vector<Moves> selectedMoves;
+    static bool seeded = false;
+    if (!seeded) {
+        srand(time(0));  // Seed only once
+        seeded = true;
+    }
+    vector<Moves> selectedMoves;
+    vector<Moves> availableMoves;
 
     if (pokemonType != Type::Normal) {
-        std::vector<Moves> availableMoves;
-
         // Populate availableMoves based on Pokémon type
         if (pokemonType == Type::Fire) {
             availableMoves = fireTypeMoves;
@@ -87,14 +93,21 @@ vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
         }
 
         // Shuffle the available moves for random selection
-        std::random_device rd;
-        std::mt19937 g(rd());
-        std::shuffle(availableMoves.begin(), availableMoves.end(), g);
-
-        // Select the first two random moves of the same type
-        selectedMoves.push_back(availableMoves[0]);
-        selectedMoves.push_back(availableMoves[1]);
+        random_device rd;
+        mt19937 g(rd());
+        shuffle(availableMoves.begin(), availableMoves.end(), g);
     }
+    else {
+        availableMoves.insert(availableMoves.end(), fireTypeMoves.begin(), fireTypeMoves.end());
+        availableMoves.insert(availableMoves.end(), waterTypeMoves.begin(), waterTypeMoves.end());
+        availableMoves.insert(availableMoves.end(), grassTypeMoves.begin(), grassTypeMoves.end());
+        availableMoves.insert(availableMoves.end(), normalTypeMoves.begin(), normalTypeMoves.end());
+    }
+    // Select the first two random moves
+    selectedMoves.push_back(availableMoves[rand() % availableMoves.size()]);
+    // Remove the selected move to avoid repetition
+    availableMoves.erase(remove(availableMoves.begin(), availableMoves.end(), selectedMoves.back()), availableMoves.end());
+    selectedMoves.push_back(availableMoves[rand() % availableMoves.size()]);
 
     // Add one random Normal-type move
     selectedMoves.push_back(normalTypeMoves[rand() % normalTypeMoves.size()]);
