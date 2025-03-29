@@ -4,6 +4,7 @@ class Player;
 
 #include "player/Player.h"
 #include "Pokemon/pokemon.h"
+#include "Display.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ class Battle {
         bool checkBattleEnd() const;
         int randomNum(int , int);
         Pokemon* displayBattleMenu;
+        Display* display;
 
     public: 
         Battle() : player(nullptr), wildPokemon(nullptr), isPlayerTurn(true), displayBattleMenu(nullptr) {}

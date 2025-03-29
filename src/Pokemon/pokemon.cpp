@@ -795,6 +795,15 @@ Attack* Pokemon::getMove3() const{
 void Pokemon::setSpecies(PokemonSpecies newSpecies) {
     species = newSpecies;
 }
+void Pokemon::setBaseHP(int val) {
+    baseHP = val;
+}
+void Pokemon::setBaseAttack(int val) {
+    baseAttack = val;
+}
+void Pokemon::setBaseDefense(int val) {
+    baseDefense = val;
+}
 void Pokemon::setLevel(int val) {
     level = val;
     hp = calculateHP();

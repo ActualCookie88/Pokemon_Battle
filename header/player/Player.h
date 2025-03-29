@@ -14,6 +14,7 @@ class Player {
         vector<Pokemon*> caughtPokemon;
         Store* myStore;
         PC* myPC;
+        Display* display;
         
     public:
         Player()
@@ -23,13 +24,18 @@ class Player {
             myStore(new Store(playerItems)),
             myPC(new PC(teamPokemon, caughtPokemon)) {}
         ~Player();            
-        // screen accessors
+        // actions
         void accessStore();
         void accessPC();
-        // getters and setters
+        // helpers
+        void viewMyItems(); // refers to Store function
+        void viewPokemonTeam(); // refers to PC function
+        // getters
         vector<Item*> getItems() const { return playerItems; }
         Store* getStore() { return myStore; }
         PC* getPC() { return myPC; }
+        vector<Pokemon*> getTeam() { return teamPokemon; }
+        // setters
         void setItems(vector<Item*> items) { playerItems = items; }
         void setStore(Store* store) {  myStore = store; }
         void setPC(PC* pc) { myPC = pc; }

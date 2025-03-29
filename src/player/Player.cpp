@@ -18,3 +18,11 @@ void Player::accessStore() {
 void Player::accessPC() {
     myPC->initiatePC();
 }
+
+void Player::viewMyItems() {
+    myStore->viewMyItems(true);
+}
+
+void Player::viewPokemonTeam() {
+    myPC->viewPokemonTeam();
+}

@@ -61,6 +61,9 @@ class Pokemon {
         Attack* getMove3() const;
         // setters
         void setSpecies(PokemonSpecies newSpecies);
+        void setBaseHP(int val);
+        void setBaseAttack(int val);
+        void setBaseDefense(int val);
         void setLevel(int val);
         void addEXP(int val);
         void setMove1(Attack* newMove);

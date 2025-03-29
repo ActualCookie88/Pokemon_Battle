@@ -192,7 +192,6 @@ void Display::displayLoseScreen() const {
     cout << "(1) Use Revive Item" << endl; // only works if the user actually owns one, use conditional
     cout << "(2) Give up and flee" << endl;
     cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
     cout << endl;
 }
 
