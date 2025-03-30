@@ -21,3 +21,9 @@ testPlayer
 testStore
 
 valgrind
+
+testAttack
+
+testPokemon
+
+testWild

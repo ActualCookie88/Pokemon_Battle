@@ -1,4 +1,4 @@
-#include "../header/battle.h"
+#include "../../header/player/battle.h"
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void Battle::battleMenu() {
+void Battle::initiateBattle() {
     int choice;
     
     display->displayBattleScreen();
@@ -32,12 +32,40 @@ void Battle::battleMenu() {
     }
 }
 
+void Battle::viewItems() const {
+    player->viewMyItems(false);
+}
+
+void Battle::viewTeam() const {
+    player->viewPokemonTeam();
+}
+
+
+
+void Battle::flee() {
+    static random_device rd;
+    static mt19937 gen(rd());
+    static bernoulli_distribution dist(0.5); // 50% chance
+
+    if (dist(gen)) {
+        cout << "You got away safely!" << endl;
+        wildPokemon->setBaseHP(0); // End battle
+
+    } else {
+        cout << "You failed to escape!" << endl;
+    }
+}
+
 int Battle::randomNum(int min, int max) {
     return min + (rand() % (max-min+1));
 }
 
 bool Battle::checkBattleEnd() const {
-    return player->getTeam()[0]->getBaseHP() <= 0 || wildPokemon->getBaseHP() <=0;
+    int sum = 0;
+    for (Pokemon* pokemon : player->getTeam()) {
+        sum += pokemon->getHP();
+    }
+    return sum <= 0 || wildPokemon->getHP() <= 0;
 }
 
 void Battle::startBattle() {
@@ -70,27 +98,9 @@ bool Battle::isCatchSuccess(const Pokeball& pokeball) {
     return false;
 }
 
-void Battle::viewItems() const {
-    player->viewMyItems();
-}
 
-void Battle::viewTeam() const {
-    player->viewPokemonTeam();
-}
 
-void Battle::flee() {
-    static random_device rd;
-    static mt19937 gen(rd());
-    static bernoulli_distribution dist(0.5); // 50% chance
 
-    if (dist(gen)) {
-        cout << "You got away safely!" << endl;
-        wildPokemon->setBaseHP(0); // End battle
-
-    } else {
-        cout << "You failed to escape!" << endl;
-    }
-}
 
 void Battle::endBattle() {
     if (player->getTeam()[0]->getHP() <= 0) {

@@ -1,5 +1,6 @@
 #pragma once
 #include "pokemon.h"
+#include "../player/Player.h"
 class WildPokemon : public Pokemon {
     private:
         std::vector<PokemonSpecies> allPokemonSpecies = {
@@ -22,7 +23,7 @@ class WildPokemon : public Pokemon {
         };
         
     public:
-        WildPokemon(int playerMaxLevel);
+        WildPokemon(Player* player);
         Attack* wildPokemonMove(Pokemon* opponent);
 
 };

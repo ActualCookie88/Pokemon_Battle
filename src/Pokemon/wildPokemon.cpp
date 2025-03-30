@@ -2,7 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
-WildPokemon::WildPokemon(int playerMaxLevel) : Pokemon() {
+WildPokemon::WildPokemon(Player* player) : Pokemon() {
+    int maxLevel = player->getMaxLevelPokemon();
     static bool seeded = false;
     if (!seeded) {
         srand(time(0));  // Seed only once
@@ -15,7 +16,7 @@ WildPokemon::WildPokemon(int playerMaxLevel) : Pokemon() {
     vector<Moves> selectedMoves = generateRandomMoves(getType());
     
     int levelVariation = (rand() % 11) - 5; 
-    int finalLevel = max(1, min(playerMaxLevel + levelVariation, 100));
+    int finalLevel = max(1, min(maxLevel + levelVariation, 100));
 
     setMove1(new Attack(selectedMoves[0])); 
     setMove2(new Attack(selectedMoves[1])); 

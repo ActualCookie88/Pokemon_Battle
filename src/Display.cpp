@@ -20,8 +20,6 @@ void Display::displayStartScreen() const {
     cout << endl;
     cout << "(1) New Game" << endl;
     cout << "(2) Load Game" << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
     cout << endl;
 }
 
@@ -43,8 +41,6 @@ void Display::displayMenuScreen() const {
     cout << "(3) Search for Wild Pokemon" << endl;
     cout << "(4) Save Game" << endl;
     cout << "(5) Log Out" << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
     cout << endl;
 }
 
@@ -64,8 +60,6 @@ void Display::displayInventoryScreen() const {
     cout << "(1) View Pokemon in PC" << endl;
     cout << "(2) View Items" << endl;
     cout << "(3) Go Back" << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
     cout << endl;
 }
 
@@ -81,8 +75,6 @@ void Display::displayPCScreen() const {
     cout << "|    |_|     |_____|   |" << endl;
     cout << "|                      |" << endl;
     cout << "|______________________|" << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
     cout << endl;
 }
 
@@ -141,8 +133,6 @@ void Display::displayBattleScreen() const {
     cout << "(3) View Active Pokemon Moveset" << endl;
     cout << "(4) View Wild Pokemon stats" << endl;
     cout << "(5) Attempt to flee battle" << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
     cout << endl;
 }
 
@@ -158,8 +148,6 @@ void Display::displayMovesScreen() const {
     cout << "|    |_|   |_| |_____| |__/     |_____| |_____|    |" << endl;
     cout << "|                                                  |" << endl;
     cout << "|__________________________________________________|" << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
     cout << endl;
 
     string pokemon = "Pikachu";
@@ -191,7 +179,6 @@ void Display::displayLoseScreen() const {
     cout << "ALL OF YOUR POKEMON HAVE FAINTED!" << endl;
     cout << "(1) Use Revive Item" << endl; // only works if the user actually owns one, use conditional
     cout << "(2) Give up and flee" << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
     cout << endl;
 }
 
@@ -208,8 +195,6 @@ void Display::displayTeamScreen() const {
     cout << "|                                           |" << endl;
     cout << "|___________________________________________|" << endl;
     cout << endl;
-    cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-
 
     cout << "Pokemon in main team (MAX 3): "<< endl;
     // access and print user's team, example:

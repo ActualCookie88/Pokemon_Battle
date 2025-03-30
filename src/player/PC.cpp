@@ -51,6 +51,11 @@ void PC::initiatePC() {
     }
 }
 
+
+void PC::addPokemon(Pokemon* pokemon) {
+    caughtPokemon.push_back(pokemon);
+}
+
 void PC::viewPokemonCaught() {
     cout << "Pokemon in your PC:" << endl;
     for (int i = 0; i < getCaughtPokemon().size(); i++) {
@@ -58,10 +63,6 @@ void PC::viewPokemonCaught() {
         cout << endl;
     }
     cout << endl;
-}
-
-void PC::addPokemon(Pokemon* pokemon) {
-    caughtPokemon.push_back(pokemon);
 }
 
 void PC::viewPokemonStats() {
@@ -100,6 +101,7 @@ void PC::viewPokemonStats() {
 }
 
 void PC::viewPokemonTeam() {
+    display->displayPCScreen();
     cout << "Pokemon in your Team:" << endl;
     for (int i = 0; i < getTeamPokemon().size(); i++) {
         cout << "(" << i + 1 << ") " << getTeamPokemon().at(i)->speciesToString(getTeamPokemon().at(i)->getSpecies());
@@ -147,6 +149,12 @@ void PC::editPokemonTeam() {
     }
 }
 
+void PC::displayTeamStats() {
+    for (const auto& pokemon : teamPokemon) {
+        pokemon->displayInfo();
+        cout << endl;
+    }
+}
 
 int PC::clearInputHelper() {
     int i = 0;
@@ -170,4 +178,9 @@ int PC::validateInput(int input, int min, int max) {
         input = clearInputHelper();
     }
     return input;
+}
+
+void PC::setTeamAndCaught(vector<Pokemon*> team) {
+    teamPokemon = team;
+    caughtPokemon = team;
 }

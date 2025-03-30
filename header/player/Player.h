@@ -17,26 +17,34 @@ class Player {
         Display* display;
         
     public:
-        Player()
-         : playerItems( { new StandardBall(), new GreatBall(), new UltraBall(), 
+        Player() : 
+        playerItems({   new StandardBall(), new GreatBall(), new UltraBall(), 
                         new StandardPotion(), new SuperPotion(), new HyperPotion(), 
-                        new StandardRevive(), new MaxRevive() } ),
-            myStore(new Store(playerItems)),
-            myPC(new PC(teamPokemon, caughtPokemon)) {}
+                        new StandardRevive(), new MaxRevive() }),
+        teamPokemon({   new Pokemon(PokemonSpecies::Charmander), 
+                        new Pokemon(PokemonSpecies::Bulbasaur), 
+                        new Pokemon(PokemonSpecies::Squirtle) }),
+        caughtPokemon(teamPokemon),
+        myStore(new Store(playerItems)),
+        myPC(new PC(teamPokemon, caughtPokemon)) {}
         ~Player();            
         // actions
         void accessStore();
         void accessPC();
         // helpers
-        void viewMyItems(); // refers to Store function
+        void viewMyItems(bool isViewing); // refers to Store function
         void viewPokemonTeam(); // refers to PC function
+        void displayTeamStats(); // refers to PC function
         // getters
-        vector<Item*> getItems() const { return playerItems; }
-        Store* getStore() { return myStore; }
-        PC* getPC() { return myPC; }
-        vector<Pokemon*> getTeam() { return teamPokemon; }
+        vector<Item*> getItems() const;
+        vector<Pokemon*> getTeam();
+        vector<Pokemon*> getCaught();
+        Store* getStore();
+        PC* getPC();
+        int getMaxLevelPokemon();
         // setters
-        void setItems(vector<Item*> items) { playerItems = items; }
-        void setStore(Store* store) {  myStore = store; }
-        void setPC(PC* pc) { myPC = pc; }
+        void setItems(vector<Item*> items);
+        void setStore(Store* store);
+        void setPC(PC* pc);
+        void setTeamlevel(int val);
 };

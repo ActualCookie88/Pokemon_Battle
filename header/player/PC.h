@@ -22,6 +22,7 @@ class PC {
         void viewPokemonStats();
         void viewPokemonTeam();
         void editPokemonTeam();
+        void displayTeamStats();
         // helpers
         int clearInputHelper();
         int selectOptionHelper(int min, int max);
@@ -34,4 +35,5 @@ class PC {
         // setters
         void setCaughtPokemon(vector<Pokemon*> pokemon) { caughtPokemon = pokemon; }
         void setTeamPokemon(vector<Pokemon*> pokemon) { teamPokemon = pokemon; }
+        void setTeamAndCaught(vector<Pokemon*> team);
 }; 

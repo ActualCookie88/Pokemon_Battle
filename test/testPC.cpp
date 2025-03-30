@@ -18,6 +18,8 @@ int main() {
         new Pokemon(PokemonSpecies::Blastoise)
     });
 
+    PC->displayTeamStats();
+
     player->accessPC();
 
     delete player;
