@@ -5,12 +5,18 @@ Player::~Player() {
     for (Item* item : playerItems) {
         delete item;
     }
+    for (Pokemon* pokemon : teamPokemon) {
+        delete pokemon;
+    }
+    for (Pokemon* pokemon : caughtPokemon) {
+        delete pokemon;
+    }
     playerItems.clear();
+    teamPokemon.clear();
+    caughtPokemon.clear();
     
     delete myStore;
     delete myPC;
-    delete display;
-
 }
 
 void Player::accessStore() {

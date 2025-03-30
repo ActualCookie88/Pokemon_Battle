@@ -7,7 +7,7 @@ int main() {
     player->viewPokemonTeam();
     player->displayTeamStats();
 
-    
+    cout << player->getMaxLevelPokemon() << endl;
 
     return 0;
 }
