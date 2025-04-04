@@ -2,35 +2,50 @@
 
 #include "player/Player.h"
 #include "Pokemon/pokemon.h"
+#include "Pokemon/wildPokemon.h"
 #include "Display.h"
 
 using namespace std;
 
 class Battle {
     private:
-        Pokemon* wildPokemon;
+        WildPokemon* wildPokemon;
         Display* display;
         bool isPlayerTurn;
         Player* player;
 
     public: 
         Battle() : player(nullptr), wildPokemon(nullptr), isPlayerTurn(true) {}
-        Battle(Player*& p, Pokemon* wp) : player(p), wildPokemon(wp), isPlayerTurn(true) {}
+        Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), isPlayerTurn(true) {}
         // actions
         void initiateBattle();
 
-        void viewItems() const;
-        void viewTeam() const;
-        
+        void viewUseItems();
+        void viewItem();
+        void useItem();
+
+        void viewTeam();
+
 
         void flee();
 
 
         bool checkBattleEnd() const;
+
         int randomNum(int , int);
+
         void startBattle();
-        bool isCatchable() const;
+
         bool isCatchSuccess(const Pokeball& pokeball);
+
         void endBattle();
+
+        // helpers
+        int clearInputHelper();
+        int selectOptionHelper(int min, int max);
+        int validateInput(int input, int min, int max);
+        // getters
+        Player* getPlayer() { return player;}
+        WildPokemon* getWildPokemon() { return wildPokemon; }
        
 };

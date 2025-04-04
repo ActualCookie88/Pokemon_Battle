@@ -13,6 +13,7 @@ class Pokemon {
         PokemonSpecies species;
         Type type;
         GrowthRate growthRate;
+        int baseCatchRate;
         int baseHP;
         int baseAttack;
         int baseDefense;
@@ -48,6 +49,7 @@ class Pokemon {
         // getters
         PokemonSpecies getSpecies() const;
         Type getType() const;
+        int getBaseCatchRate() const;
         int getBaseHP() const;
         int getBaseAttack() const;
         int getBaseDefense() const;

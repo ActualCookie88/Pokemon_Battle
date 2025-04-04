@@ -18,7 +18,6 @@ int main() {
     // Use all Pokeballs
     for(Pokeball* ball : balls) {
         ball->useItem();
-        ball->catchPokemon(25);    // catch chance in %
         cout << endl;
     }
     

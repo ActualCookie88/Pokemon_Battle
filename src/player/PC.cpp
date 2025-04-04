@@ -67,7 +67,7 @@ void PC::viewPokemonStats() {
         display->border();
         viewPokemonTeam();
         viewPokemonCaught();
-        cout << "Enter Pokemon's number to view stats: ";
+        cout << "Enter Pokemon to view: ";
         i = selectOptionHelper(1, getCaughtPokemon().size() + getTeamPokemon().size());
         cout << endl;
         display->border();
@@ -85,7 +85,7 @@ void PC::viewPokemonStats() {
         
         cout << "Options: " << endl;
         cout << "(1) View another Pokemon's stats" << endl;
-        cout << "(2) Go back" << endl;
+        cout << "(2) Go back" << endl << endl;
         cout << "Select option: ";
         choice = selectOptionHelper(1,2);
         if(choice == 2) {

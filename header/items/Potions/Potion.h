@@ -12,6 +12,6 @@ class Potion : public Item {
         Potion(string potionName, string desc, int potionCost, PotionType potionType);
         virtual ~Potion() {}
 
-        void useItem() const override;
+        void useItem() override;
         void displayInfo() const override;
 };

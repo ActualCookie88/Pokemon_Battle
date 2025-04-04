@@ -27,12 +27,13 @@ class Store {
                         new StandardPotion(), new SuperPotion(), new HyperPotion(), 
                         new StandardRevive(), new MaxRevive() }) {}
         ~Store();
-        //actions
+        // actions
         void initiateStore();
         void buyItem();
         void sellItem();
         void viewMyItems(bool isViewing);
         void viewStoreItems() const;
+        void viewItemStats(int itemNum) const;
         // helpers
         int amountHelper();
         int clearInputHelper();
@@ -41,4 +42,5 @@ class Store {
         // getters and setters
         int getMoney() const { return money; }
         void setMoney(int mon) { money = mon; }
+        void setAllAmount(int amount);
 };

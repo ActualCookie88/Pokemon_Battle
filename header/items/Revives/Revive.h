@@ -11,6 +11,6 @@ class Revive : public Item {
         Revive(string reviveName, string desc, int reviveCost, ReviveType reviveType);
         virtual ~Revive() {}
         
-        void useItem() const override;
+        void useItem() override;
         void displayInfo() const override;
 };

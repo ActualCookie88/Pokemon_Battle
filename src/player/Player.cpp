@@ -28,6 +28,10 @@ void Player::viewMyItems(bool isViewing) {
     myStore->viewMyItems(isViewing);
 }
 
+void Player::viewItemStats(int itemNum) {
+    myStore->viewItemStats(itemNum);
+}
+
 void Player::viewPokemonTeam() {
     myPC->viewPokemonTeam();
 }

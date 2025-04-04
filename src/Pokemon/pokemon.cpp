@@ -136,6 +136,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 49;
         exp = 64;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 45; // Base catch rate for Bulbasaur
         break;
     case PokemonSpecies::Squirtle:
         type = Type::Water;
@@ -144,6 +145,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 65;
         exp = 63;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45; // Base catch rate for Squirtle
         break;
     case PokemonSpecies::Charmander:
         type = Type::Fire;
@@ -152,6 +154,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 43;
         exp = 62;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45; // Base catch rate for Charmander
         break;
     case PokemonSpecies::Pidgey:
         type = Type::Normal;
@@ -160,6 +163,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 40;
         exp = 50;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255; // Base catch rate for Pidgey
         break;
     case PokemonSpecies::Ivysaur:
         type = Type::Grass;
@@ -168,6 +172,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 63;
         exp = 142;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 45; // Base catch rate for Ivysaur
         break;
     case PokemonSpecies::Horsea:
         type = Type::Water;
@@ -176,6 +181,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 35;
         exp = 61;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 225; // Base catch rate for Horsea
         break;
     case PokemonSpecies::Vulpix:
         type = Type::Fire;
@@ -184,6 +190,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 40;
         exp = 60;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190; // Base catch rate for Vulpix
         break;
     case PokemonSpecies::Rattata:
         type = Type::Normal;
@@ -192,6 +199,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 35;
         exp = 30;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255; // Base catch rate for Rattata
         break;
     case PokemonSpecies::Venusaur:
         type = Type::Grass;
@@ -200,6 +208,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 83;
         exp = 236;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 45; // Base catch rate for Venusaur
         break;
     case PokemonSpecies::Psyduck:
         type = Type::Water;
@@ -208,6 +217,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 48;
         exp = 64;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190; // Base catch rate for Psyduck
         break;
     case PokemonSpecies::Growlithe:
         type = Type::Fire;
@@ -216,6 +226,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 45;
         exp = 70;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190; // Base catch rate for Growlithe
         break;
     case PokemonSpecies::Spearow:
         type = Type::Normal;
@@ -224,6 +235,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 30;
         exp = 52;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255; // Base catch rate for Spearow
         break;
     case PokemonSpecies::Oddish:
         type = Type::Grass;
@@ -232,6 +244,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 55;
         exp = 64;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 255; // Base catch rate for Oddish
         break;
     case PokemonSpecies::Tentacool:
         type = Type::Water;
@@ -240,6 +253,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 35;
         exp = 66;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190; // Base catch rate for Tentacool
         break;
     case PokemonSpecies::Ponyta:
         type = Type::Fire;
@@ -248,6 +262,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 40;
         exp = 67;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190; // Base catch rate for Ponyta
         break;
     case PokemonSpecies::Meowth:
         type = Type::Normal;
@@ -256,14 +271,16 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 35;
         exp = 58;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255; // Base catch rate for Meowth
         break;
-    case PokemonSpecies::Gloom:
+        case PokemonSpecies::Gloom:
         type = Type::Grass;
         baseHP = 60;
         baseAttack = 65;
         baseDefense = 70;
         exp = 119;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 45;  // Gloom base catch rate
         break;
     case PokemonSpecies::Staryu:
         type = Type::Water;
@@ -272,6 +289,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 50;
         exp = 60;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255;  // Staryu base catch rate
         break;
     case PokemonSpecies::Charmeleon:
         type = Type::Fire;
@@ -280,6 +298,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 50;
         exp = 142;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 120;  // Charmeleon base catch rate
         break;
     case PokemonSpecies::Jigglypuff:
         type = Type::Normal;
@@ -288,6 +307,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 20;
         exp = 95;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 170;  // Jigglypuff base catch rate
         break;
     case PokemonSpecies::Vileplume:
         type = Type::Grass;
@@ -296,6 +316,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 65;
         exp = 182;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 45;  // Vileplume base catch rate
         break;
     case PokemonSpecies::Slowpoke:
         type = Type::Water;
@@ -304,6 +325,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 65;
         exp = 63;
         growthRate = GrowthRate::Slow;
+        baseCatchRate = 190;  // Slowpoke base catch rate
         break;
     case PokemonSpecies::Rapidash:
         type = Type::Fire;
@@ -312,6 +334,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 50;
         exp = 175;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 60;  // Rapidash base catch rate
         break;
     case PokemonSpecies::Farfetchd:
         type = Type::Normal;
@@ -320,6 +343,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 55;
         exp = 66;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255;  // Farfetch'd base catch rate
         break;
     case PokemonSpecies::Paras:
         type = Type::Grass;
@@ -328,6 +352,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 55;
         exp = 60;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 255;  // Paras base catch rate
         break;
     case PokemonSpecies::Seel:
         type = Type::Water;
@@ -336,6 +361,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 55;
         exp = 65;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190;  // Seel base catch rate
         break;
     case PokemonSpecies::Magmar:
         type = Type::Fire;
@@ -344,6 +370,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 57;
         exp = 64;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45;  // Magmar base catch rate
         break;
     case PokemonSpecies::Raticate:
         type = Type::Normal;
@@ -352,6 +379,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 60;
         exp = 128;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255;  // Raticate base catch rate
         break;
     case PokemonSpecies::Parasect:
         type = Type::Grass;
@@ -360,6 +388,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 80;
         exp = 142;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 120;  // Parasect base catch rate
         break;
     case PokemonSpecies::Wartortle:
         type = Type::Water;
@@ -368,6 +397,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 80;
         exp = 142;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45;  // Wartortle base catch rate
         break;
     case PokemonSpecies::Ninetales:
         type = Type::Fire;
@@ -376,6 +406,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 75;
         exp = 177;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 75;  // Ninetales base catch rate
         break;
     case PokemonSpecies::Fearow:
         type = Type::Normal;
@@ -384,6 +415,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 60;
         exp = 152;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190;  // Fearow base catch rate
         break;
     case PokemonSpecies::Bellsprout:
         type = Type::Grass;
@@ -392,6 +424,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 35;
         exp = 64;
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 255;  // Bellsprout base catch rate
         break;
     case PokemonSpecies::Dewgong:
         type = Type::Water;
@@ -400,6 +433,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 65;
         exp = 166;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 60;  // Dewgong base catch rate
         break;
     case PokemonSpecies::Flareon:
         type = Type::Fire;
@@ -408,6 +442,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 60;
         exp = 184;
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45;  // Flareon base catch rate
         break;
     case PokemonSpecies::Wigglytuff:
         type = Type::Normal;
@@ -416,6 +451,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 45;
         exp = 260; // Base Experience for Wigglytuff
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 170;  // Wigglytuff base catch rate
         break;
     case PokemonSpecies::Weepinbell:
         type = Type::Grass;
@@ -424,6 +460,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 50;
         exp = 210; // Base Experience for Weepinbell
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 120;  // Weepinbell base catch rate
         break;
     case PokemonSpecies::Blastoise:
         type = Type::Water;
@@ -432,6 +469,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 100;
         exp = 265; // Base Experience for Blastoise
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45;  // Blastoise base catch rate
         break;
     case PokemonSpecies::Arcanine:
         type = Type::Fire;
@@ -440,6 +478,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 80;
         exp = 235; // Base Experience for Arcanine
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 75;  // Arcanine base catch rate
         break;
     case PokemonSpecies::Persian:
         type = Type::Normal;
@@ -448,6 +487,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 60;
         exp = 166; // Base Experience for Persian
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 190;  // Persian base catch rate
         break;
     case PokemonSpecies::Victreebel:
         type = Type::Grass;
@@ -456,6 +496,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 70;
         exp = 220; // Base Experience for Victreebel
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 45;  // Victreebel base catch rate
         break;
     case PokemonSpecies::Lapras:
         type = Type::Water;
@@ -464,6 +505,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 80;
         exp = 187; // Base Experience for Lapras
         growthRate = GrowthRate::Slow;
+        baseCatchRate = 60;  // Lapras base catch rate
         break;
     case PokemonSpecies::Charizard:
         type = Type::Fire;
@@ -472,6 +514,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 78;
         exp = 240; // Base Experience for Charizard
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45;  // Charizard base catch rate
         break;
     case PokemonSpecies::Kangaskhan:
         type = Type::Normal;
@@ -480,6 +523,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 80;
         exp = 173; // Base Experience for Kangaskhan
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 45;  // Kangaskhan base catch rate
         break;
     case PokemonSpecies::Tangela:
         type = Type::Grass;
@@ -488,6 +532,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 115;
         exp = 87; // Base Experience for Tangela
         growthRate = GrowthRate::Medium;
+        baseCatchRate = 45;  // Tangela base catch rate
         break;
     case PokemonSpecies::Gyarados:
         type = Type::Water;
@@ -496,6 +541,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 79;
         exp = 189; // Base Experience for Gyarados
         growthRate = GrowthRate::Slow;
+        baseCatchRate = 45;  // Gyarados base catch rate
         break;
     case PokemonSpecies::Moltres:
         type = Type::Fire;
@@ -504,6 +550,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 90;
         exp = 261; // Base Experience for Moltres
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 3;  // Moltres base catch rate
         break;
     case PokemonSpecies::Snorlax:
         type = Type::Normal;
@@ -512,6 +559,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 65;
         exp = 189; // Base Experience for Snorlax
         growthRate = GrowthRate::Slow;
+        baseCatchRate = 25;  // Snorlax base catch rate
         break;
     default:
         type = Type::Normal;
@@ -520,6 +568,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
         baseDefense = 0;
         exp = 0; // Default Base Experience
         growthRate = GrowthRate::Fast;
+        baseCatchRate = 255;  // Default base catch rate
     }
     hp = calculateHP();
     attack = calculateAttack();
@@ -757,6 +806,9 @@ PokemonSpecies Pokemon::getSpecies() const {
 }
 Type Pokemon::getType() const {
     return type;
+}
+int Pokemon::getBaseCatchRate() const {
+    return baseCatchRate;
 }
 int Pokemon::getBaseHP() const {
     return baseHP;

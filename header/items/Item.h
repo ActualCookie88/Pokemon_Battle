@@ -17,15 +17,20 @@ class Item {
         Item();
         Item(string itemName, string itemDesc, int itemCost);
         virtual ~Item() {}
-
+        // helpers
+        bool isPokeball() const;
+        bool isPotion() const;
+        bool isRevive() const;
+        // getters and setters
         string getName() const;
         string getDescription() const;
         int getCost() const;
         int getAmount() const;
         void addAmount(int amount);
         void sellAmount(int amount);
-
-        virtual void useItem() const = 0;
+        void setAmount(int amount);
+        // pure functions
+        virtual void useItem() = 0;
         virtual void displayInfo() const = 0;
         
 };

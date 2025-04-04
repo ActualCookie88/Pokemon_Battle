@@ -153,6 +153,13 @@ void Store::viewStoreItems() const {
     }
 }
 
+void Store::viewItemStats(int itemNum) const {
+    display->border();
+    cout << "(" << itemNum << ") ";
+    storeItems.at(itemNum-1)->displayInfo();
+    cout << endl;
+}
+
 int Store::amountHelper() {
     int amount = 0;
     cout << "Enter amount: ";
@@ -213,4 +220,10 @@ bool Store::selectOptionHelper2() {
     }
 
     return flag;
+}
+
+void Store::setAllAmount(int amount) {
+    for( Item* item : playerItems) {
+        item->setAmount(amount);
+    }
 }

@@ -20,7 +20,7 @@ Potion::Potion(string potionName, string desc, int potionCost, PotionType potion
  }
 
 void Potion::useItem() const {
-    cout << "You used a " << name << " to heal " << healingAmount << " HP.\n";
+    cout << "You used a " << name << " to heal " << healingAmount << " HP!\n";
 }
 
 void Potion::displayInfo() const {

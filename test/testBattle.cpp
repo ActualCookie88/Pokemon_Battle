@@ -13,11 +13,13 @@ using namespace std;
 int main() {
     Player* player = new Player();
     WildPokemon* wildPokemon = new WildPokemon(player);
-
     Battle* battle = new Battle(player, wildPokemon);
+    player->getStore()->setAllAmount(50);
     
+    battle->initiateBattle();
 
-    delete player;
     delete wildPokemon;
+    delete player;
+    
     return 0;
 }

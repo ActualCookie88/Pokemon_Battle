@@ -1,5 +1,6 @@
 #pragma once
 #include "../Item.h"
+#include "../../battle.h"
 using namespace std;
 
 class Pokeball : public Item {
@@ -12,9 +13,9 @@ class Pokeball : public Item {
         Pokeball(string ballName, string desc, int ballCost, BallType ballType);
         virtual ~Pokeball() { }
 
-        void catchPokemon(double baseCatchChance) const;
+        void catchPokemon(Battle* battle, int baseCatchChance) const;
         
-        void useItem() const override;
+        void useItem() override;
         void displayInfo() const override;
 
         double getMultiplier() const;
