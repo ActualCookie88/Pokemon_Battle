@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-WildPokemon::WildPokemon(Player* player) : Pokemon() {
+WildPokemon::WildPokemon(Player*& player) : Pokemon() {
     int maxLevel = player->getMaxLevelPokemon();
     static bool seeded = false;
     if (!seeded) {

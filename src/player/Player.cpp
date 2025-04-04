@@ -11,9 +11,6 @@ Player::~Player() {
     for (Pokemon* pokemon : caughtPokemon) {
         delete pokemon;
     }
-    playerItems.clear();
-    teamPokemon.clear();
-    caughtPokemon.clear();
     
     delete myStore;
     delete myPC;

@@ -1,4 +1,4 @@
-#include "../../header/player/battle.h"
+#include "../header/battle.h"
 #include <iostream>
 #include <vector>
 #include <limits>

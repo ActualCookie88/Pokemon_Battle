@@ -24,7 +24,9 @@ class Player {
         teamPokemon({   new Pokemon(PokemonSpecies::Charmander), 
                         new Pokemon(PokemonSpecies::Bulbasaur), 
                         new Pokemon(PokemonSpecies::Squirtle) }),
-        caughtPokemon(teamPokemon),
+        caughtPokemon({ new Pokemon(PokemonSpecies::Charmander), 
+                        new Pokemon(PokemonSpecies::Bulbasaur), 
+                        new Pokemon(PokemonSpecies::Squirtle) }),
         myStore(new Store(playerItems)),
         myPC(new PC(teamPokemon, caughtPokemon)) {}
         ~Player();            

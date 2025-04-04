@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Player.h"
-#include "../Pokemon/pokemon.h"
-#include "../Display.h"
+#include "player/Player.h"
+#include "Pokemon/pokemon.h"
+#include "Display.h"
 
 using namespace std;
 

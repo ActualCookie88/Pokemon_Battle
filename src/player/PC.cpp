@@ -4,12 +4,6 @@
 #include <limits>
 
 PC::~PC() {
-    for (Pokemon* p : teamPokemon) {
-        delete p;
-    }
-    for (Pokemon* p : caughtPokemon) {
-        delete p;
-    }
 }
 
 void PC::initiatePC() {

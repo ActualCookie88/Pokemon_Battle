@@ -23,6 +23,6 @@ class WildPokemon : public Pokemon {
         };
         
     public:
-        WildPokemon(Player* player);
+        WildPokemon(Player*& player);
         Attack* wildPokemonMove(Pokemon* opponent);
 };

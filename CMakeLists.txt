@@ -148,11 +148,11 @@ add_executable(testPlayer
 add_executable(testBattle
     test/testBattle.cpp
     src/player/Player.cpp
-    src/player/battle.cpp
     src/player/Store.cpp
     src/player/PC.cpp
 
     src/Display.cpp
+    src/battle.cpp
 
     src/Pokemon/attack.cpp
     src/Pokemon/pokemon.cpp

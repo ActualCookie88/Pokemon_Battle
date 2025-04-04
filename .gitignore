@@ -8,9 +8,7 @@ cmake_install.cmake
 
 testBalls
 
-testPotions
-
-testRevives
+testBattle
 
 testDisplays
 
@@ -18,12 +16,14 @@ testPC
 
 testPlayer
 
-testStore
-
-valgrind
-
-testAttack
-
 testPokemon
 
+testPotions
+
+testRevives
+
+testStore
+
 testWild
+
+valgrind

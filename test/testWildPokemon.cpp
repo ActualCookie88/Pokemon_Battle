@@ -17,5 +17,7 @@ int main() {
     cout << endl;
 
     cout << wild->wildPokemonMove(wild)->getName() << endl;
-
+    
+    delete wild;
+    delete player;
 }

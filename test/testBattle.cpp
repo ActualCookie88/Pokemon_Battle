@@ -5,7 +5,7 @@
 #include "../header/Pokemon/type.h"
 #include "../header/Pokemon/wildPokemon.h"
 #include "../header/player/Player.h"
-#include "../header/player/battle.h"
+#include "../header/battle.h"
 #include <iostream>
 
 using namespace std;
