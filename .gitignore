@@ -6,6 +6,8 @@ Makefile
 
 cmake_install.cmake
 
+testAttack
+
 testBalls
 
 testBattle
