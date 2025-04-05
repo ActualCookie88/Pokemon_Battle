@@ -35,9 +35,10 @@ class Store {
         void viewStoreItems() const;
         void viewItemStats(int itemNum) const;
         // helpers
+        int selectOptionHelper(int min, int max);
+        int validateInput(int input, int min, int max);
         int amountHelper();
         int clearInputHelper();
-        int selectOptionHelper1();
         bool selectOptionHelper2();
         // getters and setters
         int getMoney() const { return money; }

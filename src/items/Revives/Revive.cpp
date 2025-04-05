@@ -14,7 +14,7 @@ Revive::Revive(string reviveName, string desc, int reviveCost, ReviveType revive
     }
 }
 
-void Revive::useItem() const {
+void Revive::useItem() {
     cout << "You used a " << name << ", restoring " << (restorePercent * 100) << "% HP to a fainted Pokémon!" << std::endl;
 }
 

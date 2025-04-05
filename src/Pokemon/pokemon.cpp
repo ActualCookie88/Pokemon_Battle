@@ -573,6 +573,7 @@ void Pokemon::initializeStats(PokemonSpecies sp){
     hp = calculateHP();
     attack = calculateAttack();
     defense = calculateDefense();
+    maxHP = hp;
 }
 
 string Pokemon::speciesToString(PokemonSpecies species) {
@@ -822,6 +823,9 @@ int Pokemon::getBaseDefense() const {
 int Pokemon::getHP() const {
     return hp;
 }
+int Pokemon::getMaxHP() const {
+    return maxHP;
+}
 int Pokemon::getAttack() const {
     return attack;
 }
@@ -861,6 +865,7 @@ void Pokemon::setLevel(int val) {
     hp = calculateHP();
     attack = calculateAttack();
     defense = calculateDefense();
+    maxHP = hp;
 }
 void Pokemon::setMove1(Attack* newMove) {
     move1 = newMove;
@@ -907,4 +912,5 @@ void Pokemon::addLevel(){
     hp = calculateHP();
     attack = calculateAttack();
     defense = calculateDefense();
+    maxHP = hp;
 }

@@ -30,4 +30,4 @@ void Item::addAmount(int amount) { this->amount += amount; }
 
 void Item::sellAmount(int amount) { this->amount -= amount; }
 
-void Item::setAmount(int amount) { this->amount == amount; }
+void Item::setAmount(int amount) { this->amount = amount; }

@@ -3,33 +3,44 @@
 #include <vector>
 #include <limits>
 #include <random>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
 void Battle::initiateBattle() {
-    int choice;
-    
-    display->displayBattleScreen();
-
-    cin >> choice;
-    cout << endl;
-    while (!cin || choice <= 0 || choice >= 6) {
-        cout << "Invalid input" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> choice; 
-    }
-
-    if (choice == 1) {
-        viewUseItems();
-    } else if (choice == 2) {
-        viewTeam();
-    } else if (choice == 3) {
-        //view active pokemon moveset
-    } else if (choice == 4) {
-        //view wild pokemon stats
-    } else if (choice == 5) {
-        flee();
+    int choice = 0;
+    bool flag = true;
+    while(flag) {
+        display->displayBattleScreen();
+        cout << "A wild " << wildPokemon->speciesToString(wildPokemon->getSpecies()) << " appeared!" << endl;
+        cout << endl;
+        cout << "Options:" << endl;
+        cout << "(1) View / Use Items" << endl;
+        cout << "(2) View / Edit Pokemon Team" << endl;
+        cout << "(3) View Active Pokemon Moveset" << endl;
+        cout << "(4) View Wild Pokemon stats" << endl;
+        cout << "(5) Attempt to flee battle" << endl << endl;
+        cout << "Select option: ";
+        choice = selectOptionHelper(1,5);
+        
+        while (!cin || choice <= 0 || choice >= 5) {
+            cout << "Invalid input" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin >> choice; 
+        }
+        if (choice == 1) {
+            viewUseItems();
+        } else if (choice == 2) {
+            viewTeam();
+        } else if (choice == 3) {
+            //view active pokemon moveset
+        } else if (choice == 4) {
+            //view wild pokemon stats
+        } else if (choice == 5) {
+            flee();
+        }
     }
 }
 
@@ -41,9 +52,9 @@ void Battle::viewUseItems() {
         cout << "Options: " << endl;
         cout << "(1) View item's stats" << endl;
         cout << "(2) Use an item" << endl;
-        cout << "(2) Go back" << endl << endl;
+        cout << "(3) Go back" << endl << endl;
         cout << "Select option: ";
-        choice = selectOptionHelper(1,2);
+        choice = selectOptionHelper(1,3);
         if(choice == 1) {
             viewItem();
         }
@@ -93,7 +104,6 @@ void Battle::useItem() {
 
         Item* item = player->getItems().at(i - 1);
         if(item->getAmount() == 0) {
-            display->border();
             cout << "INSUFFICIENT AMOUNT." << endl << endl;
         }
         else {
@@ -101,7 +111,7 @@ void Battle::useItem() {
                 item->useItem();
                 Pokeball* pokeball = dynamic_cast<Pokeball*>(item);
                 if(pokeball) {  // Check if the cast was successful
-                    pokeball->catchPokemon(this, wildPokemon->getBaseCatchRate());
+                    catchPokemon(wildPokemon, pokeball);
                 } else {
                     cout << "Error: This item is not a Pokeball!" << endl;
                 }
@@ -116,9 +126,40 @@ void Battle::useItem() {
                 cout << "Item does not exist" << endl;
             }
         }
-        cout << endl;
     }
 }
+
+void Battle::catchPokemon(WildPokemon* wildPokemon, Pokeball* item) {
+    srand(time(0));  // Only once per method call
+
+    double baseCatchRate = wildPokemon->getBaseCatchRate();
+    double ballMultiplier = item->getMultiplier();
+    double currentHP = wildPokemon->getHP();
+    double maxHP = wildPokemon->getMaxHP();
+
+    double hpRatio = currentHP / maxHP;
+    double chance = ( (3 * maxHP) - (2 * currentHP) / (3 * maxHP) ) * baseCatchRate * ballMultiplier;
+    double roll = rand() % 100 + 1;
+
+    cout << baseCatchRate << endl;
+
+    cout << "Rate to catch: " << chance << endl;
+    cout << "Rate rolled: " << roll << endl << endl;
+
+    if(roll <= chance) {
+        cout << wildPokemon->speciesToString(wildPokemon->getSpecies()) << " was caught!" << endl << endl;
+        this->getPlayer()->getPC()->addPokemon(wildPokemon);  // Add Pokémon to PC
+        wildPokemon->setBaseHP(0);  // Set wild Pokémon's HP to 0 (caught)
+        endBattle();  // End the battle
+    }
+    else {
+        cout << "The Pokémon broke free!" << endl;
+    }
+}
+
+
+
+
 
 void Battle::viewTeam() {
     player->viewPokemonTeam();

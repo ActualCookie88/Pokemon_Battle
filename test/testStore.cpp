@@ -6,6 +6,7 @@ using namespace std;
 int main() {
     Player* player = new Player();
     player->getStore()->setMoney(10000);
+    player->getStore()->setAllAmount(50);
     player->accessStore();
 
     delete player;

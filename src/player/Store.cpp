@@ -18,8 +18,7 @@ void Store::initiateStore() {
         display->displayStoreScreen();
         cout << "Current Balance: " << getMoney() << "¥" << endl << endl;
         cout << "Select an option: ";
-        cin >> choice;
-        cout << endl;
+        choice = selectOptionHelper(1, 4);
 
         while (cin.fail() || choice < 1 || choice > 4) {
             cout << "INVALID OPTION. TRY AGAIN: ";
@@ -50,7 +49,7 @@ void Store::buyItem() {
         cout << "(9) Go Back" << endl << endl;
         cout << "Current Balance: " << getMoney() << "¥" << endl << endl;
         cout << "Select which item to buy: ";
-        i = selectOptionHelper1();
+        i = selectOptionHelper(1, storeItems.size());
 
         if (i == 8) {
             return;
@@ -59,7 +58,6 @@ void Store::buyItem() {
             amount = amountHelper();
 
             if (storeItems.at(i)->getCost() * amount > money) {
-                display->border();
                 cout << "INSUFFICIENT FUNDS." << endl << endl;
             }
 
@@ -91,7 +89,7 @@ void Store::sellItem() {
         cout << "Current Balance: " << getMoney() << "¥" << endl << endl;
         cout << "Select which item to sell: ";
 
-        i = selectOptionHelper1();
+        i = selectOptionHelper(1, playerItems.size());
 
         if (i == 8) {
             return;
@@ -100,7 +98,7 @@ void Store::sellItem() {
             amount = amountHelper();
             
             if (playerItems.at(i)->getAmount() < amount) {
-                display->border();
+                
                 cout << "INSUFFICIENT AMOUNT." << endl << endl;
             }
             else {
@@ -160,6 +158,36 @@ void Store::viewItemStats(int itemNum) const {
     cout << endl;
 }
 
+void Store::setAllAmount(int amount) {
+    for( Item* item : playerItems) {
+        item->setAmount(amount);
+    }
+}
+
+int Store::clearInputHelper() {
+    int i = 0;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin >> i;
+    cout << endl;
+    return i;
+}
+
+int Store::selectOptionHelper(int min, int max) {
+    int i = 0;
+    cin >> i;
+    cout << endl;
+    return validateInput(i, min, max);
+}
+
+int Store::validateInput(int input, int min, int max) {
+    while (cin.fail() || input < min || input > max) {
+        cout << "INVALID OPTION. TRY AGAIN: ";
+        input = clearInputHelper();
+    }
+    return input;
+}
+
 int Store::amountHelper() {
     int amount = 0;
     cout << "Enter amount: ";
@@ -173,38 +201,11 @@ int Store::amountHelper() {
     return amount;
 }
 
-int Store::clearInputHelper() {
-    int i = 0;
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin >> i;
-    //--i;
-    cout << endl;
-
-    return i;
-}
-
-int Store::selectOptionHelper1() {
-    int i = 0;
-
-    if(cin >> i) {
-        --i;
-        cout << endl;
-    }
-
-    while (cin.fail() || i < 0 || i > 8) {
-        cout << "INVALID OPTION. TRY AGAIN: ";
-        i = clearInputHelper();
-    }
-
-    return i;
-}
-
 bool Store::selectOptionHelper2() {
     bool flag = true;
     int i = 0;
     cout << "(2) Go Back" << endl << endl;
-    cout << "Current Balance: " << getMoney() << "¥" << endl << endl;
+    cout << "Current Balance: " << money << "¥" << endl << endl;
     cout << "Select an option: ";
 
     cin >> i;
@@ -220,10 +221,4 @@ bool Store::selectOptionHelper2() {
     }
 
     return flag;
-}
-
-void Store::setAllAmount(int amount) {
-    for( Item* item : playerItems) {
-        item->setAmount(amount);
-    }
 }

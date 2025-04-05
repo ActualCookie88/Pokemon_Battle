@@ -24,11 +24,12 @@ class Battle {
         void viewItem();
         void useItem();
 
+        void catchPokemon(WildPokemon* wildPokemon, Pokeball* item);
+
         void viewTeam();
 
 
         void flee();
-
 
         bool checkBattleEnd() const;
 

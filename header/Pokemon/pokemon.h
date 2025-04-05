@@ -18,6 +18,7 @@ class Pokemon {
         int baseAttack;
         int baseDefense;
         int hp;
+        int maxHP;
         int attack;
         int defense;
         int level;
@@ -54,6 +55,7 @@ class Pokemon {
         int getBaseAttack() const;
         int getBaseDefense() const;
         int getHP() const;
+        int getMaxHP() const;
         int getAttack() const;
         int getDefense() const;
         int getLevel() const;

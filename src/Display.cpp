@@ -128,13 +128,7 @@ void Display::displayBattleScreen() const {
     cout << "|                                                                                                     |" << endl;
     cout << "|_____________________________________________________________________________________________________|" << endl;
     cout << endl;
-    cout << "Options:" << endl;
-    cout << "(1) View / Use Items" << endl;
-    cout << "(2) View / Edit Pokemon Team" << endl;
-    cout << "(3) View Active Pokemon Moveset" << endl;
-    cout << "(4) View Wild Pokemon stats" << endl;
-    cout << "(5) Attempt to flee battle" << endl << endl;
-    cout << "Select an option: ";
+    
 }
 
 void Display::displayMovesScreen() const {
