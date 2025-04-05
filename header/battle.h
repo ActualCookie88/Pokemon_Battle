@@ -11,8 +11,8 @@ class Battle {
     private:
         WildPokemon* wildPokemon;
         Display* display;
-        bool isPlayerTurn;
         Player* player;
+        bool isPlayerTurn;
 
     public: 
         Battle() : player(nullptr), wildPokemon(nullptr), isPlayerTurn(true) {}
@@ -33,14 +33,11 @@ class Battle {
 
         bool checkBattleEnd() const;
 
-        int randomNum(int , int);
-
         void startBattle();
 
-        bool isCatchSuccess(const Pokeball& pokeball);
-
-        void endBattle();
-
+        void endBattle(bool pokemonCaught);
+        void playerTurn();
+        void wildPokemonTurn();
         // helpers
         int clearInputHelper();
         int selectOptionHelper(int min, int max);

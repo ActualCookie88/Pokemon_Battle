@@ -27,7 +27,7 @@ Pokeball::Pokeball(string ballName, string desc, int ballCost, BallType ballType
 }
 
 void Pokeball::useItem() {
-    cout << "You used a " << name << " with a multiplier of " << multiplier << "x!\n";
+    cout << "You thew a " << name << "!" << endl << endl;
     sellAmount(1);
 }
 
