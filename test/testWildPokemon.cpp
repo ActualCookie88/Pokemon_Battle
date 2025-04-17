@@ -11,6 +11,7 @@ using namespace std;
 
 int main() {
     Player* player = new Player();
+    
     WildPokemon* wild = new WildPokemon(player);
 
     wild->displayInfo();

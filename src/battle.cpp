@@ -143,8 +143,6 @@ void Battle::catchPokemon(WildPokemon* wildPokemon, Pokeball* item) {
     double chance = ( ( (3 * maxHP) - (2 * currentHP) ) / (3 * maxHP) ) * baseCatchRate * ballMultiplier;
     double roll = rand() % 100 + 1;
 
-    cout << chance << endl << roll << endl;
-    
     sleep_for(1s);
     cout << ". . ." << endl << endl;
     sleep_for(1s);
@@ -178,6 +176,7 @@ void Battle::catchPokemon(WildPokemon* wildPokemon, Pokeball* item) {
 
 void Battle::viewTeam() {
     player->viewPokemonTeam();
+
 }
 
 void Battle::startBattle() {

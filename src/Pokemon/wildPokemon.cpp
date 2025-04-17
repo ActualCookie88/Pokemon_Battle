@@ -1,22 +1,36 @@
 #include "../../header/Pokemon/wildPokemon.h"
-#include <cstdlib>
-#include <ctime>
+#include <random>
 
 WildPokemon::WildPokemon(Player*& player) : Pokemon() {
+    int perc = 0;
+    int diff = 0;
     int maxLevel = player->getMaxLevelPokemon();
-    static bool seeded = false;
-    if (!seeded) {
-        srand(time(0));  // Seed only once
-        seeded = true;
-    }
-
-    int randomIndex = rand() % allPokemonSpecies.size();
+    static std::mt19937 rng(std::random_device{}());
+    
+    int randomIndex = rng() % allPokemonSpecies.size();
     PokemonSpecies species = allPokemonSpecies[randomIndex];
     initializeStats(species);
     vector<Moves> selectedMoves = generateRandomMoves(getType());
-    
-    int levelVariation = (rand() % 11) - 5; 
-    int finalLevel = max(1, min(maxLevel + levelVariation, 100));
+
+    int baseCatchRate = getBaseCatchRate();
+    int variationRange = 0;
+
+    if(baseCatchRate >= 190) {
+        variationRange = 10;
+    } 
+    else if(baseCatchRate >= 75) {
+        variationRange = 25;
+    } 
+    else if(baseCatchRate >= 25) {
+        variationRange = 50;
+    } 
+    else if(baseCatchRate >= 3) {
+        variationRange = 100;
+    } 
+
+    uniform_int_distribution<int> levelOffsetDist(-(variationRange / 2), variationRange / 2);
+    int levelOffset = levelOffsetDist(rng);
+    int finalLevel = max(1, min(maxLevel + levelOffset, 100));
 
     setMove1(new Attack(selectedMoves[0])); 
     setMove2(new Attack(selectedMoves[1])); 
