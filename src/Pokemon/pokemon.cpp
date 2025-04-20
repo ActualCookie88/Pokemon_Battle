@@ -838,6 +838,9 @@ int Pokemon::getLevel() const{
 int Pokemon::getEXP() const {
     return exp;
 }
+string Pokemon::getName() {
+    return speciesToString(species);
+}
 Attack* Pokemon::getMove1() const{
     return move1;
 }
@@ -913,4 +916,22 @@ void Pokemon::addLevel(){
     attack = calculateAttack();
     defense = calculateDefense();
     maxHP = hp;
+}
+
+void Pokemon::addHP(int val) {
+    if(hp + val >= maxHP) {
+        hp = maxHP;
+    }
+    else {
+        hp += val;
+    }
+}
+
+void Pokemon::removeHP(int val) {
+    if(hp - val <= 0) {
+        cout << "Pokemon has fainted!" << endl;
+    }
+    else {
+        hp -= val;
+    }
 }

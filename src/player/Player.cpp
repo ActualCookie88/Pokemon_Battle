@@ -32,8 +32,8 @@ void Player::viewItemStats(int itemNum) {
     myStore->viewItemStats(itemNum);
 }
 
-void Player::viewPokemonTeam() {
-    myPC->viewPokemonTeam();
+void Player::viewPokemonTeam(int option) {
+    myPC->viewPokemonTeam(option);
 }
 void Player::displayTeamStats() {
     myPC->displayTeamStats();

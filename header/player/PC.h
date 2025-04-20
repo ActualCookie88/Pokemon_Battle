@@ -20,7 +20,7 @@ class PC {
         void addPokemon(Pokemon* pokemon);
         void viewPokemonCaught();
         void viewPokemonStats();
-        void viewPokemonTeam();
+        void viewPokemonTeam(int option);
         void editPokemonTeam();
         void displayTeamStats();
         // helpers

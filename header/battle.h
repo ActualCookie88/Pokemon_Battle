@@ -9,14 +9,16 @@ using namespace std;
 
 class Battle {
     private:
-        WildPokemon* wildPokemon;
         Display* display;
         Player* player;
+        WildPokemon* wildPokemon;
+        Pokemon* activePokemon;
         bool isPlayerTurn;
+        bool pokemonIsCaught = false;
 
     public: 
         Battle() : player(nullptr), wildPokemon(nullptr), isPlayerTurn(true) {}
-        Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), isPlayerTurn(true) {}
+        Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), activePokemon(p->getTeam().at(0)), isPlayerTurn(true) {}
         // actions
         void initiateBattle();
 
@@ -24,19 +26,17 @@ class Battle {
         void viewItem();
         void useItem();
 
-        void catchPokemon(WildPokemon* wildPokemon, Pokeball* item);
+        void useBall(WildPokemon* wildPokemon, Pokeball* item);
+        void usePotion(Pokemon*& pokemon, Potion* potion);
 
-        void viewTeam();
+        void viewTeam(int option);
 
 
         void flee();
 
         bool checkBattleEnd() const;
 
-        void startBattle();
-
         void endBattle(bool pokemonCaught);
-        void playerTurn();
         void wildPokemonTurn();
         // helpers
         int clearInputHelper();

@@ -36,7 +36,7 @@ class Player {
         // helpers
         void viewMyItems(bool isViewing); // Store function
         void viewItemStats(int itemNum); // Store function
-        void viewPokemonTeam(); // PC function
+        void viewPokemonTeam(int option); // PC function
         void displayTeamStats(); // PC function
         // getters
         vector<Item*> getItems() const;

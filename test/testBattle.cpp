@@ -25,6 +25,5 @@ int main() {
     delete wildPokemon;
     delete player;
     
-    
     return 0;
 }

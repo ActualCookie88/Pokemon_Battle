@@ -60,6 +60,7 @@ class Pokemon {
         int getDefense() const;
         int getLevel() const;
         int getEXP() const;
+        string getName();
         Attack* getMove1() const;
         Attack* getMove2() const;
         Attack* getMove3() const;
@@ -74,4 +75,6 @@ class Pokemon {
         void setMove2(Attack* newMove);
         void setMove3(Attack* newMove);
         void addLevel();
+        void addHP(int val);
+        void removeHP(int val);
 };

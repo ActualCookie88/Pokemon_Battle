@@ -2,10 +2,8 @@
 #include <random>
 
 WildPokemon::WildPokemon(Player*& player) : Pokemon() {
-    int perc = 0;
-    int diff = 0;
     int maxLevel = player->getMaxLevelPokemon();
-    static std::mt19937 rng(std::random_device{}());
+    static mt19937 rng(random_device{}());
     
     int randomIndex = rng() % allPokemonSpecies.size();
     PokemonSpecies species = allPokemonSpecies[randomIndex];
@@ -13,24 +11,12 @@ WildPokemon::WildPokemon(Player*& player) : Pokemon() {
     vector<Moves> selectedMoves = generateRandomMoves(getType());
 
     int baseCatchRate = getBaseCatchRate();
-    int variationRange = 0;
+    double levelModifier = 1.0 - (baseCatchRate / 255.0);
+    int variationRange = static_cast<int>(50 * levelModifier);
 
-    if(baseCatchRate >= 190) {
-        variationRange = 10;
-    } 
-    else if(baseCatchRate >= 75) {
-        variationRange = 25;
-    } 
-    else if(baseCatchRate >= 25) {
-        variationRange = 50;
-    } 
-    else if(baseCatchRate >= 3) {
-        variationRange = 100;
-    } 
-
-    uniform_int_distribution<int> levelOffsetDist(-(variationRange / 2), variationRange / 2);
+    uniform_int_distribution<int> levelOffsetDist(-variationRange / 2, variationRange / 2);
     int levelOffset = levelOffsetDist(rng);
-    int finalLevel = max(1, min(maxLevel + levelOffset, 100));
+    int finalLevel = max(1, std::min(maxLevel - levelOffset, 100));
 
     setMove1(new Attack(selectedMoves[0])); 
     setMove2(new Attack(selectedMoves[1])); 
@@ -40,8 +26,11 @@ WildPokemon::WildPokemon(Player*& player) : Pokemon() {
     setLevel(finalLevel);
 }
 
-Attack* WildPokemon::wildPokemonMove(Pokemon* opponent){
-    int randomMoveIndex = rand() % 3; // Random index between 0 and 2
+Attack* WildPokemon::wildPokemonMove(Pokemon* opponent) {
+    static mt19937 rng(random_device{}()); // Better random engine
+    uniform_int_distribution<int> moveDist(0, 2); // Ensures a uniform choice between 0 and 2
+
+    int randomMoveIndex = moveDist(rng);
 
     switch (randomMoveIndex) {
         case 0:
