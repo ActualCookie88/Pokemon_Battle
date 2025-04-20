@@ -10,7 +10,7 @@ Revive::Revive(string reviveName, string desc, int reviveCost, ReviveType revive
             restorePercent = 1;
             break;
         default:
-            restorePercent = .5; // default to Standard
+            restorePercent = 0.5; // default to Standard
     }
 }
 

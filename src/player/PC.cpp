@@ -19,7 +19,7 @@ void PC::initiatePC() {
             delete display;
             return;
         } 
-        viewPokemonTeam(1);
+        viewPokemonTeam();
         viewPokemonCaught();
         cout << "Options:" << endl;
         cout << "(1) View Pokemon stats" << endl;
@@ -64,8 +64,7 @@ void PC::viewPokemonStats() {
     int choice = 0;
     bool flag = true;
     while(flag) {
-        display->border();
-        viewPokemonTeam(1);
+        viewPokemonTeam();
         viewPokemonCaught();
         cout << "Enter Pokemon to view: ";
         i = selectOptionHelper(1, getCaughtPokemon().size() + getTeamPokemon().size());
@@ -94,16 +93,11 @@ void PC::viewPokemonStats() {
     }
 }
 
-void PC::viewPokemonTeam(int option) {
-    if(option == 1) {
-        display->displayPCScreen();
-        cout << "Pokemon in your Team:" << endl;
-    }
+void PC::viewPokemonTeam() {
+    display->displayPCScreen();
+    cout << "Pokemon in your Team:" << endl;
     for (int i = 0; i < getTeamPokemon().size(); i++) {
         cout << "(" << i + 1 << ") " << getTeamPokemon().at(i)->getName();
-        if(option == 2) {
-            cout << " ( HP: " << getTeamPokemon().at(i)->getHP() << " / " << getTeamPokemon().at(i)->getMaxHP() << " )";
-        }
         cout << endl;
     }
     cout << endl;
@@ -115,7 +109,7 @@ void PC::editPokemonTeam() {
 
     while(flag) {
         display->border();
-        viewPokemonTeam(1);
+        viewPokemonTeam();
         viewPokemonCaught();
 
         cout << "Enter number of Pokemon in Team to switch: ";
@@ -134,7 +128,7 @@ void PC::editPokemonTeam() {
         cout << "SWAPPED (" << choice1 << ") " << pokemonInTeam->getName()
              << " AND (" << choice2 << ") " << pokemonInCaught->getName()
              << "!" << endl << endl;
-        viewPokemonTeam(1);
+        viewPokemonTeam();
         viewPokemonCaught();
 
         cout << "Options: " << endl;

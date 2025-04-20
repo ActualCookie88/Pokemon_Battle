@@ -25,16 +25,19 @@ class Battle {
         void viewUseItems();
         void viewItem();
         void useItem();
-
         void useBall(WildPokemon* wildPokemon, Pokeball* item);
         void usePotion(Pokemon*& pokemon, Potion* potion);
+        void useRevive(Pokemon*& pokemon, Revive* revive);
 
+        void viewEditTeam();
         void viewTeam(int option);
+        void editTeam();
 
-
-        void flee();
+        bool fleeSuccess();
 
         bool checkBattleEnd() const;
+        bool hasFaintedPokemon() const;
+        bool isTeamFullHP() const;
 
         void endBattle(bool pokemonCaught);
         void wildPokemonTurn();

@@ -33,8 +33,24 @@ void Player::viewItemStats(int itemNum) {
 }
 
 void Player::viewPokemonTeam(int option) {
-    myPC->viewPokemonTeam(option);
+    if(option == 0) {
+        display->displayTeamScreen();
+        cout << "Pokemon in your Team:" << endl;
+    }
+    else if(option == 1) {
+        display->displayPCScreen();
+        cout << "Pokemon in your Team:" << endl;
+    }
+    for (int i = 0; i < teamPokemon.size(); i++) {
+        cout << "(" << i + 1 << ") " << teamPokemon.at(i)->getName();
+        if(option == 2) {
+            cout << " ( HP: " << teamPokemon.at(i)->getHP() << " / " << teamPokemon.at(i)->getMaxHP() << " )";
+        }
+        cout << endl;
+    }
+    cout << endl;
 }
+
 void Player::displayTeamStats() {
     myPC->displayTeamStats();
 }
@@ -42,7 +58,7 @@ void Player::displayTeamStats() {
 vector<Item*> Player::getItems() const {
      return playerItems; 
 }
-vector<Pokemon*> Player::getTeam() { 
+vector<Pokemon*>& Player::getTeam() { 
     return teamPokemon; 
 }
 vector<Pokemon*> Player::getCaught() { 

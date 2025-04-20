@@ -20,7 +20,7 @@ class PC {
         void addPokemon(Pokemon* pokemon);
         void viewPokemonCaught();
         void viewPokemonStats();
-        void viewPokemonTeam(int option);
+        void viewPokemonTeam();
         void editPokemonTeam();
         void displayTeamStats();
         // helpers
@@ -28,10 +28,8 @@ class PC {
         int selectOptionHelper(int min, int max);
         int validateInput(int input, int min, int max);
         // getters
-        vector<Pokemon*> getCaughtPokemon() const { return caughtPokemon; }
-        vector<Pokemon*> getCaughtPokemon() { return caughtPokemon; }
-        vector<Pokemon*> getTeamPokemon() const { return teamPokemon; }
-        vector<Pokemon*> getTeamPokemon() { return teamPokemon; }
+        vector<Pokemon*>& getCaughtPokemon() { return caughtPokemon; }
+        vector<Pokemon*>& getTeamPokemon() { return teamPokemon; }
         // setters
         void setCaughtPokemon(vector<Pokemon*> pokemon) { caughtPokemon = pokemon; }
         void setTeamPokemon(vector<Pokemon*> pokemon) { teamPokemon = pokemon; }

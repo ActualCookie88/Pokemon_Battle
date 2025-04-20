@@ -36,6 +36,7 @@ class Pokemon {
         // actions
         vector<Moves> generateRandomMoves(Type pokemonType);
         void displayInfo();
+        void displayBattleInfo();
         void initializeStats(PokemonSpecies sp);
         int calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender) const;
         int calculateHP() const;

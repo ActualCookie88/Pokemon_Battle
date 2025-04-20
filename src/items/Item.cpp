@@ -15,7 +15,7 @@ bool Item::isPotion() const {
 }
 
 bool Item::isRevive() const {
-    return name == "Revive" || name == "Max Revive";
+    return name == "Standard Revive" || name == "Max Revive";
 }
 
 string Item::getName() const { return name; }

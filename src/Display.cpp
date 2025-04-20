@@ -190,16 +190,4 @@ void Display::displayTeamScreen() const {
     cout << "|                                           |" << endl;
     cout << "|___________________________________________|" << endl;
     cout << endl;
-
-    cout << "Pokemon in main team (MAX 3): "<< endl;
-    // access and print user's team, example:
-    cout << "1. Gyrados" << endl;
-    cout << "2. Charmander" << endl;
-    cout << "3. Ghastly" << endl;
-    
-    cout << endl;
-    cout << "(1) View Pokemon stats" << endl; // should prompt user to enter number relative to Pokemon, will print its stats
-    cout << "(2) Swap Active Pokemon with Pokemon from PC" << endl; // also prompt user two numbers (Active Pokemon and PC Pokemon), will swap them and redisplay Team
-    cout << "(3) Go Back" << endl;
-    cout << endl;
 }

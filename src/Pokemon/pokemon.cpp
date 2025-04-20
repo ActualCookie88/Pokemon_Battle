@@ -116,15 +116,22 @@ vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
 
 void Pokemon::displayInfo() {
     cout << "Species: " << speciesToString(species)
-        << "\nType: " << typeToString(type)
+        << "\nTYPE: " << typeToString(type)
         << "\nHP: " << getHP()
-        << "\nAttack: " << getAttack()
-        << "\nDefense: " << getDefense() 
-        << "\nLevel: " << getLevel()
+        << "\nATTACK: " << getAttack()
+        << "\nDEFENSE: " << getDefense() 
+        << "\nLVL: " << getLevel()
         << "\nEXP: " << getEXP()
-        << "\nMove 1: " << move1->getName()
-        << "\nMove 2: " << move2->getName()
-        << "\nMove 3: " << move3->getName()<< "\n";
+        << "\nMOVE 1: " << move1->getName()
+        << "\nMOVE 2: " << move2->getName()
+        << "\nMOVE 3: " << move3->getName()
+        << endl;
+}
+void Pokemon::displayBattleInfo() {
+    cout << "LVL: " << getLevel()
+        << "\nHP: " << getHP()
+        << "\nTYPE: " << typeToString(type)
+        << endl;
 }
 
 void Pokemon::initializeStats(PokemonSpecies sp){
@@ -929,7 +936,7 @@ void Pokemon::addHP(int val) {
 
 void Pokemon::removeHP(int val) {
     if(hp - val <= 0) {
-        cout << "Pokemon has fainted!" << endl;
+        hp = 0;
     }
     else {
         hp -= val;

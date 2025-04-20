@@ -13,4 +13,6 @@ class Revive : public Item {
         
         void useItem() override;
         void displayInfo() const override;
+
+        double getRestorePercent() { return restorePercent; }
 };

@@ -40,7 +40,7 @@ class Player {
         void displayTeamStats(); // PC function
         // getters
         vector<Item*> getItems() const;
-        vector<Pokemon*> getTeam();
+        vector<Pokemon*>& getTeam();
         vector<Pokemon*> getCaught();
         Store* getStore();
         PC* getPC();

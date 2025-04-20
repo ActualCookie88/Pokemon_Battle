@@ -17,37 +17,34 @@ void Battle::initiateBattle() {
     bool flag = true;
     while(flag) {
         display->displayBattleScreen();
-        cout << "A wild level " << wildPokemon->getLevel() << " "
-             << wildPokemon->getName() << " appeared!" << endl;
+        cout << "A wild " << wildPokemon->getName() << " appeared!" << endl;
+        wildPokemon->displayBattleInfo();
         cout << endl;
-        cout << "Your active Pokemon: " << activePokemon->getName() << endl;
+
+        cout << "Active Pokemon: " << activePokemon->getName() << endl;
+        activePokemon->displayBattleInfo();
         cout << endl;
         cout << "Options:" << endl;
-        cout << "(1) View / Use Items" << endl;
-        cout << "(2) View / Edit Pokemon Team" << endl;
-        cout << "(3) View Active Pokemon Moveset" << endl;
-        cout << "(4) View Wild Pokemon stats" << endl;
-        cout << "(5) Attempt to flee battle" << endl << endl;
+        cout << "(1) BAG" << endl;
+        cout << "(2) POKEMON" << endl;
+        cout << "(3) FIGHT" << endl;
+        cout << "(4) FLEE" << endl << endl;
         cout << "Select option: ";
-        choice = selectOptionHelper(1,5);
+        choice = selectOptionHelper(1,4);
         
-        while (!cin || choice <= 0 || choice >= 6) {
-            cout << "Invalid input" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> choice; 
-        }
         if (choice == 1) {
             viewUseItems();
         } else if (choice == 2) {
-            viewTeam(1);
+            viewEditTeam();
         } else if (choice == 3) {
             //view active pokemon moveset
         } else if (choice == 4) {
-            //view wild pokemon stats
-        } else if (choice == 5) {
-            flee();
-            return;
+            if(fleeSuccess()) {
+                return;
+            }
+            else {
+                wildPokemonTurn();
+            }
         }
         if(pokemonIsCaught == true) {
             return;
@@ -61,9 +58,9 @@ void Battle::viewUseItems() {
     while(flag) {
         player->viewMyItems(false);
         cout << "Options: " << endl;
-        cout << "(1) View item's stats" << endl;
-        cout << "(2) Use an item" << endl;
-        cout << "(3) Go back" << endl << endl;
+        cout << "(1) VIEW STATS" << endl;
+        cout << "(2) USE ITEM" << endl;
+        cout << "(3) BACK" << endl << endl;
         cout << "Select option: ";
         choice = selectOptionHelper(1,3);
         if(choice == 1) {
@@ -71,7 +68,6 @@ void Battle::viewUseItems() {
         }
         else if(choice == 2) {
             useItem();
-            return;
         }
         else if(choice == 3) {
             flag = false;
@@ -84,7 +80,7 @@ void Battle::viewItem() {
     int choice = 0;
     bool flag = true;
     while(flag) {
-        cout << "Select item to view: ";
+        cout << "SELECT ITEM: ";
         i = selectOptionHelper(1, 8);
         cout << endl;
 
@@ -93,14 +89,14 @@ void Battle::viewItem() {
         cout << endl;
 
         cout << "Options: " << endl;
-        cout << "(1) View another Item's stats" << endl;
-        cout << "(2) Go back" << endl << endl;
+        cout << "(1) VIEW MORE STATS" << endl;
+        cout << "(2) BACK" << endl << endl;
         cout << "Select option: ";
         choice = selectOptionHelper(1,2);
         if(choice == 1) {
             player->viewMyItems(false);
         }
-        if(choice == 2) {
+        else if(choice == 2) {
             flag = false;
         }
     }
@@ -126,19 +122,60 @@ void Battle::useItem() {
                 return;
             }
             else if(item->isPotion()) {
-                player->getTeam().at(1)->removeHP(50);
-                viewTeam(2);
-                cout << "Select pokemon to use " << item->getName() << " on: ";
-                i = selectOptionHelper(1, 3);
-
-                Pokemon* pokemon = player->getTeam().at(i-1);
-                Potion* potion = dynamic_cast<Potion*>(item);
-                item->useItem();
-                usePotion(pokemon, potion);
+                if(isTeamFullHP()) {
+                    cout << "Your Pokémon are at full health!" << endl;
+                    cout << "(1) Go back" << endl << endl;
+                    cout << "Select option: ";
+                    choice = selectOptionHelper(1,1);
+                    if(choice == 1) {
+                        flag = false;
+                    }
+                }
+                else {
+                    viewTeam(2);
+                    cout << "Select Pokémon to use " << item->getName() << " on: ";
+                    i = selectOptionHelper(1, 3);
+    
+                    Pokemon* pokemon = player->getTeam().at(i-1);
+                    while (pokemon->getHP() <= 0) {
+                        cout << "CANNOT CHOOSE A FAINTED POKEMON, TRY AGAIN: ";
+                        i = selectOptionHelper(1, 3);
+                        pokemon = player->getTeam().at(i-1);
+                    }
+                    Potion* potion = dynamic_cast<Potion*>(item);
+                    item->useItem();
+                    usePotion(pokemon, potion);
+                    return;
+                }
                 
             }
             else if(item->isRevive()) {
-    
+                if(!hasFaintedPokemon()) {
+                    cout << "You have no Pokémon to revive!" << endl;
+                    cout << "(1) Go back" << endl << endl;
+                    cout << "Select option: ";
+                    choice = selectOptionHelper(1,1);
+                    if(choice == 1) {
+                        flag = false;
+                    }
+                }
+                else {
+                    viewTeam(2);
+                    cout << "Select Pokémon to use " << item->getName() << " on: ";
+                    i = selectOptionHelper(1, 3);
+
+                    Pokemon* pokemon = player->getTeam().at(i-1);
+                    while (pokemon->getHP() > 0) {
+                        cout << "CAN ONLY CHOOSE A FAINTED POKEMON, TRY AGAIN: ";
+                        i = selectOptionHelper(1, 3);
+                        pokemon = player->getTeam().at(i-1);
+                    }
+                    
+                    Revive* revive = dynamic_cast<Revive*>(item);
+                    item->useItem();
+                    useRevive(pokemon, revive);
+                    return;
+                }
             }
             else {
                 cout << "Item does not exist" << endl;
@@ -197,8 +234,70 @@ void Battle::usePotion(Pokemon*& pokemon, Potion* potion) {
     cout << endl;
 }
 
+void Battle::useRevive(Pokemon*& pokemon, Revive* revive) {
+    cout << endl;
+    pokemon->addHP(pokemon->getMaxHP() * revive->getRestorePercent());
+    cout << pokemon->getName() << " now has " << pokemon->getHP() << " HP!" << endl;
+    cout << endl;
+}
+
+void Battle::viewEditTeam() {
+    int choice = 0;
+    bool flag = true;
+    while(flag) {
+        viewTeam(0);
+        cout << "Active Pokemon: " << activePokemon->getName() << endl << endl;
+        cout << "Options: " << endl;
+        cout << "(1) SWAP POKEMON" << endl;
+        cout << "(2) BACK" << endl << endl;
+        cout << "Select option: ";
+        choice = selectOptionHelper(1,2);
+        if(choice == 1) {
+            editTeam();
+            return;
+        }
+        else if(choice == 2) {
+            flag = false;
+        }
+    }
+}
+
 void Battle::viewTeam(int option) {
     player->viewPokemonTeam(option);
+}
+
+void Battle::editTeam() {
+    int i = 0;
+    bool flag = true;
+
+    vector<Pokemon*>& team = player->getTeam();
+
+    while(flag) {
+        cout << "Select Pokemon to swap: ";
+        i = selectOptionHelper(1,3);
+
+        Pokemon* pokemonToSwap = team.at(i-1);
+        while (pokemonToSwap == activePokemon) {
+            cout << "POKEMON IS ALREADY ACTIVE, TRY AGAIN: ";
+            i = selectOptionHelper(1, 3);
+            pokemonToSwap = team.at(i-1);
+        }
+        cout << activePokemon->getName() << ", switch out!" << endl << endl;
+
+        swap(team[0], team[i - 1]);
+        
+        activePokemon = team[0];
+
+        sleep_for(0.75s);
+        cout << "." << flush;;
+        sleep_for(0.75s);
+        cout << " ."  << flush;;
+        sleep_for(0.75s);
+        cout << " ." << endl << endl;
+        sleep_for(0.75s);
+        cout << pokemonToSwap->getName() << ", I choose you!" << endl << endl;
+        flag = false;
+    }
 }
 
 bool Battle::checkBattleEnd() const {
@@ -207,6 +306,24 @@ bool Battle::checkBattleEnd() const {
         sum += pokemon->getHP();
     }
     return sum <= 0 || wildPokemon->getHP() <= 0;
+}
+
+bool Battle::hasFaintedPokemon() const {
+    for (Pokemon* pokemon : player->getTeam()) {
+        if(pokemon->getHP() <= 0 ) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Battle::isTeamFullHP() const {
+    for (Pokemon* pokemon : player->getTeam()) {
+        if(pokemon->getHP() != pokemon->getMaxHP()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void Battle::endBattle(bool pokemonCaught) {
@@ -224,24 +341,31 @@ void Battle::endBattle(bool pokemonCaught) {
 }
 
 void Battle::wildPokemonTurn() {
-    sleep_for(3s);
     cout << endl;
+    sleep_for(0.75s);
+    cout << "." << flush;;
+    sleep_for(0.75s);
+    cout << " ."  << flush;;
+    sleep_for(0.75s);
+    cout << " ." << endl << endl;
+    sleep_for(0.75s);
     Attack* attack = wildPokemon->wildPokemonMove(activePokemon);
     cout << wildPokemon->getName() << " used " << attack->getName() << "!" << endl;
     sleep_for(3s);
 }
 
-void Battle::flee() {
+bool Battle::fleeSuccess() {
     static random_device rd;
     static mt19937 gen(rd());
     static bernoulli_distribution dist(0.5); // 50% chance
 
     if (dist(gen)) {
         cout << "You got away safely!" << endl;
-        return;
+        return true;
     } 
     else {
         cout << "You failed to escape!" << endl;
+        return false;
     }
 }
 
