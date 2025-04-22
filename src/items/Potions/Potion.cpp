@@ -24,8 +24,13 @@ void Potion::useItem() {
 }
 
 void Potion::displayInfo() const {
-    cout << "Name: " << name << endl;
-    cout << "    Description: " << description << endl;
-    cout << "    Healing Amount: " << healingAmount << " HP\n";
-    cout << "    Price: " << cost << "¥" << endl;
+    cout << "NAME: " << name << endl;
+    cout << "DESC: " << description << endl;
+    cout << "HEAL AMOUNT: " << healingAmount << " HP\n";
+    cout << "PRICE: " << cost << "¥" << endl;
+}
+void Potion::displayInfo2() const {
+    cout << "NAME: " << name << endl;
+    cout << "HEAL AMOUNT: " << healingAmount << " HP\n";
+    cout << "AMOUNT: " << amount << endl;
 }

@@ -19,8 +19,14 @@ void Revive::useItem() {
 }
 
 void Revive::displayInfo() const {
-    cout << "Name: " << name << endl;
-    cout << "    Description: " << description << endl;
-    cout << "    Health Restored: " << (restorePercent * 100) << "%" << endl;
-    cout << "    Price: " << cost << "¥" << endl;
+    cout << "NAME: " << name << endl;
+    cout << "DESC: " << description << endl;
+    cout << "HEALTH RESTORED: " << (restorePercent * 100) << "%" << endl;
+    cout << "PRICE: " << cost << "¥" << endl;
+}
+
+void Revive::displayInfo2() const {
+    cout << "NAME: " << name << endl;
+    cout << "HEALTH RESTORED: " << (restorePercent * 100) << "%" << endl;
+    cout << "AMOUNT: " << amount << endl;
 }

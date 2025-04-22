@@ -32,5 +32,5 @@ class Item {
         // pure functions
         virtual void useItem() = 0;
         virtual void displayInfo() const = 0;
-        
+        virtual void displayInfo2() const = 0;
 };

@@ -115,12 +115,12 @@ vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
 }
 
 void Pokemon::displayInfo() {
-    cout << "Species: " << speciesToString(species)
+    cout << "SPECIES: " << speciesToString(species)
         << "\nTYPE: " << typeToString(type)
+        << "\nLVL: " << getLevel()
         << "\nHP: " << getHP()
         << "\nATTACK: " << getAttack()
         << "\nDEFENSE: " << getDefense() 
-        << "\nLVL: " << getLevel()
         << "\nEXP: " << getEXP()
         << "\nMOVE 1: " << move1->getName()
         << "\nMOVE 2: " << move2->getName()
@@ -129,8 +129,8 @@ void Pokemon::displayInfo() {
 }
 void Pokemon::displayBattleInfo() {
     cout << "LVL: " << getLevel()
-        << "\nHP: " << getHP()
         << "\nTYPE: " << typeToString(type)
+        << "\nHP: " << getHP()
         << endl;
 }
 

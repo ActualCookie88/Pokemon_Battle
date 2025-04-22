@@ -32,10 +32,15 @@ void Pokeball::useItem() {
 }
 
 void Pokeball::displayInfo() const {
-    cout << "Name: " << name << endl;
-    cout << "    Description: " << description << endl;
-    cout << "    Catch Multiplyer: " << multiplier << "x" << endl;
-    cout << "    Price: " << cost << "¥" << endl;
+    cout << "NAME: " << name << endl;
+    cout << "DESC: " << description << endl;
+    cout << "CATCH MULTIPLIER: " << multiplier << "x" << endl;
+    cout << "PRICE: " << cost << "¥" << endl;
+}
+void Pokeball::displayInfo2() const {
+    cout << "NAME: " << name << endl;
+    cout << "CATCH MULTIPLIER: " << multiplier << "x" << endl;
+    cout << "AMOUNT: " << amount << endl;
 }
 
 double Pokeball::getMultiplier() const { return multiplier; }

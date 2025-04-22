@@ -14,5 +14,6 @@ class Potion : public Item {
 
         void useItem() override;
         void displayInfo() const override;
+        void displayInfo2() const override;
         int getHealingAmount() { return healingAmount; }
 };

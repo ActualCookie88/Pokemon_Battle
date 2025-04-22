@@ -57,8 +57,8 @@ void Display::displayInventoryScreen() const {
     cout << "|                                                                                     |" << endl;
     cout << "|_____________________________________________________________________________________|" << endl;
     cout << endl;
-    cout << "(1) View Pokemon in PC" << endl;
-    cout << "(2) View Items" << endl;
+    cout << "(1) PC" << endl;
+    cout << "(2) ITEMS" << endl;
     cout << "(3) Go Back" << endl;
     cout << endl;
 }
@@ -91,12 +91,10 @@ void Display::displayItemScreen() const {
     cout << "|                                                     |" << endl;
     cout << "|_____________________________________________________|" << endl;
     cout << endl;
-    cout << "Current owned items: " << endl;
 }
 
 void Display::displayStoreScreen() const {
     cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-    cout << "Welcome to the Poké Mart!" << endl;
     cout << " __________________________________________________" << endl;
     cout << "|                                                  |" << endl;
     cout << "|     _____   _______   _____   _____    _____     |" << endl;
@@ -106,13 +104,14 @@ void Display::displayStoreScreen() const {
     cout << "|     ___| |    | |    | |_| | | | \\ \\  | |___     |" << endl;
     cout << "|    |_____|    |_|    |_____| |_|  \\_\\ |_____|    |" << endl;
     cout << "|                                                  |" << endl;
-    cout << "|__________________________________________________|" << endl;
+    cout << "|__________________________________________________|" << endl << endl;
+    cout << "Welcome to the Poké Mart!" << endl;
     cout << endl;
     cout << "Options:" << endl;
-    cout << "(1) Buy Items" << endl;
-    cout << "(2) Sell Items" << endl;
-    cout << "(3) View My Items" << endl;
-    cout << "(4) Exit Poké Mart" << endl << endl;
+    cout << "(1) BUY" << endl;
+    cout << "(2) SELL" << endl;
+    cout << "(3) BAG" << endl;
+    cout << "(4) EXIT" << endl << endl;
 }
 
 void Display::displayBattleScreen() const {

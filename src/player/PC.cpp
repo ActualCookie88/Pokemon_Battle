@@ -22,9 +22,9 @@ void PC::initiatePC() {
         viewPokemonTeam();
         viewPokemonCaught();
         cout << "Options:" << endl;
-        cout << "(1) View Pokemon stats" << endl;
-        cout << "(2) Edit Pokemon Team" << endl;
-        cout << "(3) Go Back" << endl;
+        cout << "(1) VIEW STATS" << endl;
+        cout << "(2) EDIT TEAM" << endl;
+        cout << "(3) BACK" << endl;
         cout << endl;
         cout << "Select an option: ";
 
@@ -51,7 +51,7 @@ void PC::addPokemon(Pokemon* pokemon) {
 }
 
 void PC::viewPokemonCaught() {
-    cout << "Pokemon in your PC:" << endl;
+    cout << "PC:" << endl;
     for (int i = 0; i < getCaughtPokemon().size(); i++) {
         cout << "(" << i + getTeamPokemon().size() + 1 << ") " << getCaughtPokemon().at(i)->getName();;
         cout << endl;
@@ -64,9 +64,10 @@ void PC::viewPokemonStats() {
     int choice = 0;
     bool flag = true;
     while(flag) {
+        display->border();
         viewPokemonTeam();
         viewPokemonCaught();
-        cout << "Enter Pokemon to view: ";
+        cout << "Select Pokemon: ";
         i = selectOptionHelper(1, getCaughtPokemon().size() + getTeamPokemon().size());
         cout << endl;
         display->border();
@@ -83,8 +84,8 @@ void PC::viewPokemonStats() {
         cout << endl;
         
         cout << "Options: " << endl;
-        cout << "(1) View another Pokemon's stats" << endl;
-        cout << "(2) Go back" << endl << endl;
+        cout << "(1) VIEW MORE STATS" << endl;
+        cout << "(2) BACK" << endl << endl;
         cout << "Select option: ";
         choice = selectOptionHelper(1,2);
         if(choice == 2) {
@@ -94,8 +95,7 @@ void PC::viewPokemonStats() {
 }
 
 void PC::viewPokemonTeam() {
-    display->displayPCScreen();
-    cout << "Pokemon in your Team:" << endl;
+    cout << "TEAM:" << endl;
     for (int i = 0; i < getTeamPokemon().size(); i++) {
         cout << "(" << i + 1 << ") " << getTeamPokemon().at(i)->getName();
         cout << endl;
@@ -104,18 +104,27 @@ void PC::viewPokemonTeam() {
 }
 
 void PC::editPokemonTeam() {
-    int choice1, choice2, choice3 = 0;
+    int choice1 = 0, choice2 = 0, choice3 = 0;
     bool flag = true;
 
     while(flag) {
         display->border();
         viewPokemonTeam();
         viewPokemonCaught();
-
-        cout << "Enter number of Pokemon in Team to switch: ";
+        cout << "(Enter CANCEL to cancel swap)" << endl << endl;
+        
+        cout << "Select Pokemon in TEAM: ";
         choice1 = selectOptionHelper(1,3);
-        cout << "Enter number of Pokemon in PC to switch: ";
+        if (choice1 == -1) {
+            cout << "SWAP CANCELED" << endl;
+            break;
+        }
+        cout << "Select Pokemon in PC: ";
         choice2 = selectOptionHelper(4, getCaughtPokemon().size() + getTeamPokemon().size());
+        if (choice2 == -1) {
+            cout << "SWAP CANCELED" << endl;
+            break;
+        }
 
         int caughtIndex = choice2 - getTeamPokemon().size() - 1; 
         Pokemon* pokemonInTeam = teamPokemon.at(choice1 - 1);
@@ -132,8 +141,8 @@ void PC::editPokemonTeam() {
         viewPokemonCaught();
 
         cout << "Options: " << endl;
-        cout << "(1) Edit Pokemon Team again" << endl;
-        cout << "(2) Go back" << endl << endl;
+        cout << "(1) EDIT AGAIN" << endl;
+        cout << "(2) BACK" << endl << endl;
         cout << "Select option: ";
         choice3 = selectOptionHelper(1,2);
         if(choice3 == 2) {
@@ -159,10 +168,29 @@ int PC::clearInputHelper() {
 }
 
 int PC::selectOptionHelper(int min, int max) {
-    int i = 0;
-    cin >> i;
-    cout << endl;
-    return validateInput(i, min, max);
+    string input;
+    int number;
+    while (true) {
+        cin >> input;
+        cout << endl;
+
+        if (input == "CANCEL") {
+            return -1;
+        }
+
+        try {
+            number = stoi(input); // if fails, throws exception to catch
+        } catch (...) {
+            cout << "INVALID OPTION. TRY AGAIN: ";
+            continue;
+        }
+
+        if (number >= min && number <= max) {
+            return number;
+        } else {
+            cout << "INVALID OPTION. TRY AGAIN: ";
+        }
+    }
 }
 
 int PC::validateInput(int input, int min, int max) {
