@@ -37,7 +37,7 @@ void Battle::initiateBattle() {
         } else if (choice == 2) {
             viewEditTeam();
         } else if (choice == 3) {
-            //view active pokemon moveset
+            chooseMove();
         } else if (choice == 4) {
             if(fleeSuccess()) {
                 return;
@@ -76,15 +76,19 @@ void Battle::viewUseItems() {
 }
 
 void Battle::viewItem() {
-    int i = 0;
     int choice = 0;
     bool flag = true;
     while(flag) {
+        cout << "(Enter CANCEL to cancel choice)" << endl << endl;
         cout << "SELECT ITEM: ";
-        i = selectOptionHelper(1, 8);
+        choice = selectOptionHelper(1, 8);
+        if (choice == -1) {
+            cout << "CANCELED" << endl;
+            break;
+        }
         cout << endl;
 
-        player->viewItemStats(i);
+        player->viewItemStats(choice);
         
         cout << endl;
 
@@ -103,18 +107,23 @@ void Battle::viewItem() {
 }
 
 void Battle::useItem() {
-    int i = 0;
     int choice = 0;
     bool flag = true;
     while(flag) {
+        cout << "(Enter CANCEL to cancel choice)" << endl << endl;
         cout << "Select item to use: ";
-        i = selectOptionHelper(1, 8);
+        choice = selectOptionHelper(1, 8);
+        if (choice == -1) {
+            cout << "CANCELED" << endl;
+            break;
+        }
 
-        Item* item = player->getItems().at(i - 1);
+        Item* item = player->getItems().at(choice - 1);
         if(item->getAmount() == 0) {
             cout << "INSUFFICIENT AMOUNT." << endl << endl;
         }
         else {
+            //player->getTeam()[0]->removeHP(50);
             if(item->isPokeball()) {
                 item->useItem();
                 Pokeball* pokeball = dynamic_cast<Pokeball*>(item);
@@ -133,14 +142,19 @@ void Battle::useItem() {
                 }
                 else {
                     viewTeam(2);
+                    cout << "(Enter CANCEL to cancel choice)" << endl << endl;
                     cout << "Select Pokemon to use " << item->getName() << " on: ";
-                    i = selectOptionHelper(1, 3);
+                    choice = selectOptionHelper(1, 3);
+                    if (choice == -1) {
+                        cout << "CANCELED" << endl;
+                        break;
+                    }
     
-                    Pokemon* pokemon = player->getTeam().at(i-1);
+                    Pokemon* pokemon = player->getTeam().at(choice-1);
                     while (pokemon->getHP() <= 0) {
                         cout << "CANNOT CHOOSE A FAINTED POKEMON, TRY AGAIN: ";
-                        i = selectOptionHelper(1, 3);
-                        pokemon = player->getTeam().at(i-1);
+                        choice = selectOptionHelper(1, 3);
+                        pokemon = player->getTeam().at(choice-1);
                     }
                     Potion* potion = dynamic_cast<Potion*>(item);
                     item->useItem();
@@ -161,14 +175,19 @@ void Battle::useItem() {
                 }
                 else {
                     viewTeam(2);
+                    cout << "(Enter CANCEL to cancel choice)" << endl << endl;
                     cout << "Select Pokemon to use " << item->getName() << " on: ";
-                    i = selectOptionHelper(1, 3);
+                    choice = selectOptionHelper(1, 3);
+                    if (choice == -1) {
+                        cout << "CANCELED" << endl;
+                        break;
+                    }
 
-                    Pokemon* pokemon = player->getTeam().at(i-1);
+                    Pokemon* pokemon = player->getTeam().at(choice-1);
                     while (pokemon->getHP() > 0) {
                         cout << "CAN ONLY CHOOSE A FAINTED POKEMON, TRY AGAIN: ";
-                        i = selectOptionHelper(1, 3);
-                        pokemon = player->getTeam().at(i-1);
+                        choice = selectOptionHelper(1, 3);
+                        pokemon = player->getTeam().at(choice-1);
                     }
                     
                     Revive* revive = dynamic_cast<Revive*>(item);
@@ -249,14 +268,24 @@ void Battle::viewEditTeam() {
         cout << "Active Pokemon: " << activePokemon->getName() << endl << endl;
         cout << "Options: " << endl;
         cout << "(1) SWAP POKEMON" << endl;
-        cout << "(2) BACK" << endl << endl;
+        cout << "(2) VIEW STATS" << endl;
+        cout << "(3) BACK" << endl << endl;
         cout << "Select option: ";
-        choice = selectOptionHelper(1,2);
+        choice = selectOptionHelper(1,3);
         if(choice == 1) {
             editTeam();
             return;
         }
-        else if(choice == 2) {
+        if(choice == 2) {
+            display->border();
+            player->displayTeamStats();
+            cout << "Options: " << endl;
+            cout << "(1) BACK" << endl << endl;
+            cout << "Select option: ";
+            choice = selectOptionHelper(1,1);
+            return;
+        }
+        else if(choice == 3) {
             flag = false;
         }
     }
@@ -267,24 +296,29 @@ void Battle::viewTeam(int option) {
 }
 
 void Battle::editTeam() {
-    int i = 0;
+    int choice = 0;
     bool flag = true;
 
     vector<Pokemon*>& team = player->getTeam();
 
     while(flag) {
+        cout << "(Enter CANCEL to cancel choice)" << endl << endl;
         cout << "Select Pokemon to swap: ";
-        i = selectOptionHelper(1,3);
+        choice = selectOptionHelper(1,3);
+        if (choice == -1) {
+            cout << "CANCELED" << endl;
+            break;
+        }
 
-        Pokemon* pokemonToSwap = team.at(i-1);
+        Pokemon* pokemonToSwap = team.at(choice-1);
         while (pokemonToSwap == activePokemon) {
             cout << "POKEMON IS ALREADY ACTIVE, TRY AGAIN: ";
-            i = selectOptionHelper(1, 3);
-            pokemonToSwap = team.at(i-1);
+            choice = selectOptionHelper(1, 3);
+            pokemonToSwap = team.at(choice-1);
         }
         cout << activePokemon->getName() << ", switch out!" << endl << endl;
 
-        swap(team[0], team[i - 1]);
+        swap(team[0], team[choice - 1]);
         
         activePokemon = team[0];
 
@@ -296,8 +330,19 @@ void Battle::editTeam() {
         cout << " ." << endl << endl;
         sleep_for(0.75s);
         cout << pokemonToSwap->getName() << ", I choose you!" << endl << endl;
+        sleep_for(2s);
         flag = false;
     }
+}
+
+void Battle::chooseMove() {
+    int choice = 0;
+    display->displayMovesScreen();
+    Pokemon* wild = dynamic_cast<WildPokemon*>(wildPokemon);
+    activePokemon->displayMoveset(wild);
+
+    cout << "Select MOVE: " << endl;
+    choice = selectOptionHelper(1,1);
 }
 
 bool Battle::checkBattleEnd() const {
@@ -370,19 +415,38 @@ bool Battle::fleeSuccess() {
 }
 
 int Battle::clearInputHelper() {
-    int i = 0;
+    int choice = 0;
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin >> i;
+    cin >> choice;
     cout << endl;
-    return i;
+    return choice;
 }
 
 int Battle::selectOptionHelper(int min, int max) {
-    int i = 0;
-    cin >> i;
-    cout << endl;
-    return validateInput(i, min, max);
+    string input;
+    int number;
+    while (true) {
+        cin >> input;
+        cout << endl;
+
+        if (input == "CANCEL") {
+            return -1;
+        }
+
+        try {
+            number = stoi(input); // if fails, throws exception to catch
+        } catch (...) {
+            cout << "INVALID OPTION. TRY AGAIN: ";
+            continue;
+        }
+
+        if (number >= min && number <= max) {
+            return number;
+        } else {
+            cout << "INVALID OPTION. TRY AGAIN: ";
+        }
+    }
 }
 
 int Battle::validateInput(int input, int min, int max) {

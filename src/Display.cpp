@@ -143,18 +143,6 @@ void Display::displayMovesScreen() const {
     cout << "|                                                  |" << endl;
     cout << "|__________________________________________________|" << endl;
     cout << endl;
-
-    string pokemon = "Pikachu";
-    cout << pokemon << "\'s Moveset: " << endl;
-    // access and print Active Pokemon's moves, example:
-    cout << "1. Thunderbolt" << endl;
-    cout << "2. Headbutt" << endl;
-    cout << "3. Shock" << endl;
-    cout << "4. Iron Tail" << endl;
-    cout << endl;
-    cout << "Enter move number to use: " << endl; // prompt user for number input relative to move
-    cout << "(Enter 5 to Go Back)" << endl;
-    cout << endl;
 }
 
 void Display::displayLoseScreen() const {

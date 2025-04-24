@@ -4,7 +4,7 @@
 
 Attack::Attack() : name(Moves::None), type(Type::Normal), power(0) {} // default constructor
 
-Attack::Attack(Moves name) : name(name) { // constructor for damage-only moves
+Attack::Attack(Moves name) : name(name) {
     switch (name) {
         case Moves::FireSpin:
             type = Type::Fire;

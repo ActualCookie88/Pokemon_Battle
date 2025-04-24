@@ -18,7 +18,7 @@ int main() {
     cout << endl;
     Squirtle->displayInfo();
     cout << endl;
-
+    
     cout << Charmander->calculateDamage(Charmander->getMove1(), Charmander, Bulbasaur) << endl;
 
     Attack* fireSpin = new Attack(Moves::FireSpin);
@@ -31,9 +31,13 @@ int main() {
     }
     cout << endl;
 
-    Charmander->addEXP(500);
+    Charmander->addEXP(100);
+    cout << endl;
     Charmander->displayInfo();
     cout << endl;
+    Charmander->displayMoveset(Bulbasaur);
+    cout << endl;
+    
 
     /*
     Pokemon* pokemons[] = { attacker, defender };

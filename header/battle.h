@@ -21,18 +21,20 @@ class Battle {
         Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), activePokemon(p->getTeam().at(0)), isPlayerTurn(true) {}
         // actions
         void initiateBattle();
-
+        // BAG option (1)
         void viewUseItems();
         void viewItem();
         void useItem();
         void useBall(WildPokemon* wildPokemon, Pokeball* item);
         void usePotion(Pokemon*& pokemon, Potion* potion);
         void useRevive(Pokemon*& pokemon, Revive* revive);
-
+        // POKEMON option (2)
         void viewEditTeam();
         void viewTeam(int option);
         void editTeam();
-
+        // FIGHT option (3)
+        void chooseMove();
+        // FLEE option (4)
         bool fleeSuccess();
 
         bool checkBattleEnd() const;

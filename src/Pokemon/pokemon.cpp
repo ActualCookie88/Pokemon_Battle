@@ -134,6 +134,14 @@ void Pokemon::displayBattleInfo() {
         << endl;
 }
 
+void Pokemon::displayMoveset(Pokemon* wildPokemon) {
+    cout << getName() << "'s Moves:" << endl << endl;
+    cout << "(1): " << move1->getName() << " (Damage: " << calculateDamage(move1, this, wildPokemon) << ")"
+    << "\n(2): " << move2->getName() << " (Damage: " << calculateDamage(move2, this, wildPokemon) << ")"
+    << "\n(3): " << move3->getName() << " (Damage: " << calculateDamage(move2, this, wildPokemon) << ")"
+    << endl;
+}
+
 void Pokemon::initializeStats(PokemonSpecies sp){
     switch(sp){
     case PokemonSpecies::Bulbasaur:
