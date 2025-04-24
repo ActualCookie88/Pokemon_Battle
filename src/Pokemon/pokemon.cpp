@@ -83,7 +83,7 @@ vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
     vector<Moves> availableMoves;
 
     if (pokemonType != Type::Normal) {
-        // Populate availableMoves based on Pokémon type
+        // Populate availableMoves based on Pokemon type
         if (pokemonType == Type::Fire) {
             availableMoves = fireTypeMoves;
         } else if (pokemonType == Type::Water) {

@@ -123,7 +123,7 @@ void Battle::useItem() {
             }
             else if(item->isPotion()) {
                 if(isTeamFullHP()) {
-                    cout << "Your Pokémon are at full health!" << endl;
+                    cout << "Your Pokemon are at full health!" << endl;
                     cout << "(1) Go back" << endl << endl;
                     cout << "Select option: ";
                     choice = selectOptionHelper(1,1);
@@ -133,7 +133,7 @@ void Battle::useItem() {
                 }
                 else {
                     viewTeam(2);
-                    cout << "Select Pokémon to use " << item->getName() << " on: ";
+                    cout << "Select Pokemon to use " << item->getName() << " on: ";
                     i = selectOptionHelper(1, 3);
     
                     Pokemon* pokemon = player->getTeam().at(i-1);
@@ -151,7 +151,7 @@ void Battle::useItem() {
             }
             else if(item->isRevive()) {
                 if(!hasFaintedPokemon()) {
-                    cout << "You have no Pokémon to revive!" << endl;
+                    cout << "You have no Pokemon to revive!" << endl;
                     cout << "(1) Go back" << endl << endl;
                     cout << "Select option: ";
                     choice = selectOptionHelper(1,1);
@@ -161,7 +161,7 @@ void Battle::useItem() {
                 }
                 else {
                     viewTeam(2);
-                    cout << "Select Pokémon to use " << item->getName() << " on: ";
+                    cout << "Select Pokemon to use " << item->getName() << " on: ";
                     i = selectOptionHelper(1, 3);
 
                     Pokemon* pokemon = player->getTeam().at(i-1);
@@ -200,14 +200,14 @@ void Battle::useBall(WildPokemon* wildPokemon, Pokeball* pokeball) {
     cout << ". . ." << endl << endl;
     sleep_for(1s);
     if(roll > chance * 3) {
-        cout << "The Pokémon broke free!" << endl;
+        cout << "The Pokemon broke free!" << endl;
         wildPokemonTurn();
         return;
     }
     cout << ". . ." << endl << endl;
     sleep_for(1s);
     if(roll > chance * 1.5) {
-        cout << "The Pokémon broke free!" << endl;
+        cout << "The Pokemon broke free!" << endl;
         wildPokemonTurn();
         return;
     }
@@ -215,13 +215,13 @@ void Battle::useBall(WildPokemon* wildPokemon, Pokeball* pokeball) {
     sleep_for(1s);
     if(roll <= chance) {
         cout << wildPokemon->getName() << " was caught!" << endl << endl;
-        this->getPlayer()->getPC()->addPokemon(wildPokemon);  // Add Pokémon to PC
-        wildPokemon->setBaseHP(0);  // Set wild Pokémon's HP to 0 (caught)
+        this->getPlayer()->getPC()->addPokemon(wildPokemon);  // Add Pokemon to PC
+        wildPokemon->setBaseHP(0);  // Set wild Pokemon's HP to 0 (caught)
         pokemonIsCaught = true;
         endBattle(true);  // End the battle
     }
     else {
-        cout << "The Pokémon broke free!" << endl;
+        cout << "The Pokemon broke free!" << endl;
         wildPokemonTurn();
         return;
     }
