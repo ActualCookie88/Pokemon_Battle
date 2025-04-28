@@ -86,9 +86,29 @@ add_executable(testAttack
 
 add_executable(testPokemon
     test/testPokemon.cpp
+    src/player/Player.cpp
+    src/player/Store.cpp
+    src/player/PC.cpp
+
+    src/Display.cpp
+
     src/Pokemon/attack.cpp
-    src/Pokemon/moves.cpp
     src/Pokemon/pokemon.cpp
+    src/Pokemon/moves.cpp
+    src/Pokemon/wildPokemon.cpp
+
+    src/items/Item.cpp
+    src/items/Pokeballs/Pokeball.cpp
+    src/items/Pokeballs/StandardBall.cpp
+    src/items/Pokeballs/GreatBall.cpp
+    src/items/Pokeballs/UltraBall.cpp
+    src/items/Potions/Potion.cpp
+    src/items/Potions/StandardPotion.cpp
+    src/items/Potions/SuperPotion.cpp
+    src/items/Potions/HyperPotion.cpp
+    src/items/Revives/Revive.cpp
+    src/items/Revives/StandardRevive.cpp
+    src/items/Revives/MaxRevive.cpp
 )
 
 add_executable(testWild

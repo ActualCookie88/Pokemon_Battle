@@ -13,17 +13,16 @@ class Battle {
         Player* player;
         WildPokemon* wildPokemon;
         Pokemon* activePokemon;
-        bool isPlayerTurn;
         bool pokemonIsCaught = false;
+        bool playerTurnOver = false;
 
     public: 
-        Battle() : player(nullptr), wildPokemon(nullptr), isPlayerTurn(true) {}
-        Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), activePokemon(p->getTeam().at(0)), isPlayerTurn(true) {}
+        Battle() : player(nullptr), wildPokemon(nullptr) {}
+        Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), activePokemon(p->getTeam().at(0)) {}
         // actions
         void initiateBattle();
         // BAG option (1)
         void viewUseItems();
-        void viewItem();
         void useItem();
         void useBall(WildPokemon* wildPokemon, Pokeball* item);
         void usePotion(Pokemon*& pokemon, Potion* potion);
@@ -37,11 +36,11 @@ class Battle {
         // FLEE option (4)
         bool fleeSuccess();
 
+        void displayEffectiveness(Attack* move, Pokemon* defender);
         bool checkBattleEnd() const;
         bool hasFaintedPokemon() const;
         bool isTeamFullHP() const;
 
-        void endBattle(bool pokemonCaught);
         void wildPokemonTurn();
         // helpers
         int clearInputHelper();

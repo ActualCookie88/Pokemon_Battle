@@ -3,6 +3,7 @@
 #include "../header/Pokemon/pokemon.h"
 #include "../header/Pokemon/pokemonSpecies.h"
 #include "../header/Pokemon/type.h"
+#include "../header/Pokemon/wildPokemon.h"
 #include <iostream>
 
 using namespace std;
@@ -20,6 +21,8 @@ int main() {
     cout << endl;
     
     cout << Charmander->calculateDamage(Charmander->getMove1(), Charmander, Bulbasaur) << endl;
+    cout << Charmander->calculateDamage(Charmander->getMove2(), Charmander, Bulbasaur) << endl;
+    cout << Charmander->calculateDamage(Charmander->getMove3(), Charmander, Bulbasaur) << endl;
 
     Attack* fireSpin = new Attack(Moves::FireSpin);
 
@@ -38,25 +41,12 @@ int main() {
     Charmander->displayMoveset(Bulbasaur);
     cout << endl;
     
+    WildPokemon* victree = new WildPokemon(PokemonSpecies::Victreebel, 52);
+    Charmander->setLevel(50);
 
-    /*
-    Pokemon* pokemons[] = { attacker, defender };
-    for (Pokemon* pokemon : pokemons) { 
-        cout << "Species: " << pokemon->speciesToString(pokemon->getSpecies()) << endl;
-        cout << "Type: " << pokemon->typeToString(pokemon->getType()) << endl;
-        cout << "Health: " <<  pokemon->gethp() << endl;
-        cout << "Attack: " <<  pokemon->getAttack() << endl;
-        cout << "Defense: " <<  pokemon->getDefense() << endl;
-        cout << "Level: " << pokemon->getLevel() << endl;
-        cout << "Exp: " << pokemon->getEXP() << endl;
-        cout << "Moves: " << endl;
-        cout << " " << pokemon->getMove1()->getName() << endl;
-        cout << " " <<  pokemon->getMove2()->getName() << endl;
-        cout << " " <<  pokemon->getMove3()->getName() << endl << endl;
-        
-    }
-    */
-    
+    cout << Charmander->calculateDamage(fireSpin, Charmander, victree) << endl;
+
+    delete victree;
     delete Charmander;
     delete Bulbasaur;
     delete Squirtle;

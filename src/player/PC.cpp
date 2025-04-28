@@ -86,7 +86,7 @@ void PC::viewPokemonStats() {
         cout << "Options: " << endl;
         cout << "(1) VIEW MORE STATS" << endl;
         cout << "(2) BACK" << endl << endl;
-        cout << "Select option: ";
+        cout << "SELECT OPTION: ";
         choice = selectOptionHelper(1,2);
         if(choice == 2) {
             flag = false;
@@ -143,7 +143,7 @@ void PC::editPokemonTeam() {
         cout << "Options: " << endl;
         cout << "(1) EDIT AGAIN" << endl;
         cout << "(2) BACK" << endl << endl;
-        cout << "Select option: ";
+        cout << "SELECT OPTION: ";
         choice3 = selectOptionHelper(1,2);
         if(choice3 == 2) {
             flag = false;

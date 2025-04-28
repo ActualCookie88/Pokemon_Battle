@@ -39,6 +39,7 @@ class Pokemon {
         void displayBattleInfo();
         void displayMoveset(Pokemon* wildPokemon);
         void initializeStats(PokemonSpecies sp);
+        // calculations
         int calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender) const;
         int calculateHP() const;
         int calculateAttack() const;
@@ -63,6 +64,7 @@ class Pokemon {
         int getLevel() const;
         int getEXP() const;
         string getName();
+        vector<Attack*> getMoves();
         Attack* getMove1() const;
         Attack* getMove2() const;
         Attack* getMove3() const;
@@ -72,6 +74,7 @@ class Pokemon {
         void setBaseAttack(int val);
         void setBaseDefense(int val);
         void setLevel(int val);
+        void setEXP(int val);
         void addEXP(int val);
         void setMove1(Attack* newMove);
         void setMove2(Attack* newMove);

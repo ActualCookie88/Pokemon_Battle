@@ -52,6 +52,18 @@ WildPokemon::WildPokemon(Player*& player) : Pokemon() {
     setLevel(baseLevel);
 }
 
+WildPokemon::WildPokemon(PokemonSpecies sp, int lvl) {
+    setSpecies(sp);
+    setLevel(lvl);
+    setEXP(0);
+    initializeStats(sp);
+    vector<Moves> selectedMoves = generateRandomMoves(getType());
+    // Initialize Moves
+    setMove1(new Attack(selectedMoves[0])); 
+    setMove2(new Attack(selectedMoves[1]));
+    setMove3(new Attack(selectedMoves[2])); 
+}
+
 Attack* WildPokemon::wildPokemonMove(Pokemon* opponent) {
     static mt19937 rng(random_device{}()); // Better random engine
     uniform_int_distribution<int> moveDist(0, 2); // Ensures a uniform choice between 0 and 2

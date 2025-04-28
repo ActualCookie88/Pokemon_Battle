@@ -19,7 +19,7 @@ Pokemon::Pokemon() : species(PokemonSpecies::none), type(Type::Normal), baseHP(1
 {
 }
 
-Pokemon::Pokemon(PokemonSpecies sp): species(sp){ // constructor for all pokemon
+Pokemon::Pokemon(PokemonSpecies sp): species(sp) { // constructor for all pokemon
     level = 1;
     exp = 0;
     initializeStats(sp);
@@ -105,12 +105,16 @@ vector<Moves> Pokemon::generateRandomMoves(Type pokemonType) {
     }
     // Select the first two random moves
     selectedMoves.push_back(availableMoves[rand() % availableMoves.size()]);
+        
     // Remove the selected move to avoid repetition
     availableMoves.erase(remove(availableMoves.begin(), availableMoves.end(), selectedMoves.back()), availableMoves.end());
-    selectedMoves.push_back(availableMoves[rand() % availableMoves.size()]);
-    // Add one random Normal-type move
-    selectedMoves.push_back(normalTypeMoves[rand() % normalTypeMoves.size()]);
 
+    selectedMoves.push_back(availableMoves[rand() % availableMoves.size()]);
+
+    // Select one random Normal-type move for the third move
+    vector<Moves> normalMoves = normalTypeMoves;  // Ensure you use only Normal-type moves here
+    selectedMoves.push_back(normalMoves[rand() % normalMoves.size()]);
+    
     return selectedMoves;
 }
 
@@ -130,15 +134,15 @@ void Pokemon::displayInfo() {
 void Pokemon::displayBattleInfo() {
     cout << "LVL: " << getLevel()
         << "\nTYPE: " << typeToString(type)
-        << "\nHP: " << getHP()
+        << "\nHP: " << getHP() << " / " << getMaxHP()
         << endl;
 }
 
 void Pokemon::displayMoveset(Pokemon* wildPokemon) {
     cout << getName() << "'s Moves:" << endl << endl;
-    cout << "(1): " << move1->getName() << " (Damage: " << calculateDamage(move1, this, wildPokemon) << ")"
-    << "\n(2): " << move2->getName() << " (Damage: " << calculateDamage(move2, this, wildPokemon) << ")"
-    << "\n(3): " << move3->getName() << " (Damage: " << calculateDamage(move2, this, wildPokemon) << ")"
+    cout << "(1): " << move1->getName() << " (TYPE: " << typeToString(move1->getType()) << ")"
+    << "\n(2): " << move2->getName() << " (TYPE: " << typeToString(move2->getType()) << ")"
+    << "\n(3): " << move3->getName() << " (TYPE: " << typeToString(move3->getType()) << ")"
     << endl;
 }
 
@@ -789,19 +793,27 @@ string Pokemon::typeToString(Type type) {
     }
 }
 
-int Pokemon::calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender) const {//this is the actual damage that will do to the opponent
-    int damage = ( ( ( ( 2 * attacker->getLevel() / 5 ) + 2) * (move->getPower() * ( attacker->calculateAttack() / defender->calculateDefense()) ) ) / 50 ) + 2;
-    if(move->isSuperEffective(defender->getType())){
-        damage *= 2;
+int Pokemon::calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender) const {
+    if(move->getPower() == 0 ){
+        return 0;
     }
-    else if(move->isNotVeryEffective(defender->getType())){
-        damage *= 0.5;
+
+    double levelFactor = (2.0 * attacker->getLevel()) / 5.0 + 2.0;
+    double attackDefenseRatio = static_cast<double>(attacker->calculateAttack()) / defender->calculateDefense();
+    double baseDamage = ((levelFactor * move->getPower() * attackDefenseRatio) / 50.0) + 2.0;
+
+    if(move->isSuperEffective(defender->getType())) {
+        baseDamage *= 2.0;
+    } 
+    else if(move->isNotVeryEffective(defender->getType())) {
+        baseDamage *= 0.5;
     }
-    srand(time(0));
-    if(rand() % 10000 <= 625){
-        damage *= 1.5;
-    }
-    return damage * (85 + rand() % 30) / 100;
+
+    // random variance (85% - 100%)
+    int randomFactor = 85 + (rand() % 16); // (85 to 100 inclusive)
+    baseDamage *= static_cast<double>(randomFactor) / 100.0;
+
+    return static_cast<int>(baseDamage);
 }
 
 int Pokemon::calculateHP() const {
@@ -856,6 +868,10 @@ int Pokemon::getEXP() const {
 string Pokemon::getName() {
     return speciesToString(species);
 }
+vector<Attack*> Pokemon::getMoves() {
+    vector<Attack*> moves = {move1, move2, move3};
+    return moves;
+}
 Attack* Pokemon::getMove1() const{
     return move1;
 }
@@ -894,7 +910,9 @@ void Pokemon::setMove2(Attack* newMove) {
 void Pokemon::setMove3(Attack* newMove) {
     move3 = newMove;
 }
-
+void Pokemon::setEXP(int val) {
+    exp = val;
+}
 void Pokemon::addEXP(int val) {
     if(level >= 100){
         cout << speciesToString(species) << "is already lvl 100." << endl;
