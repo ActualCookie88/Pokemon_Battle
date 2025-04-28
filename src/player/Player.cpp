@@ -79,6 +79,13 @@ int Player::getMaxLevelPokemon() {
     }
     return max;
 }
+int Player::getAVGLevelPokemon() {
+    int sum = 0;
+    for (const auto& pokemon : teamPokemon) {
+        sum += pokemon->getLevel();
+    }
+    return sum / 3;
+}
 
 void Player::setItems(vector<Item*> items) { 
     playerItems = items; 

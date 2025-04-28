@@ -45,6 +45,7 @@ class Player {
         Store* getStore();
         PC* getPC();
         int getMaxLevelPokemon();
+        int getAVGLevelPokemon();
         // setters
         void setItems(vector<Item*> items);
         void setStore(Store* store);
