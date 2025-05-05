@@ -27,6 +27,7 @@ class Battle {
         void useBall(WildPokemon* wildPokemon, Pokeball* item);
         void usePotion(Pokemon*& pokemon, Potion* potion);
         void useRevive(Pokemon*& pokemon, Revive* revive);
+        void useReviveAfterLost();
         // POKEMON option (2)
         void viewEditTeam();
         void viewTeam(int option);
@@ -35,13 +36,15 @@ class Battle {
         void chooseMove();
         // FLEE option (4)
         bool fleeSuccess();
-
+        // misc
         void displayEffectiveness(Attack* move, Pokemon* defender);
-        bool checkBattleEnd() const;
+        bool allFaintedPokemon() const;
         bool hasFaintedPokemon() const;
+        bool checkBattleEnd() const;
         bool isTeamFullHP() const;
-
         void wildPokemonTurn();
+        void choosePokemonAfterFaint();
+        void updateWin();
         // helpers
         int clearInputHelper();
         int selectOptionHelper(int min, int max);

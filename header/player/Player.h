@@ -34,6 +34,8 @@ class Player {
         void accessStore();
         void accessPC();
         // helpers
+        bool hasRevives();
+        void displayRevives();
         void viewMyItems(bool isViewing); // Store function
         void viewItemStats(int itemNum); // Store function
         void viewPokemonTeam(int option); // PC function

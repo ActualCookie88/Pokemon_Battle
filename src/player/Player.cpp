@@ -24,6 +24,20 @@ void Player::accessPC() {
     myPC->initiatePC();
 }
 
+bool Player::hasRevives() {
+    int sum = 0;
+    sum += playerItems.at(6)->getAmount() + playerItems.at(7)->getAmount();
+    return sum > 0;
+}
+
+void Player::displayRevives() {
+    cout << "(1) ";
+    playerItems.at(6)->displayInfo2();
+    cout << endl;
+    cout << "(2) ";
+    playerItems.at(7)->displayInfo2();
+}
+
 void Player::viewMyItems(bool isViewing) {
     myStore->viewMyItems(isViewing);
 }
@@ -37,13 +51,9 @@ void Player::viewPokemonTeam(int option) {
         display->displayTeamScreen();
         cout << "Pokemon in your Team:" << endl;
     }
-    else if(option == 1) {
-        display->displayPCScreen();
-        cout << "Pokemon in your Team:" << endl;
-    }
     for (int i = 0; i < teamPokemon.size(); i++) {
         cout << "(" << i + 1 << ") " << teamPokemon.at(i)->getName();
-        if(option == 2) {
+        if(option == 1) {
             cout << " ( HP: " << teamPokemon.at(i)->getHP() << " / " << teamPokemon.at(i)->getMaxHP() << " )";
         }
         cout << endl;

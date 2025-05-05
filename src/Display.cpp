@@ -159,9 +159,6 @@ void Display::displayLoseScreen() const {
     cout << "|__________________________________________________________________________|" << endl;
     cout << endl;
     cout << "ALL OF YOUR POKEMON HAVE FAINTED!" << endl;
-    cout << "(1) Use Revive Item" << endl; // only works if the user actually owns one, use conditional
-    cout << "(2) Give up and flee" << endl;
-    cout << endl;
 }
 
 void Display::displayTeamScreen() const {
