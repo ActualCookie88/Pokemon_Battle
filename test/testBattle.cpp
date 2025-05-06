@@ -16,12 +16,20 @@ int main() {
     player->setTeamlevel(50);
 
     WildPokemon* wildPokemon = new WildPokemon(player);
+    WildPokemon* Blastoise = new WildPokemon(PokemonSpecies::Blastoise, 100);
+    WildPokemon* Ratata = new WildPokemon(PokemonSpecies::Rattata, 10);
 
-    Battle* battle = new Battle(player, wildPokemon);
-    
+    //Battle* battle = new Battle(player, wildPokemon);
+    //Battle* battle = new Battle(player, Blastoise);
+    Battle* battle = new Battle(player, Ratata);
+
     battle->initiateBattle();
+    player->accessPC();
+    player->accessStore();
 
     delete battle;
+    delete Ratata;
+    delete Blastoise;
     delete wildPokemon;
     delete player;
     

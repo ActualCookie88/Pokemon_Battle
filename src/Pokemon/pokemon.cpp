@@ -122,7 +122,7 @@ void Pokemon::displayInfo() {
     cout << "SPECIES: " << speciesToString(species)
         << "\nTYPE: " << typeToString(type)
         << "\nLVL: " << getLevel()
-        << "\nHP: " << getHP()
+        << "\nHP: " << getHP() << " / " << getMaxHP()
         << "\nATTACK: " << getAttack()
         << "\nDEFENSE: " << getDefense() 
         << "\nEXP: " << getEXP()
@@ -885,6 +885,9 @@ Attack* Pokemon::getMove3() const{
 void Pokemon::setSpecies(PokemonSpecies newSpecies) {
     species = newSpecies;
 }
+void Pokemon::setHP(int val) {
+    hp = val;
+}
 void Pokemon::setBaseHP(int val) {
     baseHP = val;
 }
@@ -949,6 +952,10 @@ void Pokemon::addLevel(){
     attack = calculateAttack();
     defense = calculateDefense();
     maxHP = hp;
+}
+
+void Pokemon::resetHPtoMax() {
+    hp = maxHP;
 }
 
 void Pokemon::addHP(int val) {

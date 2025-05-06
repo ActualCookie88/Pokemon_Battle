@@ -40,10 +40,12 @@ class Battle {
         void displayEffectiveness(Attack* move, Pokemon* defender);
         bool allFaintedPokemon() const;
         bool hasFaintedPokemon() const;
-        bool checkBattleEnd() const;
+        bool activePokemonLeft() const;
         bool isTeamFullHP() const;
         void wildPokemonTurn();
         void choosePokemonAfterFaint();
+        // win loss results
+        void updateLoss();
         void updateWin();
         // helpers
         int clearInputHelper();

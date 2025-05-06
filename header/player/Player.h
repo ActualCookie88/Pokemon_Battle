@@ -24,9 +24,7 @@ class Player {
         teamPokemon({   new Pokemon(PokemonSpecies::Charmander), 
                         new Pokemon(PokemonSpecies::Bulbasaur), 
                         new Pokemon(PokemonSpecies::Squirtle) }),
-        caughtPokemon({ new Pokemon(PokemonSpecies::Charmander), 
-                        new Pokemon(PokemonSpecies::Bulbasaur), 
-                        new Pokemon(PokemonSpecies::Squirtle) }),
+        caughtPokemon({}),
         myStore(new Store(playerItems)),
         myPC(new PC(teamPokemon, caughtPokemon)) {}
         ~Player();            
@@ -46,6 +44,7 @@ class Player {
         vector<Pokemon*> getCaught();
         Store* getStore();
         PC* getPC();
+        Display* getDisplay();
         int getMaxLevelPokemon();
         int getAVGLevelPokemon();
         // setters

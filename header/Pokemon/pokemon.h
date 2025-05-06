@@ -70,6 +70,7 @@ class Pokemon {
         Attack* getMove3() const;
         // setters
         void setSpecies(PokemonSpecies newSpecies);
+        void setHP(int val);
         void setBaseHP(int val);
         void setBaseAttack(int val);
         void setBaseDefense(int val);
@@ -80,6 +81,7 @@ class Pokemon {
         void setMove2(Attack* newMove);
         void setMove3(Attack* newMove);
         void addLevel();
+        void resetHPtoMax();
         void addHP(int val);
         void removeHP(int val);
 };

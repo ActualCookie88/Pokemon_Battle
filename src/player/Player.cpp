@@ -80,6 +80,10 @@ Store* Player::getStore() {
 PC* Player::getPC() { 
     return myPC; 
 }
+Display* Player::getDisplay() {
+    return display;
+}
+
 int Player::getMaxLevelPokemon() {
     int max = teamPokemon[0]->getLevel();
     for (const auto& pokemon : teamPokemon) {

@@ -15,7 +15,6 @@ using namespace std::chrono;
 void Battle::initiateBattle() {
     int choice = 0;
     bool flag = true;
-    player->getTeam().at(1)->set
     while(flag) {
         display->displayBattleScreen();
         cout << "A wild " << wildPokemon->getName() << " appeared!" << endl;
@@ -44,10 +43,12 @@ void Battle::initiateBattle() {
         } 
         else if(choice == 4) {
             if(fleeSuccess()) {
+                updateLoss();
                 return;
             }
         }
-        if(checkBattleEnd() || pokemonIsCaught) {
+        if(wildPokemon->getHP() == 0 || pokemonIsCaught) {
+            updateWin();
             return;
         }
         if(playerTurnOver) {
@@ -70,6 +71,7 @@ void Battle::initiateBattle() {
                     sleep_for(1s);
                     cout << "You fled the battle!" << endl;
                     sleep_for(1s);
+                    updateLoss();
                     return;
                 }
             }
@@ -79,12 +81,10 @@ void Battle::initiateBattle() {
                 sleep_for(1s);
                 cout << "You fled the battle!" << endl;
                 sleep_for(1s);
+                updateLoss();
                 return;
             }
             
-        }
-        if(checkBattleEnd() || pokemonIsCaught) {
-            return;
         }
     }
 }
@@ -256,9 +256,11 @@ void Battle::usePotion(Pokemon*& pokemon, Potion* potion) {
 
 void Battle::useRevive(Pokemon*& pokemon, Revive* revive) {
     cout << endl;
+    sleep_for(2s);
     pokemon->addHP(pokemon->getMaxHP() * revive->getRestorePercent());
     cout << pokemon->getName() << " now has " << pokemon->getHP() << " HP!" << endl;
     cout << endl;
+    sleep_for(2s);
 }
 
 void Battle::useReviveAfterLost() {
@@ -274,11 +276,13 @@ void Battle::useReviveAfterLost() {
             cout << "CANCELED" << endl;
             break;
         }
-        Item* item = player->getItems().at(choice - 1);
+        Item* item = player->getItems().at(choice + 5);
         if(item->getAmount() == 0) {
             cout << "INSUFFICIENT AMOUNT." << endl << endl;
         }
         else {
+            display->border();
+            viewTeam(1);
             cout << "(Enter CANCEL to cancel choice)" << endl << endl;
             cout << "Select Pokemon to use " << item->getName() << " on: ";
             choice = selectOptionHelper(1, 3);
@@ -290,6 +294,7 @@ void Battle::useReviveAfterLost() {
             Revive* revive = dynamic_cast<Revive*>(item);
             revive->useItem();
             useRevive(pokemon, revive);
+            activePokemon = pokemon;
             playerTurnOver = true;
             return;
         }
@@ -301,7 +306,7 @@ void Battle::viewEditTeam() {
     int choice = 0;
     bool flag = true;
     while(flag) {
-        viewTeam(0);
+        viewTeam(1);
         cout << "Active Pokemon: " << activePokemon->getName() << endl << endl;
         cout << "Options: " << endl;
         cout << "(1) SWAP POKEMON" << endl;
@@ -338,6 +343,16 @@ void Battle::editTeam() {
     vector<Pokemon*>& team = player->getTeam();
 
     while(flag) {
+        if(activePokemonLeft()) {
+            cout << "You have no Pokemon to swap out!" << endl;
+            cout << "(1) Go back" << endl << endl;
+            cout << "SELECT OPTION: ";
+            choice = selectOptionHelper(1,1);
+            if(choice == 1) {
+                flag = false;
+            }
+            return;
+        }
         cout << "(Enter CANCEL to cancel choice)" << endl << endl;
         cout << "Select Pokemon to swap: ";
         choice = selectOptionHelper(1,3);
@@ -347,30 +362,28 @@ void Battle::editTeam() {
         }
 
         Pokemon* pokemonToSwap = team.at(choice-1);
-        while (pokemonToSwap->getHP() <= 0) {
-            cout << "POKEMON HAS FAINTED, TRY AGAIN: ";
+        while (pokemonToSwap->getHP() <= 0 || pokemonToSwap == activePokemon) {
+            cout << "INVALID OPTION. TRY AGAIN: ";
             choice = selectOptionHelper(1, 3);
+            if(choice == -1) {
+                cout << "CANCELED" << endl;
+                return;
+            }
             pokemonToSwap = team.at(choice-1);
         }
-        while (pokemonToSwap == activePokemon) {
-            cout << "POKEMON IS ALREADY ACTIVE, TRY AGAIN: ";
-            choice = selectOptionHelper(1, 3);
-            pokemonToSwap = team.at(choice-1);
-        }
-        
         cout << activePokemon->getName() << ", switch out!" << endl << endl;
 
         swap(team[0], team[choice - 1]);
         
         activePokemon = team[0];
-
-        sleep_for(0.50s);
+        
+        sleep_for(1.0s);
         cout << "." << flush;;
         sleep_for(0.50s);
         cout << " ."  << flush;;
         sleep_for(0.50s);
         cout << " ." << endl << endl;
-        sleep_for(0.50s);
+        sleep_for(0.5s);
         cout << pokemonToSwap->getName() << ", I choose you!" << endl << endl;
         sleep_for(2s);
         playerTurnOver = true;
@@ -423,7 +436,6 @@ void Battle::chooseMove() {
     }
 
     cout << wild->getName() << " recieved " << damage << " damage!" << endl;
-    sleep_for(2s);
     displayEffectiveness(move, wild);
     wild->removeHP(damage); 
     if(wild->getHP() <= 0) {
@@ -438,12 +450,14 @@ void Battle::chooseMove() {
 
 void Battle::displayEffectiveness(Attack* move, Pokemon* defender) {
     if(move->isSuperEffective(defender->getType())) {
+        sleep_for(1.5s);
         cout << endl << move->getName() << " was Super Effective! " << endl;
-        sleep_for(2s);
+        sleep_for(1.5s);
     } 
     else if(move->isNotVeryEffective(defender->getType())) {
+        sleep_for(1.5s);
         cout << endl << move->getName() << " was Not Very Effective! " << endl;
-        sleep_for(2s);
+        sleep_for(1.5s);
     }
 }
 
@@ -464,8 +478,8 @@ bool Battle::hasFaintedPokemon() const {
     return false;
 }
 
-bool Battle::checkBattleEnd() const {
-    return allFaintedPokemon() || wildPokemon->getHP() <= 0;
+bool Battle::activePokemonLeft() const {
+    return player->getTeam().at(1)->getHP() == 0 && player->getTeam().at(2)->getHP() == 0;
 }
 
 bool Battle::isTeamFullHP() const {
@@ -486,6 +500,7 @@ void Battle::wildPokemonTurn() {
     cout << " ."  << flush;;
     sleep_for(0.50s);
     cout << " ." << endl << endl;
+    sleep_for(1s);
 
     Attack* move = wildPokemon->wildPokemonMove(activePokemon);
     sleep_for(1s);
@@ -524,6 +539,7 @@ void Battle::wildPokemonTurn() {
         cout << endl << activePokemon->getName() << " has fainted!" << endl;
         sleep_for(2s);
         if(!allFaintedPokemon()) {
+            display->border();
             viewTeam(1);
             editTeam();
         }
@@ -547,6 +563,21 @@ bool Battle::fleeSuccess() {
         playerTurnOver = true;
         return false;
     }
+}
+
+void Battle::updateLoss() {
+    for(int i = 0; i < 3; i++) {
+        player->getTeam().at(i)->resetHPtoMax();
+    }
+}
+
+void Battle::updateWin() {
+    updateLoss();
+    wildPokemon->resetHPtoMax();
+    for(int i = 0; i < 3; i++) {
+        player->getTeam().at(i)->addEXP(1000);
+    }
+    player->getCaught().push_back(wildPokemon);
 }
 
 int Battle::clearInputHelper() {

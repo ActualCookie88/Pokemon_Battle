@@ -1,7 +1,7 @@
 #include "../../header/Pokemon/wildPokemon.h"
 #include <random>
 
-WildPokemon::WildPokemon(Player*& player) : Pokemon() {
+WildPokemon::WildPokemon(Player*& player) : Pokemon() { // constructor based off player's level
     int maxLevel = player->getMaxLevelPokemon();
     int avgLevel = player->getAVGLevelPokemon();
     int newMaxLevel = max(maxLevel, avgLevel);   
@@ -52,7 +52,7 @@ WildPokemon::WildPokemon(Player*& player) : Pokemon() {
     setLevel(baseLevel);
 }
 
-WildPokemon::WildPokemon(PokemonSpecies sp, int lvl) {
+WildPokemon::WildPokemon(PokemonSpecies sp, int lvl) { // constructor
     setSpecies(sp);
     setLevel(lvl);
     setEXP(0);

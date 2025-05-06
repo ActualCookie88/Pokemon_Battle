@@ -18,6 +18,7 @@ void Display::displayStartScreen() const {
     cout << "|                                                                                                                                 |" << endl;
     cout << "|_________________________________________________________________________________________________________________________________|" << endl;
     cout << endl;
+    cout << "Options: " << endl;
     cout << "(1) New Game" << endl;
     cout << "(2) Load Game" << endl;
     cout << endl;
