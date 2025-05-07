@@ -10,6 +10,8 @@ class Display {
 
         void border() const;
 
+        void border2() const;
+
         void displayStartScreen() const;
 
         void displayMenuScreen() const;

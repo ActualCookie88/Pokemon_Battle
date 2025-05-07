@@ -7,12 +7,11 @@ using namespace std;
 
 class PC {
     private:
-        vector<Pokemon*> teamPokemon;
-        vector<Pokemon*> caughtPokemon;
+        vector<Pokemon*>& teamPokemon;
+        vector<Pokemon*>& caughtPokemon;
         Display* display;
 
     public:
-        PC() : teamPokemon( { } ), caughtPokemon( { } ) {}
         PC(vector<Pokemon*>& team, vector<Pokemon*>& caught) : teamPokemon(team), caughtPokemon(caught) {}
         ~PC();
         // actions

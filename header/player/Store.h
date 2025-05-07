@@ -16,12 +16,11 @@ using namespace std;
 class Store {
     private:
         int money = 0;
-        vector<Item*> playerItems;
+        vector<Item*>& playerItems;
         vector<Item*> storeItems;
         Display* display;
 
     public:
-        Store() : playerItems({ }), storeItems({ }) {}
         Store(vector<Item*>& items) : playerItems(items),
         storeItems({    new StandardBall(), new GreatBall(), new UltraBall(), 
                         new StandardPotion(), new SuperPotion(), new HyperPotion(), 
@@ -42,6 +41,7 @@ class Store {
         bool selectOptionHelper2();
         // getters and setters
         int getMoney() const { return money; }
+        vector<Item*> getItems() { return playerItems; }
         void setMoney(int mon) { money = mon; }
         void setAllAmount(int amount);
 };

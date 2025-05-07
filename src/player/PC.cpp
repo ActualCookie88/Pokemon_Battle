@@ -8,17 +8,10 @@ PC::~PC() {
 
 void PC::initiatePC() {
     bool flag = true;
-    int choice;
+    int choice = 0;
 
     while (flag) {
         display->displayPCScreen();
-        if (getCaughtPokemon().empty()) {
-            cout << "You have no Pokemon in your PC!" << endl;
-            cout << "Options: " << endl;
-            flag = selectOptionHelper(1,1);
-            delete display;
-            return;
-        } 
         viewPokemonTeam();
         viewPokemonCaught();
         cout << "Options:" << endl;
@@ -26,7 +19,7 @@ void PC::initiatePC() {
         cout << "(2) EDIT TEAM" << endl;
         cout << "(3) BACK" << endl;
         cout << endl;
-        cout << "Select an option: ";
+        cout << "SELECT OPTION: ";
 
         cin >> choice;
         cout << endl;
@@ -52,11 +45,14 @@ void PC::addPokemon(Pokemon* pokemon) {
 
 void PC::viewPokemonCaught() {
     cout << "PC:" << endl;
+    if(caughtPokemon.size() <= 0) {
+        cout << "You have no Pokemon in your PC!" << endl;
+    }
     for (int i = 0; i < getCaughtPokemon().size(); i++) {
         cout << "(" << i + getTeamPokemon().size() + 1 << ") " << getCaughtPokemon().at(i)->getName();;
         cout << endl;
     }
-    cout << endl;
+    display->border2();
 }
 
 void PC::viewPokemonStats() {
@@ -67,22 +63,35 @@ void PC::viewPokemonStats() {
         display->border();
         viewPokemonTeam();
         viewPokemonCaught();
+        cout << "(Enter CANCEL to cancel)" << endl << endl;
+        cout << "(Enter TEAM to view all TEAM stats)" << endl << endl;
         cout << "Select Pokemon: ";
         i = selectOptionHelper(1, getCaughtPokemon().size() + getTeamPokemon().size());
         cout << endl;
-        display->border();
-
-        if(i > getCaughtPokemon().size() + getTeamPokemon().size() || i <= 0) {
-            return;
+        if (i == -1) {
+            cout << "CANCELED" << endl;
+            break;
         }
-        if (i <= getTeamPokemon().size()) {
-            getTeamPokemon().at(i-1)->displayInfo();
+
+        if (i == -2) {
+            display->displayTeamScreen();
+            displayTeamStats();
         }
         else {
-            getCaughtPokemon().at(i - getTeamPokemon().size() - 1)->displayInfo();
+            display->border();
+
+            if(i > getCaughtPokemon().size() + getTeamPokemon().size() || i <= 0) {
+                return;
+            }
+            if (i <= getTeamPokemon().size()) {
+                getTeamPokemon().at(i-1)->displayInfo();
+            }
+            else {
+                getCaughtPokemon().at(i - getTeamPokemon().size() - 1)->displayInfo();
+            }
+            cout << endl;
         }
-        cout << endl;
-        
+        display->border2();
         cout << "Options: " << endl;
         cout << "(1) VIEW MORE STATS" << endl;
         cout << "(2) BACK" << endl << endl;
@@ -107,12 +116,22 @@ void PC::editPokemonTeam() {
     int choice1 = 0, choice2 = 0, choice3 = 0;
     bool flag = true;
 
+    if(caughtPokemon.size() <= 0) {
+        display->border();
+        cout << "You have no Pokemon in your PC to swap!" << endl << endl;
+        display->border2();
+        cout << "Options: " << endl;
+        cout << "(1) BACK" << endl << endl;
+        cout << "SELECT OPTION: ";
+        choice3 = selectOptionHelper(1,1);
+        return;
+    }
+
     while(flag) {
         display->border();
         viewPokemonTeam();
         viewPokemonCaught();
         cout << "(Enter CANCEL to cancel swap)" << endl << endl;
-        
         cout << "Select Pokemon in TEAM: ";
         choice1 = selectOptionHelper(1,3);
         if (choice1 == -1) {
@@ -139,7 +158,6 @@ void PC::editPokemonTeam() {
              << "!" << endl << endl;
         viewPokemonTeam();
         viewPokemonCaught();
-
         cout << "Options: " << endl;
         cout << "(1) EDIT AGAIN" << endl;
         cout << "(2) BACK" << endl << endl;
@@ -176,6 +194,10 @@ int PC::selectOptionHelper(int min, int max) {
 
         if (input == "CANCEL") {
             return -1;
+        }
+
+        if (input == "TEAM") {
+            return -2;
         }
 
         try {

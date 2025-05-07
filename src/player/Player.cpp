@@ -24,6 +24,26 @@ void Player::accessPC() {
     myPC->initiatePC();
 }
 
+void Player::initiateAll(int auth) { // start player w/ money and items
+    if(auth == 0) { // default
+        setTeamlevel(5);
+        playerItems.at(0)->setAmount(5);
+        playerItems.at(3)->setAmount(5);
+        playerItems.at(6)->setAmount(5);
+        myStore->setMoney(500);
+    }
+    else if(auth == 1) { // for admin
+        setTeamlevel(100);
+        myStore->setAllAmount(100);
+        myStore->setMoney(100000);
+    }
+    else if(auth == 2) { // for admin
+        setTeamlevel(10);
+        myStore->setAllAmount(100);
+        myStore->setMoney(100000);
+    }
+}
+
 bool Player::hasRevives() {
     int sum = 0;
     sum += playerItems.at(6)->getAmount() + playerItems.at(7)->getAmount();
@@ -74,6 +94,17 @@ vector<Pokemon*>& Player::getTeam() {
 vector<Pokemon*> Player::getCaught() { 
     return caughtPokemon; 
 }
+vector<Pokemon*> Player::getTeamAndCaught() {
+    vector<Pokemon*> teamAndCaught;
+    for(int i = 0; i < teamPokemon.size(); i++) {
+        teamAndCaught.push_back(teamPokemon.at(i));
+    }
+    for(int i = 0; i < caughtPokemon.size(); i++) {
+        teamAndCaught.push_back(caughtPokemon.at(i));
+    }
+    
+    return teamAndCaught;
+}
 Store* Player::getStore() { 
     return myStore; 
 }
@@ -99,6 +130,10 @@ int Player::getAVGLevelPokemon() {
         sum += pokemon->getLevel();
     }
     return sum / 3;
+}
+
+int Player::getTotalPokemon() {
+    return caughtPokemon.size() + 3;
 }
 
 void Player::setItems(vector<Item*> items) { 

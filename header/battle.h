@@ -17,8 +17,8 @@ class Battle {
         bool playerTurnOver = false;
 
     public: 
-        Battle() : player(nullptr), wildPokemon(nullptr) {}
-        Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), activePokemon(p->getTeam().at(0)) {}
+        Battle() : player(nullptr), wildPokemon(nullptr), activePokemon(nullptr) {}
+        Battle(Player*& p, WildPokemon* wp) : player(p), wildPokemon(wp), activePokemon(nullptr) {}
         // actions
         void initiateBattle();
         // BAG option (1)
@@ -48,11 +48,10 @@ class Battle {
         void updateLoss();
         void updateWin();
         // helpers
-        int clearInputHelper();
         int selectOptionHelper(int min, int max);
-        int validateInput(int input, int min, int max);
+        double ownedByPlayer();
         // getters
         Player* getPlayer() { return player;}
         WildPokemon* getWildPokemon() { return wildPokemon; }
-       
+        bool getPokemonIsCaught() { return pokemonIsCaught; }
 };

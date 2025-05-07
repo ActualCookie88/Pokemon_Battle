@@ -17,13 +17,9 @@ void Store::initiateStore() {
     while (flag) {
         display->displayStoreScreen();
         cout << "BALANCE: " << getMoney() << "¥" << endl << endl;
-        cout << "Select an option: ";
+        cout << "SELECT OPTION: ";
         choice = selectOptionHelper(1, 4);
-
-        while (cin.fail() || choice < 1 || choice > 4) {
-            cout << "INVALID OPTION. TRY AGAIN: ";
-            choice = clearInputHelper();
-        }
+        
         if (choice == 1) {
             buyItem();
         }
@@ -47,7 +43,8 @@ void Store::buyItem() {
     while (flag) {
         viewStoreItems();
         cout << "(9) BACK" << endl << endl;
-        cout << "BALANCE: " << getMoney() << "¥" << endl << endl;
+        cout << "BALANCE: " << getMoney() << "¥" << endl;
+        display->border2();
         cout << "(Enter CANCEL to cancel choice)" << endl << endl;
         cout << "Select item to buy: ";
 
@@ -80,11 +77,18 @@ void Store::buyItem() {
                 
                 cout << "PURCHASED " << amount << " " << storeItems.at(i)->getName() 
                     << "(s) FOR " << moneyLost << "¥." << endl << endl;
+                cout << "BALANCE: " << money << "¥" << endl;
             }
         }
+        display->border2();
         cout << "Options: " << endl;
         cout << "(1) BUY AGAIN" << endl;
-        flag = selectOptionHelper2();
+        cout << "(2) BACK" << endl << endl;
+        cout << "SELECT OPTION: ";
+        i = selectOptionHelper(1,2);
+        if(i == 2) {
+            return;
+        }
     }
 }    
 
@@ -96,7 +100,8 @@ void Store::sellItem() {
     while (flag) {
         viewMyItems(false);
         cout << "(9) BACK" << endl << endl;
-        cout << "BALANCE: " << getMoney() << "¥" << endl << endl;
+        cout << "BALANCE: " << getMoney() << "¥" << endl;
+        display->border2();
         cout << "(Enter CANCEL to cancel choice)" << endl << endl;
         cout << "Select item to sell: ";
         i = selectOptionHelper(1, playerItems.size()+1);
@@ -127,10 +132,18 @@ void Store::sellItem() {
                 display->border();
                 cout << amount << " " << storeItems.at(i)->getName() << "(s) SOLD. "
                      << "RECEIVED " << moneyGained << "¥." << endl << endl;
+                cout << "BALANCE: " << money << "¥" << endl;
             }
         } 
+        display->border2();
+        cout << "Options: " << endl;
         cout << "(1) SELL AGAIN" << endl;
-        flag = selectOptionHelper2();
+        cout << "(2) BACK" << endl << endl;
+        cout << "SELECT OPTION: ";
+        i = selectOptionHelper(1,2);
+        if(i == 2) {
+            return;
+        }
     }
 }
 
@@ -148,13 +161,11 @@ void Store::viewMyItems(bool isViewing) {
         }
     }
     if(isViewing) {
+        display->border2();
+        cout << "Options: " << endl;
         cout << "(1) BACK" << endl << endl;
-        cout << "Select an option: ";
-        cin >> i;
-        while (cin.fail() || i != 1) {
-            cout << "INVALID OPTION. TRY AGAIN: ";
-            i = clearInputHelper();
-        }
+        cout << "SELECT OPTION: ";
+        i = selectOptionHelper(1,1);
         return;
     }
 }
@@ -218,15 +229,6 @@ int Store::selectOptionHelper(int min, int max) {
         }
     }
 }
-
-int Store::validateInput(int input, int min, int max) {
-    while (cin.fail() || input < min || input > max) {
-        cout << "INVALID OPTION. TRY AGAIN: ";
-        input = clearInputHelper();
-    }
-    return input;
-}
-
 int Store::amountHelper() {
     string input;
     int amount;
@@ -261,7 +263,7 @@ bool Store::selectOptionHelper2() {
     int i = 0;
     cout << "(2) BACK" << endl << endl;
     cout << "BALANCE: " << money << "¥" << endl << endl;
-    cout << "Select an option: ";
+    cout << "SELECT OPTION: ";
 
     cin >> i;
     cout << endl; 

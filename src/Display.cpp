@@ -5,6 +5,10 @@ void Display::border() const {
     cout << endl;
 }
 
+void Display::border2() const {
+    cout << "_______________________________________" << endl << endl;
+}
+
 void Display::displayStartScreen() const {
     cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
     cout << " _________________________________________________________________________________________________________________________________" << endl;
@@ -19,8 +23,8 @@ void Display::displayStartScreen() const {
     cout << "|_________________________________________________________________________________________________________________________________|" << endl;
     cout << endl;
     cout << "Options: " << endl;
-    cout << "(1) New Game" << endl;
-    cout << "(2) Load Game" << endl;
+    cout << "(1) NEW GAME" << endl;
+    cout << "(2) LOAD GAME" << endl;
     cout << endl;
 }
 
@@ -37,11 +41,11 @@ void Display::displayMenuScreen() const {
     cout << "|                                         |" << endl;
     cout << "|_________________________________________|" << endl;
     cout << endl;
-    cout << "(1) View Inventory" << endl;
-    cout << "(2) Shop at Store" << endl;
-    cout << "(3) Search for Wild Pokemon" << endl;
-    cout << "(4) Save Game" << endl;
-    cout << "(5) Log Out" << endl;
+    cout << "Options: " << endl;
+    cout << "(1) INVENTORY" << endl;
+    cout << "(2) STORE" << endl;
+    cout << "(3) BATTLE" << endl;
+    cout << "(4) LOG OUT" << endl;
     cout << endl;
 }
 
@@ -58,9 +62,10 @@ void Display::displayInventoryScreen() const {
     cout << "|                                                                                     |" << endl;
     cout << "|_____________________________________________________________________________________|" << endl;
     cout << endl;
-    cout << "(1) PC" << endl;
+    cout << "Options: " << endl;
+    cout << "(1) TEAM / PC" << endl;
     cout << "(2) ITEMS" << endl;
-    cout << "(3) Go Back" << endl;
+    cout << "(3) BACK" << endl;
     cout << endl;
 }
 
@@ -106,13 +111,12 @@ void Display::displayStoreScreen() const {
     cout << "|    |_____|    |_|    |_____| |_|  \\_\\ |_____|    |" << endl;
     cout << "|                                                  |" << endl;
     cout << "|__________________________________________________|" << endl << endl;
-    cout << "Welcome to the Poké Mart!" << endl;
     cout << endl;
     cout << "Options:" << endl;
     cout << "(1) BUY" << endl;
     cout << "(2) SELL" << endl;
-    cout << "(3) BAG" << endl;
-    cout << "(4) EXIT" << endl << endl;
+    cout << "(3) INVENTORY" << endl;
+    cout << "(4) BACK" << endl << endl;
 }
 
 void Display::displayBattleScreen() const {
@@ -160,6 +164,7 @@ void Display::displayLoseScreen() const {
     cout << "|__________________________________________________________________________|" << endl;
     cout << endl;
     cout << "ALL OF YOUR POKEMON HAVE FAINTED!" << endl;
+    cout << endl;
 }
 
 void Display::displayTeamScreen() const {

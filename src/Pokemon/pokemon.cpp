@@ -4,6 +4,10 @@
 #include <random>
 #include <cstdlib>
 #include <ctime>
+#include <thread>
+#include <chrono>
+using namespace std::this_thread;
+using namespace std::chrono;
 
 vector<Moves> fireTypeMoves = {Moves::FireSpin, Moves::Flamethrower, Moves::FireBlast, Moves::Ember, Moves::FirePunch};
 vector<Moves> waterTypeMoves = {Moves::Clamp, Moves::Crabhammer, Moves::HydroPump, Moves::Surf, Moves::WaterGun, Moves::Waterfall, Moves::Withdraw};
@@ -809,8 +813,11 @@ int Pokemon::calculateDamage(Attack* move, Pokemon* attacker, Pokemon* defender)
         baseDamage *= 0.5;
     }
 
-    // random variance (85% - 100%)
-    int randomFactor = 85 + (rand() % 16); // (85 to 100 inclusive)
+    static random_device rd;
+    static mt19937 gen(rd());
+    static uniform_int_distribution<> dist(85, 100);
+    int randomFactor = dist(gen);
+
     baseDamage *= static_cast<double>(randomFactor) / 100.0;
 
     return static_cast<int>(baseDamage);
@@ -824,9 +831,6 @@ int Pokemon::calculateAttack() const {
 }
 int Pokemon::calculateDefense() const {
     return ( ( (2 * baseDefense) * level ) / 100 ) + 5;
-}
-int Pokemon::calculateEXP(const Pokemon& defeatedPokemon) const{
-    return exp * defeatedPokemon.level / 7;
 }
 
 PokemonSpecies Pokemon::getSpecies() const {
@@ -917,14 +921,16 @@ void Pokemon::setEXP(int val) {
     exp = val;
 }
 void Pokemon::addEXP(int val) {
+    bool gainedLevel = false;
     if(level >= 100){
-        cout << speciesToString(species) << "is already lvl 100." << endl;
+        cout << getName() << "is already lvl 100." << endl;
         return;
     }
 
-    cout << speciesToString(species) << " gained " << val << " exp" << endl;
+    cout << getName() << " gained " << val << " exp!" << endl;
     exp += val;
     int requiredEXP = 0;
+    sleep_for(1.5s);
 
     while(true) {
         if (growthRate == GrowthRate::Fast) {
@@ -939,11 +945,19 @@ void Pokemon::addEXP(int val) {
             cout << "Level Up!   " << level;
             addLevel();
             cout << "  ->  " << level << endl;
+            sleep_for(1s);
+            gainedLevel = true;
         } else {
+            if(gainedLevel) {
+                cout << getName() << " is now Level " << getLevel() << "!" << endl << endl;
+            }
+            else {
+                cout << endl;
+            }
+            sleep_for(1s);
             break; 
         }
     }
-    
 }
 
 void Pokemon::addLevel(){

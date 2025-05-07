@@ -44,7 +44,6 @@ class Pokemon {
         int calculateHP() const;
         int calculateAttack() const;
         int calculateDefense() const;
-        int calculateEXP(const Pokemon& defeatedPokemon) const;
         // converters
         string speciesToString(PokemonSpecies species);
         string typeToString(Type type);

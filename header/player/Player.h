@@ -9,13 +9,13 @@ using namespace std;
 
 class Player {
     private:
+        int money = 0;
         vector<Item*> playerItems;
         vector<Pokemon*> teamPokemon;
         vector<Pokemon*> caughtPokemon;
         Store* myStore;
         PC* myPC;
         Display* display;
-        
     public:
         Player() : 
         playerItems({   new StandardBall(), new GreatBall(), new UltraBall(), 
@@ -26,11 +26,12 @@ class Player {
                         new Pokemon(PokemonSpecies::Squirtle) }),
         caughtPokemon({}),
         myStore(new Store(playerItems)),
-        myPC(new PC(teamPokemon, caughtPokemon)) {}
+        myPC(new PC(teamPokemon, caughtPokemon)){}
         ~Player();            
         // actions
         void accessStore();
         void accessPC();
+        void initiateAll(int auth);
         // helpers
         bool hasRevives();
         void displayRevives();
@@ -42,14 +43,17 @@ class Player {
         vector<Item*> getItems() const;
         vector<Pokemon*>& getTeam();
         vector<Pokemon*> getCaught();
+        vector<Pokemon*> getTeamAndCaught();
         Store* getStore();
         PC* getPC();
         Display* getDisplay();
         int getMaxLevelPokemon();
         int getAVGLevelPokemon();
+        int getTotalPokemon();
         // setters
         void setItems(vector<Item*> items);
         void setStore(Store* store);
         void setPC(PC* pc);
         void setTeamlevel(int val);
+        void setActivePokemon(Pokemon* pokemon);
 };

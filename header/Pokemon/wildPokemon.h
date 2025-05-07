@@ -3,7 +3,7 @@
 #include "../player/Player.h"
 class WildPokemon : public Pokemon {
     private:
-        std::vector<PokemonSpecies> allPokemonSpecies = {
+        vector<PokemonSpecies> allPokemonSpecies = {
             PokemonSpecies::Bulbasaur, PokemonSpecies::Squirtle, PokemonSpecies::Charmander,
             PokemonSpecies::Pidgey, PokemonSpecies::Ivysaur, PokemonSpecies::Horsea, PokemonSpecies::Vulpix,
             PokemonSpecies::Rattata, PokemonSpecies::Venusaur, PokemonSpecies::Psyduck,
