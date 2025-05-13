@@ -32,7 +32,5 @@ int main() {
     for(Pokeball* ball : balls) {
         delete ball;
     }
-    delete ball;
-
     return 0;
 }

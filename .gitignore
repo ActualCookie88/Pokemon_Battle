@@ -6,26 +6,32 @@ Makefile
 
 cmake_install.cmake
 
-testAttack
+testAttack.exe
 
-testBalls
+testBalls.exe
 
-testBattle
+testBattle.exe
 
-testDisplays
+testDisplays.exe
 
-testPC
+testMain.exe
 
-testPlayer
+testPC.exe
 
-testPokemon
+testPlayer.exe
 
-testPotions
+testPokemon.exe
 
-testRevives
+testPotions.exe
 
-testStore
+testRevives.exe
 
-testWild
+testStore.exe
+
+testWild.exe
 
 valgrind
+
+Pokemon_Battle/Pokemon_Battle.sln
+
+Pokemon_Battle/Pokemon_Battle.sln
