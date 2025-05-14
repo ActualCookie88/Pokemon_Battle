@@ -1,0 +1,159 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Pokemon_Battle",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "testAttack::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testAttack-2fba7a6bab8636a1c864.json",
+					"name" : "testAttack",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testBalls::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testBalls-107daec7010c85e9e02b.json",
+					"name" : "testBalls",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testBattle::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testBattle-25ce193c1f2d5ec83b02.json",
+					"name" : "testBattle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testDisplays::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testDisplays-8b9134f52a26f321aefe.json",
+					"name" : "testDisplays",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testMain::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testMain-2a6c4dd2a877af29ff09.json",
+					"name" : "testMain",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testPC::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testPC-4520d4616ac0d5a8a0a9.json",
+					"name" : "testPC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testPlayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testPlayer-60e6811cccad4590cc5c.json",
+					"name" : "testPlayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testPokemon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testPokemon-3462e066d4205758d05c.json",
+					"name" : "testPokemon",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testPotions::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testPotions-8099d2e1c0c25369f0af.json",
+					"name" : "testPotions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testRevives::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testRevives-07e3d93adb3e86be2559.json",
+					"name" : "testRevives",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testStore::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testStore-19b107b7811607721af2.json",
+					"name" : "testStore",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testWild::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testWild-d99bc89c97e8f0753f26.json",
+					"name" : "testWild",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/lmats/Projects/Pokemon_Battle/build",
+		"source" : "C:/Users/lmats/Projects/Pokemon_Battle"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

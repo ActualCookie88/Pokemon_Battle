@@ -1,0 +1,14 @@
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testBalls.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testPotions.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testRevives.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testDisplays.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testStore.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testPC.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testAttack.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testPokemon.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testWild.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testPlayer.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testBattle.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/testMain.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/edit_cache.dir
+C:/Users/lmats/Projects/Pokemon_Battle/build/CMakeFiles/rebuild_cache.dir

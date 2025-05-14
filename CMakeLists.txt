@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 project(Pokemon_Battle)
-
+set(CMAKE_EXE_SUFFIX "")
 add_executable(testBalls
     test/testBalls.cpp
     src/items/Item.cpp
@@ -195,7 +195,7 @@ add_executable(testBattle
 )
 
 add_executable( testMain
-    src/maintest2.cpp
+    src/main.cpp
     src/Display.cpp
     src/battle.cpp
 

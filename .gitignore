@@ -35,3 +35,11 @@ valgrind
 Pokemon_Battle.sln
 
 Project.sln
+
+build.ninja
+
+out.exe
+
+.ninja_deps
+
+.ninga_log
