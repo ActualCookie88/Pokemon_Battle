@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "testAttack.exe"
+			"path" : "testBalls.exe"
 		},
 		{
-			"path" : "testAttack.pdb"
+			"path" : "testBalls.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 83,
+				"line" : 4,
 				"parent" : 0
 			}
 		]
@@ -35,19 +35,33 @@
 	"compileGroups" : 
 	[
 		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2,
+				3,
+				4,
+				5
 			]
 		}
 	],
-	"id" : "testAttack::@6890427a1f51a3e7e1df",
+	"id" : "testBalls::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "",
 				"role" : "flags"
@@ -59,8 +73,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "testAttack",
-	"nameOnDisk" : "testAttack.exe",
+	"name" : "testBalls",
+	"nameOnDisk" : "testBalls.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -73,7 +87,11 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2,
+				3,
+				4,
+				5
 			]
 		}
 	],
@@ -82,13 +100,37 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/testAttack.cpp",
+			"path" : "test/testBalls.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Pokemon/attack.cpp",
+			"path" : "src/items/Item.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/items/Pokeballs/Pokeball.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/items/Pokeballs/StandardBall.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/items/Pokeballs/GreatBall.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/items/Pokeballs/UltraBall.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

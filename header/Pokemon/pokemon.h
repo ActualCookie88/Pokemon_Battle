@@ -47,8 +47,8 @@ class Pokemon {
         // converters
         string speciesToString(PokemonSpecies species);
         string typeToString(Type type);
-        PokemonSpecies stringToSpecies(string& sp);
-        Moves stringToMove(const string& move);
+        static PokemonSpecies stringToSpecies(const string& sp);
+        static Moves stringToMove(const string& move);
         // getters
         PokemonSpecies getSpecies() const;
         Type getType() const;
@@ -62,17 +62,24 @@ class Pokemon {
         int getDefense() const;
         int getLevel() const;
         int getEXP() const;
+        GrowthRate getGrowthRate() const;
         string getName();
         vector<Attack*> getMoves();
         Attack* getMove1() const;
         Attack* getMove2() const;
         Attack* getMove3() const;
         // setters
+        void setType(Type type);
+        void setGrowthRate(GrowthRate rate);
+        void setBaseCatchRate(int rate);
         void setSpecies(PokemonSpecies newSpecies);
         void setHP(int val);
         void setBaseHP(int val);
         void setBaseAttack(int val);
         void setBaseDefense(int val);
+        void setMaxHP(int val);
+        void setAttack(int val);
+        void setDefense(int val);
         void setLevel(int val);
         void setEXP(int val);
         void addEXP(int val);

@@ -32,6 +32,8 @@ class Player {
         void accessStore();
         void accessPC();
         void initiateAll(int auth);
+        void addTeamPokemon(Pokemon* p);
+        void addCaughtPokemon(Pokemon* p);
         // helpers
         bool hasRevives();
         void displayRevives();
@@ -40,9 +42,9 @@ class Player {
         void viewPokemonTeam(int option); // PC function
         void displayTeamStats(); // PC function
         // getters
-        vector<Item*> getItems() const;
+        vector<Item*>& getItems();
         vector<Pokemon*>& getTeam();
-        vector<Pokemon*> getCaught();
+        vector<Pokemon*>& getCaught();
         vector<Pokemon*> getTeamAndCaught();
         Store* getStore();
         PC* getPC();

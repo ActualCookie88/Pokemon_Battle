@@ -1,62 +1,179 @@
 #include "../header/battle.h"
 #include "../header/player/Player.h"
 #include <iostream>
+#include <fstream>
+#include <limits>
 #include <ctime>
 #include <chrono>
 #include <thread>
+#include <dirent.h>
+#include <cstring>
+#include <sys/stat.h>
+
 using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-void newGame() {
-    cout << "Enter filename to save to: ";
-
-    string filename;
-    cin >> filename;
-
-    cout << endl;
-    cout << "SAVING TO " << filename << " " << flush;
-    sleep_for(0.75s);
-    cout << "." << flush;
-    sleep_for(0.75s);
-    cout << " ."  << flush;
-    sleep_for(0.75s);
-    cout << " ." << endl << endl;
+void loading(const string& message) {
+    cout << message << " " << flush;
+    sleep_for(0.75s); cout << "." << flush;
+    sleep_for(0.75s); cout << " ." << flush;
+    sleep_for(0.75s); cout << " ." << endl << endl;
     sleep_for(1s);
 }
 
-void loadGame(Player*& player) {
-    cout << "Enter filename to load: ";
+bool loadGame(Player* player, string& filename) {
+    cout << "Enter filename (without .txt): ";
+    const char* directoryPath = ".";
 
-    string filename;
-    cin >> filename;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, filename);
 
-    cout << endl;
-    cout << "LOADING " << filename << " " << flush;
-    sleep_for(0.75s);
-    cout << "." << flush;
-    sleep_for(0.75s);
-    cout << " ."  << flush;
-    sleep_for(0.75s);
-    cout << " ." << endl << endl;
-    sleep_for(1s);
+    loading("LOADING " + filename);
+
+    ifstream myFile(filename);
+    if(!myFile) {
+        cerr << "Error opening file!" << endl;
+        return false;
+    }
+
+    int pokemonCount = 0;
+
+    string line;
+    while(getline(myFile, line) && line != "-----------") {
+        string speciesStr = line;
+        getline(myFile, line); Type type = static_cast<Type>(stoi(line));
+        getline(myFile, line); GrowthRate growth = static_cast<GrowthRate>(stoi(line));
+        getline(myFile, line); int baseCatch = stoi(line);
+        getline(myFile, line); int baseHP = stoi(line);
+        getline(myFile, line); int baseAtk = stoi(line);
+        getline(myFile, line); int baseDef = stoi(line);
+        getline(myFile, line); int hp = stoi(line);
+        getline(myFile, line); int maxHP = stoi(line);
+        getline(myFile, line); int atk = stoi(line);
+        getline(myFile, line); int def = stoi(line);
+        getline(myFile, line); int lvl = stoi(line);
+        getline(myFile, line); int exp = stoi(line);
+        string m1, m2, m3;
+        getline(myFile, m1);
+        getline(myFile, m2);
+        getline(myFile, m3);
+        getline(myFile, line); // delimiter "---"
+
+        Pokemon* p = new Pokemon(
+            Pokemon::stringToSpecies(speciesStr),
+            lvl,
+            exp,
+            Pokemon::stringToMove(m1),
+            Pokemon::stringToMove(m2),
+            Pokemon::stringToMove(m3)
+        );
+
+        // Set additional stats
+        p->setType(type);
+        p->setGrowthRate(growth);
+        p->setBaseCatchRate(baseCatch);
+        p->setBaseHP(baseHP);
+        p->setBaseAttack(baseAtk);
+        p->setBaseDefense(baseDef);
+        p->setHP(hp);
+        p->setMaxHP(maxHP);
+        p->setAttack(atk);
+        p->setDefense(def);
+
+        if(pokemonCount < 3) {
+            player->addTeamPokemon(p);
+        } else {
+            player->addCaughtPokemon(p);
+        }
+        pokemonCount++;
+    }
+
+    if(getline(myFile, line)) {
+        player->getStore()->setMoney(stoi(line));
+    }
+
+    int i = 0;
+    while(getline(myFile, line)) {
+        int itemAmount = stoi(line);
+        if(i <(int)player->getItems().size()) {
+            player->getItems().at(i)->addAmount(itemAmount);
+        }
+        i++;
+    }
+
+    myFile.close();
+    return true;
 }
 
 void saveGame(Player* player, const string& filename) {
-    cout << "SAVING GAME " << flush;
-    sleep_for(0.75s);
-    cout << "." << flush;
-    sleep_for(0.75s);
-    cout << " ."  << flush;
-    sleep_for(0.75s);
-    cout << " ." << endl << endl;
-    sleep_for(1s);
+    loading("SAVING GAME");
+
+    ofstream myFile(filename, ofstream::trunc);
+    if(!myFile) {
+        cerr << "Error creating file!" << endl;
+        return;
+    }
+
+    // Save team Pokémon first(max 3)
+    for(Pokemon* p : player->getTeam()) {
+        myFile << p->speciesToString(p->getSpecies()) << endl;
+        myFile << static_cast<int>(p->getType()) << endl;
+        myFile << static_cast<int>(p->getGrowthRate()) << endl;
+        myFile << p->getBaseCatchRate() << endl;
+        myFile << p->getBaseHP() << endl;
+        myFile << p->getBaseAttack() << endl;
+        myFile << p->getBaseDefense() << endl;
+        myFile << p->getHP() << endl;
+        myFile << p->getMaxHP() << endl;
+        myFile << p->getAttack() << endl;
+        myFile << p->getDefense() << endl;
+        myFile << p->getLevel() << endl;
+        myFile << p->getEXP() << endl;
+        myFile << p->getMove1()->getName() << endl;
+        myFile << p->getMove2()->getName() << endl;
+        myFile << p->getMove3()->getName() << endl;
+        myFile << "---" << endl;
+    }
+
+    // Save caught Pokémon next
+    for(Pokemon* p : player->getCaught()) {
+        myFile << p->speciesToString(p->getSpecies()) << endl;
+        myFile << static_cast<int>(p->getType()) << endl;
+        myFile << static_cast<int>(p->getGrowthRate()) << endl;
+        myFile << p->getBaseCatchRate() << endl;
+        myFile << p->getBaseHP() << endl;
+        myFile << p->getBaseAttack() << endl;
+        myFile << p->getBaseDefense() << endl;
+        myFile << p->getHP() << endl;
+        myFile << p->getMaxHP() << endl;
+        myFile << p->getAttack() << endl;
+        myFile << p->getDefense() << endl;
+        myFile << p->getLevel() << endl;
+        myFile << p->getEXP() << endl;
+        myFile << p->getMove1()->getName() << endl;
+        myFile << p->getMove2()->getName() << endl;
+        myFile << p->getMove3()->getName() << endl;
+        myFile << "---" << endl;
+    }
+
+    myFile << "-----------" << endl;
+
+    myFile << player->getStore()->getMoney() << endl;
+
+    for(auto item : player->getItems()) {
+        myFile << item->getAmount() << endl;
+    }
+
+    myFile.close();
+    cout << "File created and saved successfully." << endl;
 }
 
 int selectOptionHelper(int min, int max) {
     string input;
     int number;
-    while (true) {
+    while(true) {
         cin >> input;
         cout << endl;
 
@@ -66,7 +183,7 @@ int selectOptionHelper(int min, int max) {
 
         try {
             number = stoi(input); // if fails, throws exception to catch
-        } catch (...) {
+        } catch(...) {
             cout << "INVALID OPTION. TRY AGAIN: ";
             continue;
         }
@@ -80,66 +197,71 @@ int selectOptionHelper(int min, int max) {
 }
 
 int main() {
-    string filename;
-    bool flag = true;
+    srand(time(0));
     Player* player = new Player();
     Display* display = player->getDisplay();
+    string filename;
+    bool gameLoaded = false;
 
     player->initiateAll(0);
     display->displayStartScreen();
 
-    while(flag) {
+    while(!gameLoaded) {
         cout << "SELECT OPTION: ";
-        int startChoice = selectOptionHelper(1,2);
-        if(startChoice == 1) {
-            newGame();
-        }
-        else if(startChoice == 2) {
-            loadGame(player);
-        }
-
-        bool inMainMenu = true;
-
-        while(inMainMenu) {\
-            display->displayMenuScreen();
-            cout << "SELECT OPTION: ";
-            int mainChoice = selectOptionHelper(1,5);
-
-            if(mainChoice == 1) {
-                bool inInventory = true;
-                while(inInventory) {
-                    display->displayInventoryScreen();
-                    cout << "SELECT OPTION: ";
-                    int inventoryChoice = selectOptionHelper(1,3);
-                    if(inventoryChoice == 1) {
-                        player->accessPC();
-                    }
-                    else if(inventoryChoice == 2) {
-                        player->viewMyItems(true);
-                    }
-                    else if(inventoryChoice == 3) {
-                        inInventory = false;;
-                    }
-                }
-            }
-            else if(mainChoice == 2) {
-                player->accessStore();
-            }
-            else if(mainChoice == 3) {
-                WildPokemon* wildPokemon = new WildPokemon(player);
-           
-                Battle* battle = new Battle(player, wildPokemon);
-
-                battle->initiateBattle();
-                if(!battle->getPokemonIsCaught()) { delete wildPokemon; }
-                delete battle;
-            }
-            else if(mainChoice == 4) {
-                saveGame(player, filename);
-                delete player;
-                return 0;
-            }
+        int choice = selectOptionHelper(1, 2);
+        if(choice == -1) {
+            cout << "CANCELED" << endl;
+            delete player;
+            return 0;
+        } 
+        else if(choice == 1) {
+            cout << "Enter filename to save to (without .txt): ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, filename);
+            filename += ".txt";
+            loading("SAVING TO " + filename);
+            gameLoaded = true;
+        } 
+        else if(choice == 2) {
+            gameLoaded = loadGame(player, filename);
         }
     }
+
+    bool inMainMenu = true;
+    while(inMainMenu) {
+        display->displayMenuScreen();
+        cout << "SELECT OPTION: ";
+        int mainChoice = selectOptionHelper(1, 4);
+
+        if(mainChoice == 1) {
+            bool inInventory = true;
+            while(inInventory) {
+                display->displayInventoryScreen();
+                cout << "SELECT OPTION: ";
+                int invChoice = selectOptionHelper(1, 3);
+                if(invChoice == 1) player->accessPC();
+                else if(invChoice == 2) player->viewMyItems(true);
+                else if(invChoice == 3) inInventory = false;
+            }
+        }
+        else if(mainChoice == 2) {
+            player->accessStore();
+        }
+        else if(mainChoice == 3) {
+            WildPokemon* wild = new WildPokemon(player);
+            Battle* battle = new Battle(player, wild);
+            battle->initiateBattle();
+            if(!battle->getPokemonIsCaught()) delete wild;
+            delete battle;
+        }
+        else if(mainChoice == 4) {
+            saveGame(player, filename);
+            delete player;
+            return 0;
+        }
+    }
+
+    delete player;
     return 0;
 }

@@ -2,13 +2,13 @@
 #include "../../header/player/PC.h"
 
 Player::~Player() {
-    for (Item* item : playerItems) {
+    for(Item* item : playerItems) {
         delete item;
     }
-    for (Pokemon* pokemon : teamPokemon) {
+    for(Pokemon* pokemon : teamPokemon) {
         delete pokemon;
     }
-    for (Pokemon* pokemon : caughtPokemon) {
+    for(Pokemon* pokemon : caughtPokemon) {
         delete pokemon;
     }
     
@@ -44,6 +44,19 @@ void Player::initiateAll(int auth) { // start player w/ money and items
     }
 }
 
+void Player::addTeamPokemon(Pokemon* p) {
+    if((int)teamPokemon.size() < 3) {
+                teamPokemon.push_back(p);
+    } 
+    else {
+        // If team full, add to caught
+        caughtPokemon.push_back(p);
+    }
+}
+void Player::addCaughtPokemon(Pokemon* p) {
+    caughtPokemon.push_back(p);
+}
+
 bool Player::hasRevives() {
     int sum = 0;
     sum += playerItems.at(6)->getAmount() + playerItems.at(7)->getAmount();
@@ -71,10 +84,10 @@ void Player::viewPokemonTeam(int option) {
         display->displayTeamScreen();
         cout << "Pokemon in your Team:" << endl;
     }
-    for (int i = 0; i < teamPokemon.size(); i++) {
+    for(int i = 0; i < teamPokemon.size(); i++) {
         cout << "(" << i + 1 << ") " << teamPokemon.at(i)->getName();
         if(option == 1) {
-            cout << " ( HP: " << teamPokemon.at(i)->getHP() << " / " << teamPokemon.at(i)->getMaxHP() << " )";
+            cout << "( HP: " << teamPokemon.at(i)->getHP() << " / " << teamPokemon.at(i)->getMaxHP() << " )";
         }
         cout << endl;
     }
@@ -85,13 +98,13 @@ void Player::displayTeamStats() {
     myPC->displayTeamStats();
 }
 
-vector<Item*> Player::getItems() const {
+vector<Item*>& Player::getItems() {
      return playerItems; 
 }
 vector<Pokemon*>& Player::getTeam() { 
     return teamPokemon; 
 }
-vector<Pokemon*> Player::getCaught() { 
+vector<Pokemon*>& Player::getCaught() { 
     return caughtPokemon; 
 }
 vector<Pokemon*> Player::getTeamAndCaught() {
@@ -117,7 +130,7 @@ Display* Player::getDisplay() {
 
 int Player::getMaxLevelPokemon() {
     int max = teamPokemon[0]->getLevel();
-    for (const auto& pokemon : teamPokemon) {
+    for(const auto& pokemon : teamPokemon) {
         if(pokemon->getLevel() >= max) {
             max = pokemon->getLevel();
         }
@@ -126,7 +139,7 @@ int Player::getMaxLevelPokemon() {
 }
 int Player::getAVGLevelPokemon() {
     int sum = 0;
-    for (const auto& pokemon : teamPokemon) {
+    for(const auto& pokemon : teamPokemon) {
         sum += pokemon->getLevel();
     }
     return sum / 3;
@@ -146,7 +159,7 @@ void Player::setPC(PC* pc) {
     myPC = pc; 
 }
 void Player::setTeamlevel(int val) {
-    for (auto& pokemon : teamPokemon) {
+    for(auto& pokemon : teamPokemon) {
         pokemon->setLevel(val);
     }
 }

@@ -7,14 +7,14 @@
 
 # =============================================================================
 # Project: Pokemon_Battle
-# Configurations: 
+# Configurations: Debug
 # =============================================================================
 # =============================================================================
 
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testBalls_unscanned_
+rule CXX_COMPILER__testBalls_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule CXX_COMPILER__testBalls_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testBalls_
+rule CXX_EXECUTABLE_LINKER__testBalls_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -33,7 +33,7 @@ rule CXX_EXECUTABLE_LINKER__testBalls_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testPotions_unscanned_
+rule CXX_COMPILER__testPotions_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -43,7 +43,7 @@ rule CXX_COMPILER__testPotions_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testPotions_
+rule CXX_EXECUTABLE_LINKER__testPotions_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -52,7 +52,7 @@ rule CXX_EXECUTABLE_LINKER__testPotions_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testRevives_unscanned_
+rule CXX_COMPILER__testRevives_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -62,7 +62,7 @@ rule CXX_COMPILER__testRevives_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testRevives_
+rule CXX_EXECUTABLE_LINKER__testRevives_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -71,7 +71,7 @@ rule CXX_EXECUTABLE_LINKER__testRevives_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testDisplays_unscanned_
+rule CXX_COMPILER__testDisplays_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -81,7 +81,7 @@ rule CXX_COMPILER__testDisplays_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testDisplays_
+rule CXX_EXECUTABLE_LINKER__testDisplays_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -90,7 +90,7 @@ rule CXX_EXECUTABLE_LINKER__testDisplays_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testStore_unscanned_
+rule CXX_COMPILER__testStore_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -100,7 +100,7 @@ rule CXX_COMPILER__testStore_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testStore_
+rule CXX_EXECUTABLE_LINKER__testStore_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -109,7 +109,7 @@ rule CXX_EXECUTABLE_LINKER__testStore_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testPC_unscanned_
+rule CXX_COMPILER__testPC_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -119,7 +119,7 @@ rule CXX_COMPILER__testPC_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testPC_
+rule CXX_EXECUTABLE_LINKER__testPC_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -128,7 +128,7 @@ rule CXX_EXECUTABLE_LINKER__testPC_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testAttack_unscanned_
+rule CXX_COMPILER__testAttack_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -138,7 +138,7 @@ rule CXX_COMPILER__testAttack_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testAttack_
+rule CXX_EXECUTABLE_LINKER__testAttack_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -147,7 +147,7 @@ rule CXX_EXECUTABLE_LINKER__testAttack_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testPokemon_unscanned_
+rule CXX_COMPILER__testPokemon_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -157,7 +157,7 @@ rule CXX_COMPILER__testPokemon_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testPokemon_
+rule CXX_EXECUTABLE_LINKER__testPokemon_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -166,7 +166,7 @@ rule CXX_EXECUTABLE_LINKER__testPokemon_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testWild_unscanned_
+rule CXX_COMPILER__testWild_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -176,7 +176,7 @@ rule CXX_COMPILER__testWild_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testWild_
+rule CXX_EXECUTABLE_LINKER__testWild_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -185,7 +185,7 @@ rule CXX_EXECUTABLE_LINKER__testWild_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testPlayer_unscanned_
+rule CXX_COMPILER__testPlayer_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -195,7 +195,7 @@ rule CXX_COMPILER__testPlayer_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testPlayer_
+rule CXX_EXECUTABLE_LINKER__testPlayer_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -204,7 +204,7 @@ rule CXX_EXECUTABLE_LINKER__testPlayer_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testBattle_unscanned_
+rule CXX_COMPILER__testBattle_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -214,7 +214,7 @@ rule CXX_COMPILER__testBattle_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testBattle_
+rule CXX_EXECUTABLE_LINKER__testBattle_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -223,7 +223,7 @@ rule CXX_EXECUTABLE_LINKER__testBattle_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__testMain_unscanned_
+rule CXX_COMPILER__testMain_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -233,7 +233,7 @@ rule CXX_COMPILER__testMain_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__testMain_
+rule CXX_EXECUTABLE_LINKER__testMain_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\Users\lmats\Downloads\winlibs-x86_64-posix-seh-gcc-15.1.0-mingw-w64ucrt-12.0.0-r1\mingw64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "testPlayer.exe"
+			"path" : "testStore.exe"
 		},
 		{
-			"path" : "testPlayer.pdb"
+			"path" : "testStore.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 142,
+				"line" : 35,
 				"parent" : 0
 			}
 		]
@@ -35,6 +35,12 @@
 	"compileGroups" : 
 	[
 		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
@@ -56,17 +62,19 @@
 				15,
 				16,
 				17,
-				18,
-				19,
-				20
+				18
 			]
 		}
 	],
-	"id" : "testPlayer::@6890427a1f51a3e7e1df",
+	"id" : "testStore::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "",
 				"role" : "flags"
@@ -78,8 +86,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "testPlayer",
-	"nameOnDisk" : "testPlayer.exe",
+	"name" : "testStore",
+	"nameOnDisk" : "testStore.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -109,9 +117,7 @@
 				15,
 				16,
 				17,
-				18,
-				19,
-				20
+				18
 			]
 		}
 	],
@@ -120,7 +126,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/testPlayer.cpp",
+			"path" : "test/testStore.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -145,30 +151,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Display.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Pokemon/attack.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Pokemon/pokemon.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Pokemon/moves.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Pokemon/wildPokemon.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -241,6 +223,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/items/Revives/MaxRevive.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Pokemon/attack.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Pokemon/pokemon.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

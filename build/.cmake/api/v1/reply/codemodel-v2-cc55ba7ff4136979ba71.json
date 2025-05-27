@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20"
@@ -30,7 +30,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -61,84 +61,84 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "testAttack::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testAttack-2fba7a6bab8636a1c864.json",
+					"jsonFile" : "target-testAttack-Debug-bd5ae3968abe52dd0311.json",
 					"name" : "testAttack",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testBalls::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testBalls-107daec7010c85e9e02b.json",
+					"jsonFile" : "target-testBalls-Debug-86317148f148787e08e7.json",
 					"name" : "testBalls",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testBattle::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testBattle-25ce193c1f2d5ec83b02.json",
+					"jsonFile" : "target-testBattle-Debug-e66a18fe423ec9b6debe.json",
 					"name" : "testBattle",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testDisplays::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testDisplays-8b9134f52a26f321aefe.json",
+					"jsonFile" : "target-testDisplays-Debug-4fee9227d938da0f0742.json",
 					"name" : "testDisplays",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testMain::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testMain-2a6c4dd2a877af29ff09.json",
+					"jsonFile" : "target-testMain-Debug-46e22f28841c3812981e.json",
 					"name" : "testMain",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testPC::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testPC-4520d4616ac0d5a8a0a9.json",
+					"jsonFile" : "target-testPC-Debug-e81b5759eaf115f97109.json",
 					"name" : "testPC",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testPlayer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testPlayer-60e6811cccad4590cc5c.json",
+					"jsonFile" : "target-testPlayer-Debug-4f24242cc2531340b1e7.json",
 					"name" : "testPlayer",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testPokemon::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testPokemon-3462e066d4205758d05c.json",
+					"jsonFile" : "target-testPokemon-Debug-24d50ffb28e9e5943fd3.json",
 					"name" : "testPokemon",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testPotions::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testPotions-8099d2e1c0c25369f0af.json",
+					"jsonFile" : "target-testPotions-Debug-bb9b8e0b99e674bab162.json",
 					"name" : "testPotions",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testRevives::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testRevives-07e3d93adb3e86be2559.json",
+					"jsonFile" : "target-testRevives-Debug-28cc73d8dc1496e43d24.json",
 					"name" : "testRevives",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testStore::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testStore-19b107b7811607721af2.json",
+					"jsonFile" : "target-testStore-Debug-d564e6cd93fbaf780de9.json",
 					"name" : "testStore",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "testWild::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-testWild-d99bc89c97e8f0753f26.json",
+					"jsonFile" : "target-testWild-Debug-93af0cbb44b4a37ef2ef.json",
 					"name" : "testWild",
 					"projectIndex" : 0
 				}

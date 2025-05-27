@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "testBattle.exe"
+			"path" : "testPokemon.exe"
 		},
 		{
-			"path" : "testBattle.pdb"
+			"path" : "testPokemon.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 169,
+				"line" : 88,
 				"parent" : 0
 			}
 		]
@@ -35,6 +35,12 @@
 	"compileGroups" : 
 	[
 		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
@@ -58,16 +64,19 @@
 				17,
 				18,
 				19,
-				20,
-				21
+				20
 			]
 		}
 	],
-	"id" : "testBattle::@6890427a1f51a3e7e1df",
+	"id" : "testPokemon::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "",
 				"role" : "flags"
@@ -79,8 +88,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "testBattle",
-	"nameOnDisk" : "testBattle.exe",
+	"name" : "testPokemon",
+	"nameOnDisk" : "testPokemon.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -112,8 +121,7 @@
 				17,
 				18,
 				19,
-				20,
-				21
+				20
 			]
 		}
 	],
@@ -122,7 +130,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/testBattle.cpp",
+			"path" : "test/testPokemon.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -147,12 +155,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Display.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/battle.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

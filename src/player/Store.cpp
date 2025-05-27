@@ -16,7 +16,7 @@ void Store::initiateStore() {
 
     while (flag) {
         display->displayStoreScreen();
-        cout << "BALANCE: " << getMoney() << "¥" << endl << endl;
+        cout << "BALANCE: " << getMoney() << "\u00A5" << endl << endl;
         cout << "SELECT OPTION: ";
         choice = selectOptionHelper(1, 4);
         

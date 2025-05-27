@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "testMain.exe"
+			"path" : "testBattle.exe"
 		},
 		{
-			"path" : "testMain.pdb"
+			"path" : "testBattle.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 197,
+				"line" : 169,
 				"parent" : 0
 			}
 		]
@@ -35,6 +35,12 @@
 	"compileGroups" : 
 	[
 		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
@@ -63,11 +69,15 @@
 			]
 		}
 	],
-	"id" : "testMain::@6890427a1f51a3e7e1df",
+	"id" : "testBattle::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "",
 				"role" : "flags"
@@ -79,8 +89,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "testMain",
-	"nameOnDisk" : "testMain.exe",
+	"name" : "testBattle",
+	"nameOnDisk" : "testBattle.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -122,19 +132,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/main.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Display.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/battle.cpp",
+			"path" : "test/testBattle.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -153,6 +151,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/player/PC.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Display.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/battle.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
