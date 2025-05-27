@@ -36,7 +36,16 @@ Saving and loading game progress
 
 ### Screen Layouts
 
-
+![Main Screen](assets/ss1.png)
+![Menu](assets/ss2.png)
+![Inventory](assets/ss3.png)
+![PC](assets/ss4.png)
+![Items](assets/ss5.png)
+![Store](assets/ss6.png)
+![Battle Menu](assets/ss7.png)
+![Moves](assets/ss8.png)
+![Lose Screen](assets/ss9.png)
+![Team](assets/ss10.png)
 
 ## Class Diagram
 ![image](https://github.com/user-attachments/assets/4a27e484-17d4-4ddf-9a21-44b580059875)
@@ -64,21 +73,7 @@ A third SOLID principle we applied to our new class diagram was Interface Segreg
  ## Final deliverable
  
  ## Screenshots
- <img width="956" alt="Screenshot 2024-12-06 at 3 13 23 PM" src="https://github.com/user-attachments/assets/88388f27-4028-4a83-a086-971e331f40b4">
-
- <img width="951" alt="Screenshot 2024-12-06 at 3 15 02 PM" src="https://github.com/user-attachments/assets/29ef32f3-2b5b-4245-85cf-04a840e64c24">
-
-<img width="676" alt="Screenshot 2024-12-06 at 3 16 00 PM" src="https://github.com/user-attachments/assets/36e36e83-6b79-4760-b24e-be132c00f9f7">
-
-<img width="679" alt="Screenshot 2024-12-06 at 3 23 30 PM" src="https://github.com/user-attachments/assets/c3d3e678-97e9-4113-9d9a-844f509121f0">
-
-<img width="945" alt="Screenshot 2024-12-06 at 3 29 38 PM" src="https://github.com/user-attachments/assets/c0eebc42-0911-4a13-be2e-e70b7858d503">
-
-<img width="946" alt="Screenshot 2024-12-06 at 3 47 28 PM" src="https://github.com/user-attachments/assets/e21df977-2c61-49e7-8b59-184458f5f6c4">
-
-<img width="679" alt="Screenshot 2024-12-06 at 3 54 32 PM" src="https://github.com/user-attachments/assets/b8314831-9950-4fb4-8896-6d957c9ce940">
-
-<img width="359" alt="Screenshot 2024-12-06 at 3 54 45 PM" src="https://github.com/user-attachments/assets/81735c48-ba99-4a9c-8169-70bb8bb16459">
+ 
 
  ## Installation/Usage
  Our program is terminal based, therefore to play our Pokemon role-playing game, the user will need to run the executable. Users are free to pick any option displayed on the terminal. 
