@@ -6,7 +6,6 @@
 #include <ctime>
 #include <chrono>
 #include <thread>
-#include <dirent.h>
 #include <cstring>
 #include <sys/stat.h>
 
