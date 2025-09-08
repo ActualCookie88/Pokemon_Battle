@@ -65,7 +65,7 @@ Save and load game progress
 
 1. Git clone the repo, ex:
 ```bash
-https://github.com/ActualCookie88/Pokemon_Battle.git
+git clone https://github.com/ActualCookie88/Pokemon_Battle.git
 ```
 
 2. Make sure a C++ compiler is installed (MinGW, MSVC, etc.)
