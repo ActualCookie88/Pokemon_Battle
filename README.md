@@ -61,7 +61,16 @@ Save and load game progress
 
 
  ## Installation/Usage
-The user must run the executable
+Git clone the repo
+
+Make sure you have a C++ compiler installed, such as MinGW or MSVC
+
+Navigate to the build directory ( cd build )
+
+Run the executable in the terminal
+```bash
+./Pokemon_Battle.exe
+```
  
  ## Testing
 To test our program, we made unit tests for each function to make sure all our functions worked correctly. We also used valgrind to check for memory allocation.
