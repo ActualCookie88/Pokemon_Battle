@@ -6,30 +6,6 @@ Makefile
 
 cmake_install.cmake
 
-testAttack.exe
-
-testBalls.exe
-
-testBattle.exe
-
-testDisplays.exe
-
-testMain.exe
-
-testPC.exe
-
-testPlayer.exe
-
-testPokemon.exe
-
-testPotions.exe
-
-testRevives.exe
-
-testStore.exe
-
-testWild.exe
-
 valgrind
 
 CMakeLists.txt
@@ -39,3 +15,7 @@ CMakeLists.txt
 build/*
 
 test/*
+
+*.exe
+
+*.txt

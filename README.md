@@ -61,6 +61,7 @@ Save and load game progress
 
 
  ## Installation/Usage
+
 Git clone the repo
 
 Make sure you have a C++ compiler installed, such as MinGW or MSVC
