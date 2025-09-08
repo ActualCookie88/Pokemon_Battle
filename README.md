@@ -6,27 +6,40 @@ Co-Authors: [Wesley Wu](https://github.com/xxiyun), [Yubin Zhen](https://github.
 In this game, the user uses their Pokemon to fight and catch other wild Pokemon, which the user can also use if successfully caught. Pokemon are associated with different types of types and abilities, and their stats depend on their level. At each step/screen of the game, the user can select between different options. The goal of the user is to continually level up their Pokemon through battles with CPUs and eventually catch every Pokemon in this game. 
 
 ### Language and Tools:
-C++\
-Visual Studios Code\
-Github/Git\
-Valgrind\
-GDB\
-CMake
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![CMake](https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+![GDB](https://img.shields.io/badge/GDB-900C3F?style=for-the-badge&logo=gnu&logoColor=white)
+![Valgrind](https://img.shields.io/badge/Valgrind-6C3483?style=for-the-badge&logo=valgrind&logoColor=white)
+### Version Control & Collaboration
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
 
 ### Input/Outputs:
 Input: All input comes from the user's keyboard in the form of numbers, which determines certain actions such as selecting options during a battle or deciding on an item to purchase.\
+
 Output: The output includes updating and displaying the user and CPU Pokemon’s statuses and the result of a certain action of the user.
 
 ### Features:
-Battling wild Pokemon with owned Pokemon\
-User choice to attack, heal, catch, etc. during battle\
-Distinct attack, health, and type stats for each Pokemon\
-Experience/leveling and money system\
-Shop system to use/buy items with money earned from battles\
-Able to catch and use wild Pokemon given the right item \
-Wild Pokemon appearance/stats scale to the user’s progress\
-Wild Pokemon actions are randomized 
-Option to save and load game progress
+Battle wild Pokémon using owned Pokémon
+
+Player actions: attack, heal, catch, etc.
+
+Distinct health, attack, and type stats for each Pokémon
+
+Leveling, experience, and in-game currency system
+
+Shop system to buy/use items
+
+Ability to catch and add new Pokémon to team
+
+Wild Pokémon difficulty scales with player progress
+
+Randomized enemy actions
+
+Save and load game progress
 
 ## User Navigation Diagram
 
@@ -48,7 +61,8 @@ Option to save and load game progress
 
 
  ## Installation/Usage
- Our program is terminal based, therefore to play our Pokemon role-playing game, the user will need to run the executable. Users are free to pick any option displayed on the terminal. 
+The user must run the executable
+ 
  ## Testing
 To test our program, we made unit tests for each function to make sure all our functions worked correctly. We also used valgrind to check for memory allocation.
  
