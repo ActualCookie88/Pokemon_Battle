@@ -1,4 +1,4 @@
-# A Text-Based Role-Playing Game
+# A Text-Based Role-Playing Game ( Inspired by Pokemon )
 Contributors: [Wesley Wu](https://github.com/xxiyun), [Yubin Zhen](https://github.com/yubinzhen)
 
 ## Project Description
