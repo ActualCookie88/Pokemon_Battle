@@ -32,18 +32,6 @@ testWild.exe
 
 valgrind
 
-Pokemon_Battle.sln
-
-Project.sln
-
-build.ninja
-
-out.exe
-
-.ninja_deps
-
-.ninja_log
-
 CMakeLists.txt
 
 .vscode/*
