@@ -1,9 +1,9 @@
-# A Text-Based Role-Playing Game
-Co-Authors: [Wesley Wu](https://github.com/xxiyun), [Yubin Zhen](https://github.com/yubinzhen)
+# A Text-Based Role-Playing Game ( Inspired by Pokemon )
+Contributors: [Wesley Wu](https://github.com/xxiyun), [Yubin Zhen](https://github.com/yubinzhen)
 
 ## Project Description
 
-In this game, the user uses their Pokemon to fight and catch other wild Pokemon, which the user can also use if successfully caught. Pokemon are associated with different types of types and abilities, and their stats depend on their level. At each step/screen of the game, the user can select between different options. The goal of the user is to continually level up their Pokemon through battles with CPUs and eventually catch every Pokemon in this game. 
+In this game, the user battles wild Pokémon using their own Pokémon, which they can catch and add to their team. Each Pokémon has unique types, abilities, and stats that scale with level. Players navigate through different game screens, make strategic choices, and aim to level up and eventually catch all Pokémon in the game.
 
 ### Language and Tools:
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
@@ -18,9 +18,10 @@ In this game, the user uses their Pokemon to fight and catch other wild Pokemon,
 
 
 ### Input/Outputs:
-Input: All input comes from the user's keyboard in the form of numbers, which determines certain actions such as selecting options during a battle or deciding on an item to purchase.\
+Input: User interacts via numeric keyboard entries to select actions like attacking, using items, or catching Pokémon.
 
-Output: The output includes updating and displaying the user and CPU Pokemon’s statuses and the result of a certain action of the user.
+Output: Updates the Pokémon stats, battle results, and menu states in the terminal.
+
 
 ### Features:
 Battle wild Pokémon using owned Pokémon
@@ -62,17 +63,34 @@ Save and load game progress
 
  ## Installation/Usage
 
-Git clone the repo
+1. Git clone the repo, ex:
+```bash
+git clone https://github.com/ActualCookie88/Pokemon_Battle.git
+```
 
-Make sure you have a C++ compiler installed, such as MinGW or MSVC
+2. Make sure a C++ compiler is installed (MinGW, MSVC, etc.)
 
-Navigate to the build directory ( cd build )
+3. Navigate to the build directory:
+```bash
+cd build
+```
 
-Run the executable in the terminal
+4. Build the project (if not using prebuilt executable):
+```bash
+cmake ..
+make
+```
+
+5. Run the game:
 ```bash
 ./Pokemon_Battle.exe
 ```
+
+ ## GitHub Release
+The precompiled .exe is available in the Releases section for convenience. This allows users to play without compiling the source code.
  
  ## Testing
-To test our program, we made unit tests for each function to make sure all our functions worked correctly. We also used valgrind to check for memory allocation.
+Unit tests are implemented for all major functions.
+
+Valgrind was used to check memory allocation and ensure there are no leaks.
  
