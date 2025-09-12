@@ -13,6 +13,11 @@ using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
+bool fileExists(const string& filename) {
+    struct stat buffer;
+    return (stat(filename.c_str(), &buffer) == 0);
+}
+
 void loading(const string& message) {
     cout << message << " " << flush;
     sleep_for(0.75s); cout << "." << flush;
@@ -28,6 +33,12 @@ bool loadGame(Player* player, string& filename) {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, filename);
+    filename += ".txt";
+
+    if (!fileExists(filename)) {
+        cerr << "File \"" << filename << "\" does not exist!" << endl << endl;
+        return false;
+    }
 
     loading("LOADING " + filename);
 
@@ -169,6 +180,22 @@ void saveGame(Player* player, const string& filename) {
     cout << "File created and saved successfully." << endl;
 }
 
+bool deleteGame(const string& filename) {
+    string fullFilename = filename;
+    if(filename.find(".txt") == string::npos) {
+        fullFilename += ".txt";
+    }
+    
+    if(remove(fullFilename.c_str()) != 0) {
+        cerr << "Error deleting file \"" << fullFilename << "\"!" << endl;
+        return false;
+    }
+    else {
+        cout << "File \"" << fullFilename << "\" deleted successfully." << endl << endl;
+        return true;
+    }
+}
+
 int selectOptionHelper(int min, int max) {
     string input;
     int number;
@@ -207,7 +234,7 @@ int main() {
 
     while(!gameLoaded) {
         cout << "SELECT OPTION: ";
-        int choice = selectOptionHelper(1, 2);
+        int choice = selectOptionHelper(1, 3);
         if(choice == -1) {
             cout << "CANCELED" << endl;
             delete player;
@@ -225,7 +252,23 @@ int main() {
         else if(choice == 2) {
             gameLoaded = loadGame(player, filename);
         }
-    }
+        else if(choice == 3) {
+            cout << "Enter filename to delete (without .txt): ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            string delFile;
+            getline(cin, delFile);
+            
+            cout << "Are you sure you want to delete \"" << delFile << ".txt\"? (Y/N): ";
+            string confirm;
+            getline(cin, confirm);
+            if(confirm == "Y" || confirm == "y") {
+                deleteGame(delFile);
+            } else {
+                cout << "Deletion canceled." << endl;
+            }
+        }
+    }   
 
     bool inMainMenu = true;
     while(inMainMenu) {

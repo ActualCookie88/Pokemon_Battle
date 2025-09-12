@@ -25,6 +25,7 @@ void Display::displayStartScreen() const {
     cout << "Options: " << endl;
     cout << "(1) NEW GAME" << endl;
     cout << "(2) LOAD GAME" << endl;
+    cout << "(3) DELETE GAME" << endl;
     cout << endl;
 }
 
