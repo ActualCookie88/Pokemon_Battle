@@ -88,6 +88,7 @@ make
 
  ## GitHub Release
 The precompiled .exe is available in the Releases section for convenience. This allows users to play without compiling the source code.
+You may need to adjust the dimensions of your window for proper screen displays.
  
  ## Testing
 Unit tests are implemented for all major functions.
