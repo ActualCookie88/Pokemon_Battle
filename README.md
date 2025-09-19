@@ -24,25 +24,15 @@ Output: Updates the Pokémon stats, battle results, and menu states in the termi
 
 
 ### Features:
-Battle wild Pokémon using owned Pokémon
-
-Player actions: attack, heal, catch, etc.
-
-Distinct health, attack, and type stats for each Pokémon
-
-Leveling, experience, and in-game currency system
-
-Shop system to buy/use items
-
-Ability to catch and add new Pokémon to team
-
-Wild Pokémon difficulty scales with player progress
-
-Randomized enemy actions
-
-Save and load game progress
-
-## User Navigation Diagram
+- **Engaging Battles:** Players use their Pokémon to battle wild opponents with strategic choices.
+- **Interactive Player Actions:** Options include attacking, healing, catching Pokémon, and using items.
+- **Unique Pokémon Stats:** Each Pokémon has distinct health, attack, and type attributes that influence battles.
+- **Progression System:** Leveling, experience gain, and in-game currency allow players to grow stronger and customize their team.
+- **Item & Shop Mechanics:** Players can purchase and utilize items to gain advantages in battles.
+- **Team Expansion:** Capture and add new Pokémon to enhance strategies and diversify gameplay.
+- **Adaptive Difficulty:** Wild Pokémon challenges scale dynamically with player progress.
+- **Randomized Enemy Behavior:** Enemy actions vary to create unpredictable and engaging encounters.
+- **Save & Load Functionality:** Preserve game progress and continue adventures seamlessly.
 
 ![UI Navigation Diagram (2)](https://github.com/user-attachments/assets/2a2a3c0d-61b4-437e-95d1-6f6e06da0a94)
 
